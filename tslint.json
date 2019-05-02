@@ -5,16 +5,33 @@
     "rules": {
       "max-line-length": {
         "options": [120]
-    },
-    "new-parens": true,
-    "no-arg": true,
-    "no-bitwise": true,
-    "no-conditional-assignment": true,
-    "no-consecutive-blank-lines": false,
-    "no-console": {
+      },
+      "no-trailing-whitespace": false,
+      "no-empty": [
+        false,
+        "allow-empty-catch"
+      ],
+      "semicolon": [
+        true,
+        "always"
+      ],
+      "triple-equals": [
+        true,
+        "allow-null-check"
+      ],
+      "no-unnecessary-type-assertion": false,
+      "no-console": {
         "severity": "warning",
         "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
-    }
+      },
+      "no-implicit-dependencies": false,
+      "object-literal-sort-keys": false,
+      "ordered-imports": false,
+      "no-submodule-imports": false,
+      "no-angle-bracket-type-assertion": false,
+      "jsdoc-format": false,
+      "member-access": false,
+      "semicolons": [true, "never", "ignore-interfaces", "ignore-bound-class-methods"]
     },
     "rulesDirectory": ["tslint-plugin-prettier"]
 }

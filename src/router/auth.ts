@@ -1,4 +1,4 @@
-import { spiltPath } from './menu'
+import { spiltPath } from './menu';
 
 /**
  * 頁面權限
@@ -117,14 +117,14 @@ const component = [
         apiPath: '/system/bonus',
         routerName: 'system-bonus',
     },
-]
+];
 
 /**
  * 換頁檢查
  * @author rourou
  * @description router.beforeEach 檢查
 */
-const checkPageAuth = async function (to: any, apiPaths: Array<string>) {
+const checkPageAuth = async (to: any, apiPaths: string[]) => {
     let isAuth = false;
     await spiltPath(apiPaths).then(() => {
         const componentInfo = component.find(s => s.routerName === to);
@@ -133,6 +133,6 @@ const checkPageAuth = async function (to: any, apiPaths: Array<string>) {
         }
     });
     return isAuth;
-}
+};
 
 export { checkPageAuth };

@@ -1,7 +1,6 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios'
-import Cookies from 'js-cookie'
-import { requestSuccess, requestFail, responseSuccess, responseFail } from './error-handler.lib'
-import { IError } from '@/models/interfaces/error';
+import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios';
+import Cookies from 'js-cookie';
+import { requestSuccess, requestFail, responseSuccess, responseFail } from './error-handler.lib';
 
 const baseURL = 'https://www.thef2e.com/api/tagList';
 // const baseURL = 'https://api.example.com';
@@ -27,7 +26,7 @@ class HttpModel {
       'Authorization': `Bearer ${Cookies.get('token')}`,
       'content-type': 'application/x-www-form-urlencoded',
     };
-    let instance = axios.create();
+    const instance = axios.create();
     instance.interceptors.request.use(
       config => requestSuccess(config),
       err => requestFail(err));

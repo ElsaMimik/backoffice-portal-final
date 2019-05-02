@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Vuex from 'vuex'
+import Vuex from 'vuex';
 import { checkPageAuth } from '@/router/auth';
 
-Vue.use(Router)
-Vue.use(Vuex)
+Vue.use(Router);
+Vue.use(Vuex);
 
 const routes = [
   {
@@ -23,12 +23,12 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
   }
-]
+];
 
-let router = new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: routes
+  routes,
 });
 
 router.beforeEach((to, from, next) => {
@@ -39,13 +39,13 @@ router.beforeEach((to, from, next) => {
     apiPaths = router.app.$options.store.state.Auth.apiPaths;
   }
   checkPageAuth(to.name, apiPaths).then(res => {
-    console.log('是否有權限', res);
+    // console.log('是否有權限', res);
     if (res) {
       next();
     } else {
       // window.location.href = 'http://www.google.com';
     }
-  })
+  });
 });
 
-export default router
+export default router;

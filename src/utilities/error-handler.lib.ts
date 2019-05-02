@@ -1,5 +1,5 @@
-import { IError } from '@/models/interfaces/error'
-import EventBus from '@/utilities/event-bus'
+import { IError } from '@/models/interfaces/error';
+import EventBus from '@/utilities/event-bus';
 
 
 /**
@@ -9,7 +9,7 @@ import EventBus from '@/utilities/event-bus'
  */
 const responseSuccess = (response: any) => {
     return response;
-}
+};
 
 /**
  * axios error handler
@@ -25,7 +25,7 @@ const responseFail = (error: any) => {
     }
     EventBus.$emit('api-error', err);
     return Promise.reject(err);
-}
+};
 
 
 /**
@@ -36,19 +36,19 @@ const responseFail = (error: any) => {
 
 const requestSuccess = (config: any) => {
     return config;
-}
+};
 
 /**
  * axios error handler
  * @author rourou
  * @description request fail
  */
-const requestFail = (err: any) => {
+const requestFail = (error: any) => {
     // '请求超时!'
-    return Promise.reject(err);
-}
+    return Promise.reject(error);
+};
 
-let err: IError =
+const err: IError =
 {
     code: '',
     message: '',
@@ -56,4 +56,4 @@ let err: IError =
 
 };
 
-export { requestSuccess, requestFail, responseSuccess, responseFail }
+export { requestSuccess, requestFail, responseSuccess, responseFail };

@@ -1,6 +1,6 @@
-import * as Model from '@/models/interfaces/member'
-import { MemberStatus } from '@/models/status/member'
-import Handler from '@/utilities/api-handler.lib'
+import * as Model from '@/models/interfaces/member';
+import { MemberStatus } from '@/models/status/member';
+import Handler from '@/utilities/api-handler.lib';
 
 export default {
     getMember(id: string): Model.IMemberResponse {
@@ -8,18 +8,18 @@ export default {
         return <Model.IMemberResponse>(data);
     },
     async getMemberList(id: string): Promise<Model.IMemberResponse[]> {
-        let config = {
+        const config = {
             url: '',
             method: 'get'
         };
         interface IResponse {
-            success: boolean,
+            success: boolean;
         }
         Handler.request<IResponse>(config)
             .then(res => {
-                console.log(res.data.success);
+                // console.log(res.data.success);
             }).catch(error => {
-                console.log(error);
+                // console.log(error);
             });
         const data: Model.IMemberResponse[] = [
             { uuid: 'employee_01', name: 'Rourou', status: MemberStatus.E1 },
@@ -27,4 +27,4 @@ export default {
         ];
         return data;
     },
-}
+};
