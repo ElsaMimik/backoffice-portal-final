@@ -20,7 +20,7 @@ class HttpModel {
    * @author rourou
    * @description 一律透過此method呼叫api
   */
-  async request<T>(cfg: AxiosRequestConfig): Promise<any> {
+  async request<T>(cfg: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     cfg.baseURL = successURL;
     cfg.headers = {
       'Authorization': `Bearer ${Cookies.get('token')}`,

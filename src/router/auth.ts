@@ -3,7 +3,7 @@ import { spiltPath } from './menu'
 /**
  * 頁面權限
  * @author rourou
- * @description export component 權限 router.beforeEach 檢查
+ * @description 權限 router.beforeEach 檢查
  */
 
 const component = [

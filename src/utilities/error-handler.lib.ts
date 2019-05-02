@@ -1,6 +1,12 @@
 import { IError } from '@/models/interfaces/error'
 import EventBus from '@/utilities/event-bus'
 
+
+/**
+ * axios error handler
+ * @author rourou
+ * @description response success
+ */
 const responseSuccess = (response: any) => {
     return response;
 }
@@ -8,7 +14,7 @@ const responseSuccess = (response: any) => {
 /**
  * axios error handler
  * @author rourou
- * @description EventBus通知component
+ * @description response fail
  */
 const responseFail = (error: any) => {
     if (error.response) {
@@ -21,10 +27,22 @@ const responseFail = (error: any) => {
     return Promise.reject(err);
 }
 
+
+/**
+ * axios error handler
+ * @author rourou
+ * @description request success
+ */
+
 const requestSuccess = (config: any) => {
     return config;
 }
 
+/**
+ * axios error handler
+ * @author rourou
+ * @description request fail
+ */
 const requestFail = (err: any) => {
     // '请求超时!'
     return Promise.reject(err);
