@@ -8,7 +8,7 @@ const baseURL = 'https://www.thef2e.com/api/tagList';
 const successURL = 'https://www.mocky.io/v2/5c94c4423600001818941c8b?mocky-delay=300ms';
 const failURL = 'https://www.mocky.io/v2/5c94c4793600001818941c8f?mocky-delay=300ms';
 
-const testURL = 'https://frontend-api.devel.starlordtech.com/api/v1/member/profile';
+const testURL = 'https://portal.devel.starlordtech.com/api/v1/member/profile';
 
 class HttpModel {
   constructor() {

@@ -11,10 +11,6 @@
         false,
         "allow-empty-catch"
       ],
-      "semicolon": [
-        true,
-        "always"
-      ],
       "triple-equals": [
         true,
         "allow-null-check"
