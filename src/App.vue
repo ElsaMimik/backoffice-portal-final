@@ -82,7 +82,7 @@ const errorModule = namespace("Error");
 
 @Component
 export default class App extends Vue {
-  menu :object = [];
+  menu: object = [];
   @memberModule.State("apiPaths") apiPaths!: string[];
   @errorModule.State("errorHistory") errorHistory!: IError[];
   @Action("Auth/getApiPath") private getApiPath!: any;
