@@ -18,10 +18,11 @@ const responseSuccess = (response: any) => {
  */
 const responseFail = (error: any) => {
     if (error.response) {
+        const res = error.response;
         // console.log(error);
-        if (error.response.data.code &&
-            error.response.data.message &&
-            error.response.data.traceId) { err = error.response.data; }
+        if (res.data.code &&
+            res.data.message &&
+            res.data.traceId) { err = <IError>res.data; }
         else {
             err.code = error.response.status;
             err.message = `${error.response.data} ${error.response.statusText}`;
