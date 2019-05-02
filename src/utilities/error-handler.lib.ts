@@ -19,7 +19,7 @@ const responseSuccess = (response: any) => {
 const responseFail = (error: any) => {
     if (error.response) {
         const { code, message, traceId } = <IError>error.response;
-        if (code && message && traceId) { err = { code, message, traceId }; }
+        if (code && message && traceId) { err = <IError>error.response; }
         else {
             const { status, data, statusText } = error.response;
             err.code = status;
