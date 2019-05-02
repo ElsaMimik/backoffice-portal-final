@@ -1,4 +1,9 @@
-// all menu list
+/**
+ * menu list
+ * @author rourou
+ * @description menu list filter isShow
+ */
+
 export let menuPaths =
     [
         {

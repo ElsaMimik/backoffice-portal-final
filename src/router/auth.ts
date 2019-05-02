@@ -1,6 +1,11 @@
 import { spiltPath } from './menu'
 
-// export component 權限 router.beforeEach 檢查
+/**
+ * 頁面權限
+ * @author rourou
+ * @description export component 權限 router.beforeEach 檢查
+ */
+
 const component = [
     {
         apiPath: '/member',
