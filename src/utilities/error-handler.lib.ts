@@ -1,5 +1,5 @@
 import { IError } from '@/models/interfaces/error';
-import EventBus from '@/utilities/event-bus';
+import EventBus from '@/utilities/event-bus'
 
 
 /**
