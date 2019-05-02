@@ -87,9 +87,11 @@ export default class App extends Vue {
   @Action("Error/getError") private getError!: any;
   @errorModule.State("errorHistory") errorHistory!: IError[];
 
+  menu :object = []
+
   mounted() {
     const apiPaths = this.apiPaths;
-    const menu = getMenu(apiPaths).then(menu => { console.log("menu", menu); });
+    const menu = getMenu(apiPaths).then(menu => { this.menu = menu; });
     EventBus.$on('api-error', (err: any) => {
       this.getError(err);
       console.log('api-error', err);

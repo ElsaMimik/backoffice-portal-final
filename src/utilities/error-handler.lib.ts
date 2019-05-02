@@ -18,7 +18,7 @@ const responseFail = (error: any) => {
         err.message = JSON.stringify(error);
     }
     EventBus.$emit('api-error', err);
-    return Promise.reject(error);
+    return Promise.reject(err);
 }
 
 const requestSuccess = (config: any) => {
@@ -30,7 +30,7 @@ const requestFail = (err: any) => {
     return Promise.reject(err);
 }
 
-export let err: IError =
+let err: IError =
 {
     code: '',
     message: '',
