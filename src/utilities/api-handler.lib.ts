@@ -21,7 +21,7 @@ class HttpModel {
    * @description 一律透過此method呼叫api
   */
   async request<T>(cfg: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-    cfg.baseURL = successURL;
+    cfg.baseURL = '/portal';
     cfg.headers = {
       'Authorization': `Bearer ${Cookies.get('token')}`,
       'content-type': 'application/x-www-form-urlencoded',

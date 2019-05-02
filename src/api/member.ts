@@ -9,7 +9,7 @@ export default {
     },
     async getMemberList(id: string): Promise<Model.IMemberResponse[]> {
         const config = {
-            url: '',
+            url: '/api/v1/member/profile',
             method: 'get'
         };
         interface IResponse {

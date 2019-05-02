@@ -18,8 +18,9 @@ const responseSuccess = (response: any) => {
  */
 const responseFail = (error: any) => {
     if (error.response) {
+        console.log(error);
         err.code = error.response.status;
-        err.message = error.response.statusText;
+        err.message = `${ error.response.data } ${ error.response.statusText}`;
     } else {
         err.message = JSON.stringify(error);
     }
