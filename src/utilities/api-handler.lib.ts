@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios'
 import Cookies from 'js-cookie'
 import { requestSuccess, requestFail, responseSuccess, responseFail } from './error-handler.lib'
+import { IError } from '@/models/interfaces/error';
 
 const baseURL = 'https://www.thef2e.com/api/tagList';
 // const baseURL = 'https://api.example.com';
@@ -36,7 +37,7 @@ class HttpModel {
     let result;
     try {
       result = await instance.request(cfg);
-      return result;
+      return <AxiosResponse<T>>result;
     }
     catch (throwError) {
       return Promise.reject(throwError);

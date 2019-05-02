@@ -12,9 +12,12 @@ export default {
             url: '',
             method: 'get'
         };
-        Handler.request<string[]>(config)
+        interface IResponse {
+            success: boolean,
+        }
+        Handler.request<IResponse>(config)
             .then(res => {
-                console.log(res.data);
+                console.log(res.data.success);
             }).catch(error => {
                 console.log(error);
             });
