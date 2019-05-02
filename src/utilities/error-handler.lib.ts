@@ -19,8 +19,13 @@ const responseSuccess = (response: any) => {
 const responseFail = (error: any) => {
     if (error.response) {
         console.log(error);
-        err.code = error.response.status;
-        err.message = `${ error.response.data } ${ error.response.statusText}`;
+        if (error.response.data.code &&
+            error.response.data.message &&
+            error.response.data.traceId) { err = error.response.data; }
+        else {
+            err.code = error.response.status;
+            err.message = `${error.response.data} ${error.response.statusText}`;
+        }
     } else {
         err.message = JSON.stringify(error);
     }
@@ -49,7 +54,7 @@ const requestFail = (error: any) => {
     return Promise.reject(error);
 };
 
-const err: IError =
+let err: IError =
 {
     code: '',
     message: '',
