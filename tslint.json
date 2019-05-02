@@ -1,6 +1,8 @@
 {
     "extends": "tslint:recommended",
-    "rulesDirectory": ["path/to/custom/rules/directory/", "another/path/"],
+    "rulesDirectory": [
+        "tslint-foo/node_modules/tslint-defocus/dist"
+    ],
     "rules": {
         "max-line-length": {
             "options": [120]
