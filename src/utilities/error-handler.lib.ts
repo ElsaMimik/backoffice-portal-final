@@ -18,7 +18,7 @@ const responseSuccess = (response: any) => {
  */
 const responseFail = (error: any) => {
     if (error.response) {
-        console.log(error);
+        // console.log(error);
         if (error.response.data.code &&
             error.response.data.message &&
             error.response.data.traceId) { err = error.response.data; }
