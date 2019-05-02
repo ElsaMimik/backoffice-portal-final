@@ -1,6 +1,6 @@
 {
     "defaultSeverity": "warning",
-    "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+    "extends": ["tslint:latest", "tslint-config-prettier"],
     "jsRules": {
       "object-literal-sort-keys": false
     },
@@ -29,7 +29,7 @@
       "no-angle-bracket-type-assertion": false,
       "jsdoc-format": false,
       "member-access": false,
-      "semicolons": [true, "never", "ignore-interfaces", "ignore-bound-class-methods"]
+      "semicolon": [true, "always"]
     },
     "rulesDirectory": ["tslint-plugin-prettier"]
 }

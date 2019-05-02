@@ -1,5 +1,5 @@
 import { IError } from '@/models/interfaces/error';
-import EventBus from '@/utilities/event-bus'
+import EventBus from '@/utilities/event-bus';
 
 
 /**
@@ -18,14 +18,12 @@ const responseSuccess = (response: any) => {
  */
 const responseFail = (error: any) => {
     if (error.response) {
-        const res = error.response;
-        // console.log(error);
-        if (res.data.code &&
-            res.data.message &&
-            res.data.traceId) { err = <IError>res.data; }
+        const { code, message, traceId } = <IError>error.response;
+        if (code && message && traceId) { err = { code, message, traceId }; }
         else {
-            err.code = error.response.status;
-            err.message = `${error.response.data} ${error.response.statusText}`;
+            const { status, data, statusText } = error.response;
+            err.code = status;
+            err.message = `${data} ${statusText}`;
         }
     } else {
         err.message = JSON.stringify(error);
