@@ -1,25 +1,20 @@
 {
-    "extends": "tslint:recommended",
-    "rulesDirectory": [
-        "tslint-foo/node_modules/tslint-defocus/dist"
-    ],
+    "defaultSeverity": "warning",
+    "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+    "jsRules": {},
     "rules": {
-        "max-line-length": {
-            "options": [120]
-        },
-        "new-parens": true,
-        "no-arg": true,
-        "no-bitwise": true,
-        "no-conditional-assignment": true,
-        "no-consecutive-blank-lines": false,
-        "no-console": {
-            "severity": "warning",
-            "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
-        }
+      "max-line-length": {
+        "options": [120]
     },
-    "jsRules": {
-        "max-line-length": {
-            "options": [120]
-        }
+    "new-parens": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-consecutive-blank-lines": false,
+    "no-console": {
+        "severity": "warning",
+        "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
     }
+    },
+    "rulesDirectory": ["tslint-plugin-prettier"]
 }
