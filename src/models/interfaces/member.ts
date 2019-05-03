@@ -1,5 +1,5 @@
 import * as Status from '@/models/status/member';
-
+import { IFile } from './file';
 
 export interface IMembersResponse {
     members: IMember[];
@@ -61,12 +61,6 @@ interface IMemberStatusHistory {
     withdrawalAction: Status.WithdrawalStatus;
     reason: string;
     files: IFile[];
-}
-
-export interface IFile {
-    fileId: string;
-    fileName: string;
-    file: string;
 }
 
 export interface ILoginHistoryResponse {
