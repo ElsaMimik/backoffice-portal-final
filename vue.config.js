@@ -5,8 +5,8 @@ module.exports = {
         },
         disableHostCheck: true,
         proxy: {
-            '/portal': {                        // 自訂 local 端的位置
-                target: 'https://portal.devel.starlordtech.com/',  // 遠端 URL Domain
+            '/portal': {
+                target: 'https://portal.devel.starlordtech.com/api/v1/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/portal': ''
