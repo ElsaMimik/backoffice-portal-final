@@ -39,14 +39,6 @@ export enum RiskControllLevel {
 }
 
 /**
- * @description 是否為黑名單 ("0": No, "1": Yes)
- */
-export enum IsBlacklisting {
-  No = '0',
-  Yes = '1',
-}
-
-/**
  * @description [一種]: 直客(Normal)
  */
 export enum RoleCode {
@@ -61,25 +53,17 @@ export enum CurrencyCode {
 }
 
 /**
- * @description 會員是否中大獎("0": No, "1": Yes)
- */
-export enum IsBigWin {
-  No = '0',
-  Yes = '1',
-}
-
-/**
- * @description 會員注單是否結算完畢("0": No, "1": Yes)
- */
-export enum IsSettled {
-  No = '0',
-  Yes = '1',
-}
-
-/**
  * @description 注單結算狀態[兩種]正常(Normal)/異常(Abnormal)
  */
 export enum SettleStatus {
   Normal = 'Normal',
   Abnormal = 'Abnormal',
+}
+
+/**
+ * @description 是否("0": No, "1": Yes)
+ */
+export enum IsSuccess {
+  No = '0',
+  Yes = '1',
 }
