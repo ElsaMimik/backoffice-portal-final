@@ -4,10 +4,10 @@ import * as Status from '@/models/status/member';
 export interface IMembersResponse {
     members: IMember[];
 }
-export interface IMember {
+interface IMember {
     uuid: string;
     riskControlLevel: Status.RiskControllLevel;
-    isBlacklisting: Status.IsSuccess;
+    isBlacklisting: Status.YesNo;
     amount: string;
     freezeAmount: string;
     accountStatus: Status.AccountStatus;
@@ -24,7 +24,7 @@ export interface IMemberDetailResponse {
     roleCode: Status.RoleCode;
     phoneNumber: string;
     riskControlLevel: Status.RiskControllLevel;
-    isBlacklisting: Status.IsSuccess;
+    isBlacklisting: Status.YesNo;
     riskControlLevelCreateDate: string;
     blacklistingCreateDate: string;
     amount: string;
@@ -36,9 +36,9 @@ export interface IMemberDetailResponse {
     turnoverAmountCreateDate: string;
     accountStatus: Status.AccountStatus;
     withdrawalStatus: Status.WithdrawalStatus;
-    isBigWin: Status.IsSuccess;
+    isBigWin: Status.YesNo;
     bigWinCreateDate: string;
-    isSettled: Status.IsSuccess;
+    isSettled: Status.YesNo;
     settleStatus: Status.SettleStatus;
 }
 
@@ -53,7 +53,7 @@ export interface IMemberStatusResponse {
     history: IMemberStatusHistory[];
 }
 
-export interface IMemberStatusHistory {
+interface IMemberStatusHistory {
     createDate: string;
     csID: string;
     csName: string;
@@ -63,38 +63,79 @@ export interface IMemberStatusHistory {
     files: IFile[];
 }
 
-export interface IFile {
+interface IFile {
     fileID: string;
     fileName: string;
+    file: string;
 }
 
 export interface ILoginHistoryResponse {
     history: ILoginHistory[];
 }
 
-export interface ILoginHistory {
+interface ILoginHistory {
     createDate: string;
     ip: string;
-    isSuccess: Status.IsSuccess;
+    isSuccess: Status.YesNo;
     loginType: Status.LoginType;
 }
 
-interface IRelationLoginHistoryResponse {
+export interface IRelationLoginHistoryResponse {
     relation: IRelationLogin[];
 }
+
 interface IRelationLogin {
     uuid: string;
     createDate: string;
     ip: string;
-    isSuccess: Status.IsSuccess;
+    isSuccess: Status.YesNo;
     loginType: Status.LoginType;
     roleCode: Status.RoleCode;
 }
 
 
+export interface IRiskControlResponse {
+    uuid: string;
+    riskControlRule: IRiskControlRule;
+    depositAmount: string;
+    depositCount: number;
+    dailyContributionAmount: string;
+    dailyDeposit: IRuleCheck;
+    dailyTurnover: IRuleCheck;
+    dailyContribution: IRuleCheck;
+    sevenDaysContribution: IRuleCheck;
+    riskControlRuleDepositing: IRuleCheck;
+    riskControlLevelCreateDate: string;
+    riskControlLevelReason: string;
+    riskControlLevelCreateUser: string;
+    sevenDaysTurnoverRate: string;
+}
+interface IRiskControlRule {
+    riskControlLevel: Status.RiskControllLevel;
+    dailyDepositAmount: string;
+    dailyTurnoverAmount: string;
+    dailyContributionAmount: string;
+    sevenDaysContributionAmount: string;
+    depositingAmount: string;
+}
+interface IRuleCheck {
+    amount: string;
+    isLegal: Status.YesNo;
+}
 
-
-
+export interface ITurnoverResponse {
+    uuid: string;
+    lastWithdrawnDate: string;
+    lastdepositDate: string;
+    withdrawingAmount: string;
+    depositingAmount: string;
+    dailyWithdrawalAmount: string;
+    dailyDepositAmount: string;
+    dailyTurnoverAmount: string;
+    sevenDaysAccumulatedWithdrawalAmount: string;
+    sevenDaysAccumulatedDepositAmount: string;
+    sevenDaysAccumulatedTurnoverAmount: string;
+}
 
 
 export interface ITestMemberResponse {
