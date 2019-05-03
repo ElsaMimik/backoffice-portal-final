@@ -3,6 +3,21 @@ import { AccountStatus } from '@/models/status/member';
 import Handler from '@/utilities/api-handler.lib';
 
 export default {
+    async getMemberList(shortUuid: string): Promise<Model.IMembersResponse> {
+        const config = {
+            url: '',
+            method: 'get'
+        };
+        let data!: Model.IMembersResponse;
+        Handler.request<Model.IMembersResponse>(config)
+            .then(res => {
+                data = <Model.IMembersResponse>res.data;
+            });
+        return data;
+    },
+
+
+
     testGetMember(id: string): Model.ITestMemberResponse {
         const data: Model.ITestMemberResponse = { uuid: 'employee_01', name: 'Rourou', status: AccountStatus.Normal };
         return <Model.ITestMemberResponse>(data);
