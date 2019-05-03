@@ -63,8 +63,8 @@ interface IMemberStatusHistory {
     files: IFile[];
 }
 
-interface IFile {
-    fileID: string;
+export interface IFile {
+    fileId: string;
     fileName: string;
     file: string;
 }
