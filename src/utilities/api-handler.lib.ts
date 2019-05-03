@@ -1,14 +1,6 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios';
+import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 import Cookies from 'js-cookie';
 import { requestSuccess, requestFail, responseSuccess, responseFail } from './error-handler.lib';
-
-const baseURL = 'https://www.thef2e.com/api/tagList';
-// const baseURL = 'https://api.example.com';
-
-const successURL = 'https://www.mocky.io/v2/5c94c4423600001818941c8b?mocky-delay=300ms';
-const failURL = 'https://www.mocky.io/v2/5c94c4793600001818941c8f?mocky-delay=300ms';
-
-const testURL = 'https://portal.devel.starlordtech.com/api/v1/member/profile';
 
 class HttpModel {
   constructor() {
@@ -21,10 +13,11 @@ class HttpModel {
    * @description 一律透過此method呼叫api
   */
   async request<T>(cfg: AxiosRequestConfig): Promise<AxiosResponse<T>> {
-    cfg.baseURL = '/portal';
-    // cfg.baseURL = successURL;
+    cfg.baseURL = '/backoffice/api/v1/222222/';
+    // cfg.baseURL = 'https://backoffice-api.devel.starlordtech.com/api/v1/222222/';
     cfg.headers = {
-      'Authorization': `Bearer ${Cookies.get('token')}`,
+      // 'Authorization': `Bearer ${Cookies.get('token')}`,
+      'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyMjIyMjIiLCJ1c2VyX2lkIjoiOTI2NjQ3ZjQtM2QxYy00ZjdkLWI3YTEtMTk3NmUyMjEzZWFmIiwiZXhwaXJlZF9hdCI6MTU1Njg4MzU3MX0.j7SsYCdYnCI8C3whKAxZtvTqK38ioJMwrsYmaXHort2j1az_kpdr4hbrx3wgJmJjhB8YpuNsgIKwkjABiPa3Sw',
       'content-type': 'application/x-www-form-urlencoded',
     };
     const instance = axios.create();

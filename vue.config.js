@@ -5,11 +5,11 @@ module.exports = {
         },
         disableHostCheck: true,
         proxy: {
-            '/portal': {
-                target: 'https://portal.devel.starlordtech.com/api/v1/',
+            '/backoffice': {
+                target: 'https://backoffice-api.devel.starlordtech.com/',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/portal': ''
+                    '^/backoffice': ''
                 }
             }
         },

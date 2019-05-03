@@ -9,7 +9,7 @@ export default {
     async getMenu(): Promise<Model.IMenuResponse> {
         const config = {
             url: '',
-            method: 'get'
+            method: 'get',
         };
         let data!: Model.IMenuResponse;
         Handler.request<Model.IMenuResponse>(config)

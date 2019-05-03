@@ -140,7 +140,7 @@ export default {
     },
     async testGetMemberList(id: string): Promise<Model.ITestMemberResponse[]> {
         const config = {
-            url: '/member/profile',
+            url: '/menu',
             method: 'get'
         };
         interface IResponse {
