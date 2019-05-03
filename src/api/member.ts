@@ -9,7 +9,7 @@ export default {
      */
     async getMemberList(shortUuid: string): Promise<Model.IMembersResponse> {
         const config = {
-            url: '',
+            url: `/member/members?short-uuid=${shortUuid}`,
             method: 'get'
         };
         let data!: Model.IMembersResponse;
@@ -25,7 +25,7 @@ export default {
      */
     async getMemberDetail(uuid: string): Promise<Model.IMemberDetailResponse> {
         const config = {
-            url: '',
+            url: `/member/profile/${uuid}`,
             method: 'get'
         };
         let data!: Model.IMemberDetailResponse;
@@ -39,10 +39,11 @@ export default {
      * 3. Update Member Status
      * @description 調整會員狀態 [BO-17/BO-185]
      */
-    async updateMemberStatus(payload: Model.IMemberStatusRequest): Promise<boolean> {
+    async updateMemberStatus(payload: Model.IMemberStatusRequest, uuid: string): Promise<boolean> {
         const config = {
-            url: '',
-            method: 'post'
+            url: `/member/status/${uuid}`,
+            method: 'patch',
+            data: payload,
         };
         let data!: boolean;
         Handler.request<boolean>(config)
@@ -57,7 +58,7 @@ export default {
      */
     async getMemberStatusHistoryList(uuid: string): Promise<Model.IMemberStatusResponse> {
         const config = {
-            url: '',
+            url: `/member/status-history/${uuid}`,
             method: 'get'
         };
         let data!: Model.IMemberStatusResponse;
@@ -71,9 +72,13 @@ export default {
      * 5. Get Member Login History
      * @description 查詢會員-最近登入資料 [BO-11]
      */
-    async getMemberLoginHistory(uuid: string): Promise<Model.ILoginHistoryResponse> {
+    async getMemberLoginHistory(
+        uuid: string,
+        startDate: number,
+        endDate: number,
+        isSuccess: null | boolean): Promise<Model.ILoginHistoryResponse> {
         const config = {
-            url: '',
+            url: `/member/login-history/${uuid}?startDate=${startDate}&endDate=${endDate}&isSuccess=${isSuccess}`,
             method: 'get'
         };
         let data!: Model.ILoginHistoryResponse;
@@ -87,9 +92,9 @@ export default {
      * 6. Get Member Same Ip History
      * @description 查詢會員-上次登入相同Ip資料 [BO-14]取得與此用戶上次登入相同IP，且在時間區間內登入的其他用戶登入資料
      */
-    async getMemberRelationLoginHistory(uuid: string): Promise<Model.IRelationLoginHistoryResponse> {
+    async getMemberRelationLoginHistory(uuid: string, startDate: number, endDate: number,): Promise<Model.IRelationLoginHistoryResponse> {
         const config = {
-            url: '',
+            url: `/member/relation-login/${uuid}?startDate=${startDate}&endDate=${endDate}`,
             method: 'get'
         };
         let data!: Model.IRelationLoginHistoryResponse;
@@ -105,7 +110,7 @@ export default {
      */
     async getMemberRiskControl(uuid: string): Promise<Model.IRiskControlResponse> {
         const config = {
-            url: '',
+            url: `/member/risk-control/${uuid}`,
             method: 'get'
         };
         let data!: Model.IRiskControlResponse;
@@ -121,7 +126,7 @@ export default {
      */
     async getMemberTurnover(uuid: string): Promise<Model.ITurnoverResponse> {
         const config = {
-            url: '',
+            url: `/member/turnover/${uuid}`,
             method: 'get'
         };
         let data!: Model.ITurnoverResponse;
