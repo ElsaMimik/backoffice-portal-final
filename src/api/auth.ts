@@ -8,7 +8,7 @@ export default {
      */
     async getMenu(): Promise<Model.IMenuResponse> {
         const config = {
-            url: '',
+            url: '/menu',
             method: 'get',
         };
         let data!: Model.IMenuResponse;

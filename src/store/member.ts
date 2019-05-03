@@ -1,6 +1,8 @@
 import { ITestMemberResponse } from '@/models/interfaces/member';
 import { IActionContextBasic } from '@/store/index';
 import MemberApi from '@/api/member';
+import FileApi from '@/api/file';
+import AuthApi from '@/api/auth';
 export interface IState {
     memberInfos: ITestMemberResponse[];
 }
@@ -17,7 +19,7 @@ const getters = {
 
 const actions = {
     getMember(context: IActionContextBasic, uuid: string) {
-        MemberApi.testGetMemberList(uuid).then((data) => {
+        FileApi.uploadFile('uuid','tertre').then((data) => {
             context.commit(SEARCH_MEMBER, data);
         });
     },

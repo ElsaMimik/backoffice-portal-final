@@ -7,8 +7,9 @@ export default {
      */
     async uploadFile(fileName: string, file: string): Promise<FileModel.IFile> {
         const config = {
-            url: '',
-            method: 'post'
+            url: '/file/123',
+            method: 'post',
+            data: { file, fileName }
         };
         let data!: FileModel.IFile;
         Handler.request<FileModel.IFile>(config)
@@ -22,7 +23,7 @@ export default {
      */
     async getFile(fildId: string): Promise<FileModel.IFile> {
         const config = {
-            url: '',
+            url: `/file/${fildId}`,
             method: 'get'
         };
         let data!: FileModel.IFile;
