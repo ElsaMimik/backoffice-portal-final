@@ -46,7 +46,7 @@ const actions = {
 };
 
 const mutations = {
-    [SEARCH_MEMBER](state: IState, payload: ITestMemberResponse[]) {
+    [SEARCH_MEMBER](state: IState, payload: Model.ITestMemberResponse[]) {
         state.memberInfos = payload;
     },
 };

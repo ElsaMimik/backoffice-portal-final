@@ -29,7 +29,8 @@
       "no-angle-bracket-type-assertion": false,
       "jsdoc-format": false,
       "member-access": false,
-      "semicolon": [true, "always"]
+      "semicolon": [true, "always"],
+      "no-object-literal-type-assertion": false
     },
     "rulesDirectory": ["tslint-plugin-prettier"]
 }
