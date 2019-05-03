@@ -1,4 +1,4 @@
-import { IError } from '@/models/interfaces/error';
+import { IError, IErrorData } from '@/models/interfaces/error';
 import EventBus from '@/utilities/event-bus';
 
 
@@ -16,17 +16,17 @@ const responseSuccess = (response: any) => {
  * @author rourou
  * @description response fail
  */
-const responseFail = (error: any) => {
-    if (error.response) {
-        const { code, message, traceId } = <IError>error.response;
-        if (code && message && traceId) { err = <IError>error.response; }
+const responseFail = (errorData: any) => {
+    if (errorData.response) {
+        const { traceId, error } = <IError>errorData.response.data;
+        if (traceId && error) { err = <IError>errorData.response.data; }
         else {
-            const { status, data, statusText } = error.response;
-            err.code = status;
-            err.message = `${data} ${statusText}`;
+            const { status, data, statusText } = errorData.response;
+            err.error.code = status;
+            err.error.message = `${data} ${statusText}`;
         }
     } else {
-        err.message = JSON.stringify(error);
+        err.error.message = JSON.stringify(errorData);
     }
     EventBus.$emit('api-error', err);
     return Promise.reject(err);
@@ -55,10 +55,8 @@ const requestFail = (error: any) => {
 
 let err: IError =
 {
-    code: '',
-    message: '',
     traceId: '',
-
+    error: { code: '', message: '' }
 };
 
 export { requestSuccess, requestFail, responseSuccess, responseFail };

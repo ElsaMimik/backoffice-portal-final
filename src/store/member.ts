@@ -1,8 +1,8 @@
-import { IMemberResponse } from '@/models/interfaces/member';
+import { ITestMemberResponse } from '@/models/interfaces/member';
 import { IActionContextBasic } from '@/store/index';
 import MemberApi from '@/api/member';
 export interface IState {
-    memberInfos: IMemberResponse[];
+    memberInfos: ITestMemberResponse[];
 }
 const SEARCH_MEMBER = 'SEARCH_MEMBER';
 
@@ -17,14 +17,14 @@ const getters = {
 
 const actions = {
     getMember(context: IActionContextBasic, uuid: string) {
-        MemberApi.getMemberList(uuid).then((data) => {
+        MemberApi.testGetMemberList(uuid).then((data) => {
             context.commit(SEARCH_MEMBER, data);
         });
     },
 };
 
 const mutations = {
-    [SEARCH_MEMBER](state: IState, payload: IMemberResponse[]) {
+    [SEARCH_MEMBER](state: IState, payload: ITestMemberResponse[]) {
         state.memberInfos = payload;
     },
 };

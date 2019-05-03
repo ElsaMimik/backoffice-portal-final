@@ -13,7 +13,7 @@ const memberModule = namespace('Member');
 @Component
 export default class Detail extends Vue {
 
-@memberModule.State('memberInfos') members!: Model.IMemberResponse[];
+@memberModule.State('memberInfos') members!: Model.ITestMemberResponse[];
 @Action('Member/getMember') private getMember!: any;
 
   mounted () {

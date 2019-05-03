@@ -1,7 +1,7 @@
-import { MemberStatus } from '@/models/status/member';
+import { AccountStatus } from '@/models/status/member';
 
-export interface IMemberResponse {
+export interface ITestMemberResponse {
     uuid: string;
     name: string;
-    status: MemberStatus;
+    status: AccountStatus;
 }
