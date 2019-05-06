@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Search from '@/components/members/Search.vue'; // @ is an alias to /src
+import Search from '@/components/members/Search.vue';
 import SearchEdit from '@/components/members/SearchEditPopup.vue';
 import SearchRecord from '@/components/members/SearchRecordpopup.vue'; 
 

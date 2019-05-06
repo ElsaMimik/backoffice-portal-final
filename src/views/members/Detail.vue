@@ -14,12 +14,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Detail from '@/components/members/Detail.vue'; // @ is an alias to /src
-import DetailBasic from '@/components/members/DetailBasic.vue'; // @ is an alias to /src
-import DetailLogin from '@/components/members/DetailLogin.vue'; // @ is an alias to /src
-import DetailRelations from '@/components/members/DetailRelations.vue'; // @ is an alias to /src
-import DetailRiskControl from '@/components/members/DetailRiskControl.vue'; // @ is an alias to /src
-import DetailTransaction from '@/components/members/DetailTransaction.vue'; // @ is an alias to /src
+import Detail from '@/components/members/Detail.vue';
+import DetailBasic from '@/components/members/DetailBasic.vue';
+import DetailLogin from '@/components/members/DetailLogin.vue';
+import DetailRelations from '@/components/members/DetailRelations.vue';
+import DetailRiskControl from '@/components/members/DetailRiskControl.vue';
+import DetailTransaction from '@/components/members/DetailTransaction.vue';
 
 export default Vue.extend({
   name: 'home',

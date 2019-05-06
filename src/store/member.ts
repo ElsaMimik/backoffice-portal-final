@@ -2,7 +2,7 @@
 import { IActionContextBasic } from '@/store/index';
 import MemberApi from '@/api/member';
 import FileApi from '@/api/file';
-import AuthApi from '@/api/auth';
+
 import * as Status from '@/models/status/member';
 import * as Model from '@/models/interfaces/member';
 
@@ -22,9 +22,6 @@ const getters = {
 
 const actions = {
     getMember(context: IActionContextBasic, uuid: string) {
-        AuthApi.getMenu().then((data) => {
-            context.commit(SEARCH_MEMBER, data);
-        });
         FileApi.uploadFile('uuid','tertre').then((data) => {
             context.commit(SEARCH_MEMBER, data);
         });

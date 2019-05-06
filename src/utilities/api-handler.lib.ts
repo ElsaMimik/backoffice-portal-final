@@ -16,8 +16,8 @@ class HttpModel {
     cfg.baseURL = '/backoffice/api/v1/222222/';
     // cfg.baseURL = 'https://backoffice-api.devel.starlordtech.com/api/v1/222222/';
     cfg.headers = {
-      // 'Authorization': `Bearer ${Cookies.get('token')}`,
-      'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyMjIyMjIiLCJ1c2VyX2lkIjoiOTI2NjQ3ZjQtM2QxYy00ZjdkLWI3YTEtMTk3NmUyMjEzZWFmIiwiZXhwaXJlZF9hdCI6MTU1Njg4MzU3MX0.j7SsYCdYnCI8C3whKAxZtvTqK38ioJMwrsYmaXHort2j1az_kpdr4hbrx3wgJmJjhB8YpuNsgIKwkjABiPa3Sw',
+      'Authorization': `Bearer ${Cookies.get('token')}`,
+      // 'Authorization': 'Bearer ',
       'content-type': 'application/x-www-form-urlencoded',
     };
     const instance = axios.create();

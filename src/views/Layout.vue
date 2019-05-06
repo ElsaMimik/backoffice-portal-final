@@ -66,41 +66,18 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
-import { State, Action, Getter, namespace } from "vuex-class";
-import { getMenu } from "@/router/menu";
-import { checkPageAuth } from "@/router/auth";
-import { IError } from "@/models/interfaces/error";
-import EventBus from "@/utilities/event-bus";
-const memberModule = namespace("Auth");
-const errorModule = namespace("Error");
 
 @Component
 export default class Layout extends Vue {
-  menu: object = [];
-  @memberModule.State("apiPaths") apiPaths!: string[];
-	@errorModule.State("errorHistory") errorHistory!: IError[];
 	
 	isActive: boolean = false;
 	popup: boolean = false;
-	
-  @Action("Auth/getApiPath") private getApiPath!: any;
-	@Action("Error/getError") private getError!: any;
 	
   btnshow() {
     this.isActive = !this.isActive;
   }
   open() {
     this.popup = !this.popup;
-  }
-  mounted() {
-	const apiPaths = this.apiPaths;
-	const menu = getMenu(apiPaths).then(res => {
-	  this.menu = res;
-	});
-	EventBus.$on("api-error", (err: any) => {
-	  this.getError(err);
-	  // console.log('api-error', err);
-	});
   }
 }
 </script>

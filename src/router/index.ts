@@ -29,10 +29,10 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-
+  next();
   let apiPaths = [];
   if (router.app.$options.store) {
-    router.app.$options.store.dispatch('Auth/getApiPath');
+    // router.app.$options.store.dispatch('Auth/getApiPath');
     apiPaths = router.app.$options.store.state.Auth.apiPaths;
   }
   checkPageAuth(to.name, apiPaths).then(res => {

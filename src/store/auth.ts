@@ -1,4 +1,6 @@
 import { IActionContextBasic } from '@/store/index';
+import AuthApi from '@/api/auth';
+
 export interface IState {
     apiPaths: string[];
 }
@@ -14,11 +16,7 @@ const getters = {
 };
 
 const actions = {
-    getApiPath(context: IActionContextBasic, uuid: string) {
-        // console.log('call api getApiPath')
-        // TODO : apiPaths = call api
-        const data = ['/member', '/account/modified/abnormal/approval'];
-        // const data = new Array<string>();
+    async setApiPath(context: IActionContextBasic, data: string[]) {
         context.commit(GET_AUTH_ROLE_STRING, data);
     },
 };
