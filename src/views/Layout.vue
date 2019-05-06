@@ -4,26 +4,25 @@
 		<div class="sidebar__btn" @click="btnshow">〉</div>
 		<div class="sidebar__logo"></div>
 		<ul class="sidebar__list">
-			<p>
-				<li v-for="(item01, index) in menu" :key="index" class="level01">
-					<p v-if="item01.isShow" >{{ item01.displayName }}</p>
-					<ul v-for="(item02, index) in item01.children" :key="index">
-						<li class="level02">
-							<p v-if="item02.isShow">{{ item02.displayName }}</p>
-							<ul v-for="(item03, index) in item02.children" :key="index">
-								<li class="level03">
-									<p v-if="item03.isShow" >{{ item03.displayName }}</p>
-									<ul v-for="(item04, index) in item03.children" :key="index">
-										<li class="level04">
-											<p v-if="item04.isShow">{{ item04.displayName }}</p>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</p>
+			<p></p>
+			<li v-for="(item01, index) in filterMenuByAuth(menu)" :key="index" class="level01">
+				<p v-if="item01.isShow" >{{ item01.displayName }}</p>
+				<ul v-for="(item02, index) in  filterMenuByAuth(item01.children)" :key="index">
+					<li class="level02">
+						<p v-if="item02.isShow">{{ item02.displayName }}</p>
+						<ul v-for="(item03, index) in filterMenuByAuth(item02.children)" :key="index">
+							<li class="level03">
+								<p v-if="item03.isShow" >{{ item03.displayName }}</p>
+								<ul v-for="(item04, index) in filterMenuByAuth(item03.children)" :key="index">
+									<li class="level04">
+										<p v-if="item04.isShow">{{ item04.displayName }}</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
 		</ul>
 		</div>
 		<header>
@@ -51,7 +50,9 @@ import router from '../router';
 import * as Auth from '@/router/auth';
 const authModule = namespace("Auth");
 
-@Component
+@Component({
+	 
+})
 export default class Layout extends Vue {
 	
 	isActive: boolean = false;
@@ -71,6 +72,10 @@ export default class Layout extends Vue {
 	isOpen(path: string) {
 		return this.openMenu.includes(path);
 	}
+
+	filterMenuByAuth(obj: any) {
+		 return obj.filter((s: any) => s.isShow)
+	 }
 	
 	mounted() {
 	getMenu(this.apiPaths).then(res => {
