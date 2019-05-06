@@ -3,12 +3,15 @@ import AuthApi from '@/api/auth';
 
 export interface IState {
     apiPaths: string[];
+    currentPath: string;
 }
-const GET_AUTH_ROLE_STRING = 'GET_AUTH_ROLE_STRING';
+const SET_AUTH_ROLE_STRING = 'SET_AUTH_ROLE_STRING';
+const SET_CURRENT_PATH = 'SET_CURRENT_PATH';
 
 
 const initState: IState = {
     apiPaths: [],
+    currentPath: '',
 };
 
 const getters = {
@@ -17,13 +20,19 @@ const getters = {
 
 const actions = {
     async setApiPath(context: IActionContextBasic, data: string[]) {
-        context.commit(GET_AUTH_ROLE_STRING, data);
+        context.commit(SET_AUTH_ROLE_STRING, data);
+    },
+    async setCurrentPath(context: IActionContextBasic, data: string) {
+        context.commit(SET_CURRENT_PATH, data);
     },
 };
 
 const mutations = {
-    [GET_AUTH_ROLE_STRING](state: IState, payload: string[]) {
+    [SET_AUTH_ROLE_STRING](state: IState, payload: string[]) {
         state.apiPaths = payload;
+    },
+    [SET_CURRENT_PATH](state: IState, payload: string) {
+        state.currentPath = payload;
     },
 };
 

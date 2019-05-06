@@ -135,4 +135,4 @@ const checkPageAuth = async (to: any, apiPaths: string[]) => {
     return isAuth;
 };
 
-export { checkPageAuth };
+export { checkPageAuth, component };

@@ -34,11 +34,11 @@ export default class App extends Vue {
   @Action("Auth/setApiPath") private setApiPath!: any;
   @Action("Error/getError") private getError!: any;
   mounted() {
-    AuthApi.getMenu().then(data => {
+    // AuthApi.getMenu().then(data => {
       // context.commit(GET_AUTH_ROLE_STRING, data);
       this.setApiPath(["/member", "/account/modified/abnormal/approval"]);
       this.isLogin = this.apiPaths.length > 0;
-    });
+    // });
     
     EventBus.$on("api-error", (err: any) => {
       this.getError(err);

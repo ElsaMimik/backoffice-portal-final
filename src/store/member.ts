@@ -22,23 +22,23 @@ const getters = {
 
 const actions = {
     getMember(context: IActionContextBasic, uuid: string) {
-        FileApi.uploadFile('uuid','tertre').then((data) => {
-            context.commit(SEARCH_MEMBER, data);
-        });
-        FileApi.getFile('uuid').then((data) => {
-            context.commit(SEARCH_MEMBER, data);
-        });
-        MemberApi.updateMemberStatus(<Model.IMemberStatusRequest>{
-            accountAction: Status.AccountStatus.Normal,
-            withdrawalAction: Status.WithdrawalStatus.Normal,
-            reason: '',
-            files: []
-        },'tertre').then((data: boolean) => {
-            context.commit(SEARCH_MEMBER, data);
-        });
-        MemberApi.getMemberStatusHistoryList('uuid').then((data) => {
-            context.commit(SEARCH_MEMBER, data);
-        });
+        // FileApi.uploadFile('uuid','tertre').then((data) => {
+        //     context.commit(SEARCH_MEMBER, data);
+        // });
+        // FileApi.getFile('uuid').then((data) => {
+        //     context.commit(SEARCH_MEMBER, data);
+        // });
+        // MemberApi.updateMemberStatus(<Model.IMemberStatusRequest>{
+        //     accountAction: Status.AccountStatus.Normal,
+        //     withdrawalAction: Status.WithdrawalStatus.Normal,
+        //     reason: '',
+        //     files: []
+        // },'tertre').then((data: boolean) => {
+        //     context.commit(SEARCH_MEMBER, data);
+        // });
+        // MemberApi.getMemberStatusHistoryList('uuid').then((data) => {
+        //     context.commit(SEARCH_MEMBER, data);
+        // });
     },
 };
 

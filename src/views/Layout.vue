@@ -4,47 +4,26 @@
 		<div class="sidebar__btn" @click="btnshow">〉</div>
 		<div class="sidebar__logo"></div>
 		<ul class="sidebar__list">
-			<li class="level01">会员</li>
-			<li class="level01">
-			帐务
-			<ul>
-				<li class="level02">交易</li>
-				<li class="level02">抄單</li>
-				<li class="level02">
-				人工充值
-				<ul>
-					<li class="level03">充值申請</li>
-					<li class="level03">充值審核</li>
-				</ul>
-				</li>
-				<li class="level02">
-				人工提現
-				<ul>
-					<li class="level03">新增提現</li>
-					<li class="level03">提現審核</li>
-					<li class="level03">出帳作業</li>
-				</ul>
-				</li>
-				<li class="level02">
-				調帳
-				<ul>
-					<li class="level03">
-					注單異常調帳
-					<ul>
-						<li class="level04">申請</li>
-						<li class="level04">審核</li>
+			<p>
+				<li v-for="(item01, index) in menu" :key="index" class="level01">
+					<p v-if="item01.isShow" >{{ item01.displayName }}</p>
+					<ul v-for="(item02, index) in item01.children" :key="index">
+						<li class="level02">
+							<p v-if="item02.isShow">{{ item02.displayName }}</p>
+							<ul v-for="(item03, index) in item02.children" :key="index">
+								<li class="level03">
+									<p v-if="item03.isShow" >{{ item03.displayName }}</p>
+									<ul v-for="(item04, index) in item03.children" :key="index">
+										<li class="level04">
+											<p v-if="item04.isShow">{{ item04.displayName }}</p>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
 					</ul>
-					</li>
-					<li class="level03">手動調帳</li>
-					<li class="level03">強制滑入</li>
-				</ul>
 				</li>
-			</ul>
-			</li>
-			<li class="level01">风控</li>
-			<li class="level01">客服</li>
-			<li class="level01">帐号权限</li>
-			<li class="level01">系统</li>
+			</p>
 		</ul>
 		</div>
 		<header>
@@ -66,8 +45,10 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
-import { getMenu } from "@/router/menu";
+import { getMenu, spiltPath } from "@/router/menu";
 import { State, Action, Getter, namespace } from "vuex-class";
+import router from '../router';
+import * as Auth from '@/router/auth';
 const authModule = namespace("Auth");
 
 @Component
@@ -76,7 +57,9 @@ export default class Layout extends Vue {
 	isActive: boolean = false;
 	popup: boolean = false;
 	menu: object = [];
+	openMenu: string[] = [];
 	@authModule.State("apiPaths") apiPaths!: string[];
+	@authModule.State("currentPath") currentPath!: string;
 	
   btnshow() {
     this.isActive = !this.isActive;
@@ -84,11 +67,21 @@ export default class Layout extends Vue {
   open() {
     this.popup = !this.popup;
 	}
+
+	isOpen(path: string) {
+		return this.openMenu.includes(path);
+	}
 	
 	mounted() {
 	getMenu(this.apiPaths).then(res => {
-      this.menu = res;
-    });	
+			this.menu = res;
+			const rounter = Auth.component.find(s => s.routerName === this.currentPath);
+			if(rounter) {
+				spiltPath([rounter.apiPath]).then(res => {
+					this.openMenu = res;
+				});
+			}
+		});
 	}
 }
 </script>

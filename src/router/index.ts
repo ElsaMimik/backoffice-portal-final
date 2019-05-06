@@ -34,6 +34,7 @@ router.beforeEach((to, from, next) => {
   if (router.app.$options.store) {
     // router.app.$options.store.dispatch('Auth/getApiPath');
     apiPaths = router.app.$options.store.state.Auth.apiPaths;
+    router.app.$options.store.dispatch('Auth/setCurrentPath', to.name);
   }
   checkPageAuth(to.name, apiPaths).then(res => {
     // console.log('是否有權限', res);

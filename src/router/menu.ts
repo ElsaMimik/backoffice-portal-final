@@ -408,6 +408,7 @@ const spiltPath = async (apiPaths: string[]) => {
         }
     });
     paths = apiPaths;
+    return paths;
 };
 
 /**
