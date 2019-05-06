@@ -7,7 +7,6 @@
 			<DetailTransaction />
 			<DetailLogin />
 			<DetailRelations />
-			
 			<DetailRiskControl />
 			
 		</div>
