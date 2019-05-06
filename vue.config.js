@@ -19,8 +19,7 @@ module.exports = {
         sourceMap: true,
         loaderOptions: {
             sass: {
-                data: `
-                        @import "@/assets/css/base/_reset.scss";
+                data: `@import "@/assets/css/base/_reset.scss";
                         @import "@/assets/css/layout/_layout.scss";
                         @import "@/assets/css/components/_components.scss";
                     `

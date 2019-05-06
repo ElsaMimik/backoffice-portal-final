@@ -41,7 +41,8 @@ header {
         display: inline-block;
         width: 60px;
         height: 22px;
-        background: url("./assets/image/sign-out.svg") no-repeat right top ;
+        background: url("./../../image/sign-out.svg") no-repeat right top ;
+        // background: url("/assets/image/sign-out.svg") no-repeat right top ;
         background-size: contain;
     }
     .langugae__box {
@@ -114,7 +115,8 @@ header {
     &__logo {
         width: 125px;
         height: 85px;
-        background-image: url("./assets/image/logo.png");
+        background-image: url("./../../image/logo.png");
+        // background-image: url("/../assets/image/logo.png");
         background-size: contain;
         margin: 0 auto;
         margin-top: 65px;
