@@ -5,17 +5,17 @@
 		<div class="sidebar__logo"></div>
 		<ul class="sidebar__list">
 			<p></p>
-			<li v-for="(item01, index) in filterMenuByAuth(menu)" :key="index" class="level01">
-				<p v-if="item01.isShow" >{{ item01.displayName }}</p>
+			<li v-for="(item01, index) in filterMenuByAuth(menu)" :key="index" class="level01" @click="menuClick(item01)">
+				<p v-if="item01.isShow" v-show="isOpen(item01)">{{ item01.displayName }}</p>
 				<ul v-for="(item02, index) in  filterMenuByAuth(item01.children)" :key="index">
-					<li class="level02">
-						<p v-if="item02.isShow">{{ item02.displayName }}</p>
+					<li class="level02" @click="menuClick(item02)">
+						<p v-if="item02.isShow" v-show="isOpen(item02)">{{ item02.displayName }}</p>
 						<ul v-for="(item03, index) in filterMenuByAuth(item02.children)" :key="index">
-							<li class="level03">
-								<p v-if="item03.isShow" >{{ item03.displayName }}</p>
+							<li class="level03" @click="menuClick(item03)">
+								<p v-if="item03.isShow" v-show="isOpen(item03)">{{ item03.displayName }}</p>
 								<ul v-for="(item04, index) in filterMenuByAuth(item03.children)" :key="index">
-									<li class="level04">
-										<p v-if="item04.isShow">{{ item04.displayName }}</p>
+									<li class="level04" @click="menuClick(item04)">
+										<p v-if="item04.isShow" v-show="isOpen(item04)">{{ item04.displayName }}</p>
 									</li>
 								</ul>
 							</li>
@@ -69,8 +69,16 @@ export default class Layout extends Vue {
     this.popup = !this.popup;
 	}
 
-	isOpen(path: string) {
-		return this.openMenu.includes(path);
+	isOpen(obj: any) {
+		return this.openMenu.includes(obj.apiPath) || obj.level === 1;
+	}
+
+	menuClick(obj: any) {
+		console.log(obj)
+		obj.children.forEach((element: any) => {
+			console.log(element.apiPath)
+			this.openMenu.push(element.apiPath);
+		});
 	}
 
 	filterMenuByAuth(obj: any) {
