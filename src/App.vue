@@ -36,7 +36,7 @@ export default class App extends Vue {
   mounted() {
     // AuthApi.getMenu().then(data => {
       // context.commit(GET_AUTH_ROLE_STRING, data);
-      this.setApiPath(["/member", "/account/modified/abnormal/approval"]);
+      this.setApiPath(["/member", "/account/modified/abnormal/approval","/risk-control/check-member-status"]);
       this.isLogin = this.apiPaths.length > 0;
     // });
     
