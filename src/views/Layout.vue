@@ -74,32 +74,19 @@ export default class Layout extends Vue {
 
 	menuClick(obj: any) {
 		if(obj.level === 1) {
-			// this.openMenu.forEach((el)=>{
-			// 	this.menu.find((s: any) => s.apiPath === el)
-			// })
 			this.openMenu = [];
 		}
 		if(obj.isLink) {
 			document.location.href = obj.apiPath;
 			return;
 		} else {
-			if(!obj.isOpen) {
-				console.log('OPEN', obj);
 				obj.isOpen = false;
-				// return;
-			}
-			else {
-				console.log('CLOSE', obj);
-				obj.isOpen = false;
-			}
-			// obj.isOpen = true; //........
-			obj.children.forEach((element: any) => {
+				obj.children.forEach((element: any) => {
 				if(this.openMenu.includes(element.apiPath)) {
 					const index = this.openMenu.findIndex(s => s === element.apiPath);
 					if(index > 0 && obj.isOpen) {
 						element.isOpen = false;
 						this.openMenu.splice(index, 1);
-						// console.log('已存在', element);
 					}
 				} else {
 					this.openMenu.push(element.apiPath);
@@ -113,17 +100,16 @@ export default class Layout extends Vue {
 	 }
 	
 	mounted() {
-	getMenu(this.apiPaths).then(res => {
-			this.menu = res;
-			const rounter = Auth.component.find(s => s.routerName === this.currentPath);
-			if(rounter) {
-				// console.log(rounter)
-				spiltPath([rounter.apiPath]).then(response => {
-					this.openMenu = response;
-				});
-			}
-		});
-	}
+		getMenu(this.apiPaths).then(res => {
+				this.menu = res;
+				const rounter = Auth.component.find(s => s.routerName === this.currentPath);
+				if(rounter) {
+					spiltPath([rounter.apiPath]).then(response => {
+						this.openMenu = response;
+					});
+				}
+			});
+		}
 }
 </script>
 
