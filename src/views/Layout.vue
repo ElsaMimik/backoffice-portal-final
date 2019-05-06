@@ -80,12 +80,10 @@ export default class Layout extends Vue {
 			document.location.href = obj.apiPath;
 			return;
 		} else {
-				obj.isOpen = false;
-				obj.children.forEach((element: any) => {
+			obj.children.forEach((element: any) => {
 				if(this.openMenu.includes(element.apiPath)) {
 					const index = this.openMenu.findIndex(s => s === element.apiPath);
-					if(index > 0 && obj.isOpen) {
-						element.isOpen = false;
+					if(index > 0) {
 						this.openMenu.splice(index, 1);
 					}
 				} else {
@@ -109,7 +107,7 @@ export default class Layout extends Vue {
 					});
 				}
 			});
-		}
+	}
 }
 </script>
 
