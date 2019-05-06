@@ -74,11 +74,20 @@ export default class Layout extends Vue {
 	}
 
 	menuClick(obj: any) {
-		console.log(obj)
-		obj.children.forEach((element: any) => {
-			console.log(element.apiPath)
-			this.openMenu.push(element.apiPath);
-		});
+		if(obj.isLink) {}
+		else {
+			console.log(obj)
+			obj.children.forEach((element: any) => {
+				if(this.openMenu.includes(element.apiPath)) {
+					const index = this.openMenu.findIndex(s => s === element.apiPath);
+					console.log(index)
+					this.openMenu.splice(index, 1);
+				} else {
+					console.log(element.apiPath)
+					this.openMenu.push(element.apiPath);
+				}
+			});
+		}
 	}
 
 	filterMenuByAuth(obj: any) {
