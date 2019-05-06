@@ -17,7 +17,23 @@ const routes = [
 	},
 	{
 		path: '/accounts/transaction',
-		name: '/accounts-transaction', component: () => import('@/views//accounts/transaction/Transaction.vue'),
+		name: 'accounts-transaction', component: () => import('@/views/accounts/transaction/Transaction.vue'),
+	},
+	{
+		path: '/accounts/gamebetrecord',
+		name: 'accounts-gamebetrecord', component: () => import('@/views/accounts/gamebetrecord/GameBetRecord.vue'),
+	},
+	{
+		path: '/accounts/vipwithdraw/apply',
+		name: 'accounts-vipwithdraw/apply', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawApply.vue'),
+	},
+	{
+		path: '/accounts/vipwithdraw/bill',
+		name: 'accounts-vipwithdraw/approval', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawApproval.vue'),
+	},
+	{
+		path: '/accounts/vipwithdraw/bill',
+		name: 'accounts-vipwithdraw/bill', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawBill.vue'),
 	},
 	{
 		path: '/login',
