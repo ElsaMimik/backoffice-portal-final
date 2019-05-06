@@ -1,5 +1,5 @@
 <template>
-	<div class="member__detail-memberdata">
+    <div class="member__detail-memberdata">
         <div class="member__detail-list">
             <div class="member__detail-title">会员昵称
                 <div class="member__detail-items">Peter</div>

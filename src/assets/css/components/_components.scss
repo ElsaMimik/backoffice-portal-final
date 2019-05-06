@@ -15,7 +15,6 @@ button {
 		background-color: #687826;
 		color: #fff;
 		text-align: center;
-		margin: 0 10px;
 		padding: 0 10px;
 		&:hover {
 			background-color: #a4b656;
@@ -36,7 +35,7 @@ button {
 		color: #fff;
 	}
 	&__close {
-		background: url(./../../image/close.svg) center center no-repeat;
+		background: url("./../../image/close.svg") center center no-repeat;
 		background-color: transparent;
 		background-size: 100% auto;
 		border: 0px;
@@ -105,7 +104,7 @@ table.list {
 		margin: 0 0 20px 0;
 	}	
 	&-items {
-		margin: 0 20px 0px 0;
+		margin: 0 20px 10px 0;
 	}
 	&-title {
 		height: 40px;
@@ -135,6 +134,13 @@ table.list {
 		display: inline-block;
 		vertical-align: middle;
 	}
+	// button {
+	// 	width: 80px;
+	// 	height: 35px;
+	// 	border-radius: 5px;
+	// 	background-color: #687826;
+	// 	color: #fff;
+	// }
 	&__result {
 			margin: 20px 0;
 			&-list {
