@@ -1,6 +1,6 @@
 <template>
 	<div class="wrap">
-		<section class="member">
+		<div class="member">
 			<div class="title">会员</div>
 			<form class="search"> 
 				<div class="search-items">
@@ -71,7 +71,7 @@
 					</td>
 				</tr>
 			</table>
-		</section>
+		</div>
 	</div>
 </template>
 

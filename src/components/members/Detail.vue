@@ -1,7 +1,7 @@
 <template>
 	<div class="wrap">
 		<div class="title">会员状态修改</div>
-		<section class="member__detail">
+		<div class="member__detail">
 			<div class="member__detail__info">
 				<div class="member__detail-list dottedline">
 					<div class="member__detail-title">帐号ID
@@ -308,7 +308,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	</div>
 </template>
 
