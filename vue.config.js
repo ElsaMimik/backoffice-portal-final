@@ -14,5 +14,11 @@ module.exports = {
             }
         },
         progress: true
+    },
+    pluginOptions: {
+      'style-resources-loader': {
+        preProcessor: 'scss',
+        patterns: []
+      }
     }
 }
