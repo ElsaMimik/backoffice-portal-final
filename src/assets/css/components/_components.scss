@@ -15,7 +15,7 @@ button {
 		background-color: #687826;
 		color: #fff;
 		text-align: center;
-		// vertical-align: middle;
+		margin: 0 10px;
 		padding: 0 10px;
 		&:hover {
 			background-color: #a4b656;
@@ -135,13 +135,6 @@ table.list {
 		display: inline-block;
 		vertical-align: middle;
 	}
-	// button {
-	// 	width: 80px;
-	// 	height: 35px;
-	// 	border-radius: 5px;
-	// 	background-color: #687826;
-	// 	color: #fff;
-	// }
 	&__result {
 			margin: 20px 0;
 			&-list {
