@@ -1,5 +1,5 @@
 <template>
-	<div class="member__detail-transactiondata">
+    <div class="member__detail-transactiondata">
         <div class="member__detail-list">
             <div class="member__detail-title">最新提现成功交易时间
                 <div class="member__detail-items">2019-01-01 12:00</div>

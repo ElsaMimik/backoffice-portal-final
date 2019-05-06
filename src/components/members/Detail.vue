@@ -1,9 +1,9 @@
 <template>
-	<div>
+	<div class="member__detail">
 		<div class="member__detail__info">
 			<div class="member__detail-list dottedline">
 				<div class="member__detail-title">帐号ID
-					<div class="member__detail-items"> 
+					<div class="member__detail-items">
 						<p>7533967396736733</p>
 						<p>7533967396736733</p>
 					</div>

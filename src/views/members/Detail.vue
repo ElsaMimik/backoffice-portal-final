@@ -4,10 +4,12 @@
 		<div class="member__detail">
 			<Detail />
 			<DetailBasic />
+			<DetailTransaction />
 			<DetailLogin />
 			<DetailRelations />
+			
 			<DetailRiskControl />
-			<DetailTransaction />
+			
 		</div>
 	</div>
 </template>
@@ -35,8 +37,40 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+/* ----- member detail ----- */
 .member__detail {
 	line-height: 200%;
+	&-title {
+		color: #979797;
+		min-width: 200px;
+		margin: 5px 0;
+	}
+	&-items {
+		color: #000;
+		margin: 6px 0;
+		line-height: 120%;
+	}
+	&-block {
+		border-bottom: 1px dotted #687826;
+		display: flex;
+		flex-direction: row;
+		justify-content:flex-start;
+		align-content: flex-start;
+		flex-wrap: wrap;
+		padding: 5px 0 0 0;
+		margin: 10px 0;
+	}
+	&-btns {
+		margin: 0 0 20px 0;
+	}
+	&__info {
+		position: relative;
+		.btns__green {
+			position: absolute;
+			right: 0;
+			bottom: 10px;
+		}
+	}
 	&-list {
 		vertical-align: top;
 		display: flex;
@@ -95,4 +129,5 @@ export default Vue.extend({
 		text-align: left;
 	}
 }
+
 </style>

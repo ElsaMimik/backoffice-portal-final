@@ -2,13 +2,17 @@
 	<div class="wrap">
 		<div class="member">
 			<div class="title">会员</div>
-			<form class="search"> 
-				<div class="search-items">
-					<label>帐号ID</label>
-					<input type="text">
-					<button class="btns__green">查找</button>
-				</div>
-			</form>
+			<div class="search">
+				<form class="search-form">
+					<div class="search-items">
+						<label>帐号ID</label>
+						<input type="text">
+					</div>
+					<div class="search-items">
+						<button class="btns__green">查找</button>
+					</div>
+				</form>
+			</div>
 			<table class="list">
 				<tr>
 					<th>帐号ID</th>
@@ -43,7 +47,7 @@
 						<button class="btns__green">执行</button>
 					</td>
 					<td>
-						<button class="btns__green">查询异动纪录</button>
+						<button class="btns__green" >查询异动纪录</button>
 					</td>
 					<td> 
 						<div class="btns__right"></div>
