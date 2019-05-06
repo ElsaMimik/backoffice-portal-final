@@ -1,8 +1,8 @@
 <template>
   <div>
     <Search />
-    <SearchEdit />
-    <SearchRecord />
+    <!-- <SearchEdit />
+    <SearchRecord /> -->
   </div>
 </template>
 

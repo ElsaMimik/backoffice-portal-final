@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<div class="sidebar" v-bind:class="{active: isActive}">
-		<div class="sidebar__btn" v-on:click="btnshow">〉</div>
+		<div class="sidebar" :class="{active: isActive}">
+		<div class="sidebar__btn" @click="btnshow">〉</div>
 		<div class="sidebar__logo"></div>
 		<ul class="sidebar__list">
 			<li class="level01">会员</li>
@@ -66,19 +66,30 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import { getMenu } from "@/router/menu";
+import { State, Action, Getter, namespace } from "vuex-class";
+const authModule = namespace("Auth");
 
 @Component
 export default class Layout extends Vue {
 	
 	isActive: boolean = false;
 	popup: boolean = false;
+	menu: object = [];
+	@authModule.State("apiPaths") apiPaths!: string[];
 	
   btnshow() {
     this.isActive = !this.isActive;
   }
   open() {
     this.popup = !this.popup;
-  }
+	}
+	
+	mounted() {
+	getMenu(this.apiPaths).then(res => {
+      this.menu = res;
+    });	
+	}
 }
 </script>
 
