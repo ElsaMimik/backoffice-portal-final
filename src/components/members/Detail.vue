@@ -331,3 +331,65 @@ export default class Detail extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.member__detail {
+	line-height: 200%;
+	&-list {
+		vertical-align: top;
+		display: flex;
+		flex-direction: row;
+		justify-content:flex-start;
+		align-content: flex-start;
+		flex-wrap: wrap;
+		padding: 5px 0 0 0;
+		margin: 10px 0;
+		table {
+			width: 56%;
+			margin: 0 100px 50px 0 ;
+			&:nth-child(2) {
+				width: 30%;
+				margin: 0 0 0 0 ;
+			}
+			th {
+				vertical-align: middle;
+				color: #687826;
+				font-weight: 600;
+			}
+			tr {
+				height: 50px;
+				border-bottom: 1px dotted #687826;
+			}
+			td {
+				vertical-align: middle;
+				&:first-child {
+					color: #687826;
+					font-weight: 600;
+				}
+			}
+		}
+		.btns__green {
+			margin: 10px 10px 10px 0;
+		}
+	}
+	table.list {
+		width: 580px;
+		text-align: left;
+		th {
+			text-align: left;
+			padding: 0 20px;
+		}
+		td {
+			height: 50px;
+			padding: 0 20px;
+		}
+	}
+	.dottedline {
+		border-bottom: 1px dotted #687826;
+	}
+	.title {
+		font-weight: 600;
+		font-size: 20px;
+		text-align: left;
+	}
+}
+</style>

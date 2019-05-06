@@ -15,17 +15,6 @@ module.exports = {
         },
         progress: true
     },
-    css: {
-        sourceMap: true,
-        loaderOptions: {
-            sass: {
-                data: `@import "@/assets/css/base/_reset.scss";
-                        @import "@/assets/css/layout/_layout.scss";
-                        @import "@/assets/css/components/_components.scss";
-                    `
-            }
-        }
-    },
     pluginOptions: {
       'style-resources-loader': {
         preProcessor: 'scss',

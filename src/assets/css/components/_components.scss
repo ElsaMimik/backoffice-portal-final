@@ -36,7 +36,7 @@ button {
 		color: #fff;
 	}
 	&__close {
-		// background: url(./../../image/close.svg) center center no-repeat;
+		background: url(./../../image/close.svg) center center no-repeat;
 		background-color: transparent;
 		background-size: 100% auto;
 		border: 0px;
@@ -45,7 +45,7 @@ button {
     &__right {
         width: 20px;
         height: 35px;
-        // background: url("./../../image/arrow-right.svg") no-repeat;
+        background: url("./../../image/arrow-right.svg") no-repeat;
         background-size: contain;
         cursor: pointer;
     }
