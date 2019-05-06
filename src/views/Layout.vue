@@ -70,20 +70,19 @@ export default class Layout extends Vue {
 	}
 
 	isOpen(obj: any) {
-		return this.openMenu.includes(obj.apiPath) || obj.level === 1;
+		return this.openMenu.includes(obj.apiPath) || obj.level === 1 || obj.isOpen;
 	}
 
 	menuClick(obj: any) {
-		if(obj.isLink) {}
-		else {
-			console.log(obj)
+		if(obj.isLink) {
+			document.location.href = obj.apiPath;
+			return;
+		} else {
 			obj.children.forEach((element: any) => {
+				obj.isOpen = true;
 				if(this.openMenu.includes(element.apiPath)) {
 					const index = this.openMenu.findIndex(s => s === element.apiPath);
-					console.log(index)
-					this.openMenu.splice(index, 1);
 				} else {
-					console.log(element.apiPath)
 					this.openMenu.push(element.apiPath);
 				}
 			});
