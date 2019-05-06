@@ -24,6 +24,7 @@ const actions = {
     },
     async setCurrentPath(context: IActionContextBasic, data: string) {
         context.commit(SET_CURRENT_PATH, data);
+        // context.commit(SET_CURRENT_PATH, 'account-modified-abnormal-approval');
     },
 };
 

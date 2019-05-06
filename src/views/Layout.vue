@@ -98,6 +98,7 @@ export default class Layout extends Vue {
 			this.menu = res;
 			const rounter = Auth.component.find(s => s.routerName === this.currentPath);
 			if(rounter) {
+				console.log(rounter)
 				spiltPath([rounter.apiPath]).then(res => {
 					this.openMenu = res;
 				});
