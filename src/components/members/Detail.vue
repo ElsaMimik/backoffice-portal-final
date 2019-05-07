@@ -1,7 +1,7 @@
 <template>
 	<div class="member__detail">
 		<div class="member__detail__info">
-			<div class="member__detail-list dottedline">
+			<div class="member__detail-list dottedline-bottom">
 				<div class="member__detail-title">帐号ID
 					<div class="member__detail-items">
 						<p>7533967396736733</p>
@@ -24,7 +24,7 @@
 					<div class="member__detail-items">C</div>
 				</div>
 			</div>
-			<div class="member__detail-list dottedline">
+			<div class="member__detail-list dottedline-bottom">
 				<div class="member__detail-title">钱包金额
 					<div class="member__detail-items">34,234.23</div>
 				</div>

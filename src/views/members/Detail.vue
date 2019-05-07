@@ -36,7 +36,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-/* ----- member detail ----- */
 .member__detail {
 	line-height: 200%;
 	&-title {
@@ -118,9 +117,6 @@ export default Vue.extend({
 			height: 50px;
 			padding: 0 20px;
 		}
-	}
-	.dottedline {
-		border-bottom: 1px dotted #687826;
 	}
 	.title {
 		font-weight: 600;

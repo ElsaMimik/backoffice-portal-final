@@ -1,5 +1,6 @@
 button {
 	cursor: pointer;
+	margin: 0 0 0 5px;
 }
 .btns {
     height: 100%;
@@ -87,9 +88,6 @@ table.list {
 		word-break: break-all;
 		padding: 0 5px;
 		max-width: 130px;
-		// &:first-child {
-		// 	max-width: 115px;
-		// }
 	}
 }
 
@@ -134,13 +132,6 @@ table.list {
 		display: inline-block;
 		vertical-align: middle;
 	}
-	// button {
-	// 	width: 80px;
-	// 	height: 35px;
-	// 	border-radius: 5px;
-	// 	background-color: #687826;
-	// 	color: #fff;
-	// }
 	&__result {
 			margin: 20px 0;
 			&-list {
@@ -178,6 +169,13 @@ table.list {
 	top:0;
 	z-index: 999;
 	overflow-y: scroll;
+	&-list {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
 	&__view {
 		box-sizing: border-box;
 		position: absolute;
@@ -214,12 +212,6 @@ table.list {
 		padding: 10px 0;
 	}
 	&__info {
-		border-top: 1px dotted #687826;
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: flex-start;
-		flex-wrap: wrap;
 		padding: 5px 0 0 0;
 		&-title {
 			color: #979797;
@@ -229,7 +221,6 @@ table.list {
 		&-items {
 			color: #000;
 			margin: 6px 0;
-			// min-height: 30px;
 			line-height: 120%;
 		}
 	}

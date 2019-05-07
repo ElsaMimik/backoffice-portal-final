@@ -6,8 +6,8 @@
 					<button class="btns__close"></button>
 				</div>
 			</div>
-			<div class="popup__title">会员状态修改</div>
 			<form>
+				<div class="popup__title">强制滑入</div>
 				<div class="popup__info dottedline-top">
 					<div class="popup__info-title">帐号ID
 						<div class="popup__info-items"> 
@@ -18,23 +18,12 @@
 				</div>
 				<div class="popup__info dottedline-top">
 					<div class="popup-list">
+						<div class="popup__info-title">钱包金额异动
+							<div class="popup__info-items notice">+1,000.00</div>
+						</div>
 						<div class="popup__info-title">操作人员
 							<div class="popup__info-items">DAVID</div>
 						</div>
-					</div>
-				</div>
-				<div class="popup__action">
-					<div class="popup__action-title">更改帐号状态
-						<select name="">
-							<option value="">正常</option>
-							<option value="">不可登入(E2)</option>
-						</select>
-					</div>
-					<div class="popup__action-title">更改提现状态
-						<select name="">
-							<option value="">自动</option>
-							<option value="">不可提現(E1)</option>
-						</select>
 					</div>
 				</div>
 				<div class="popup__note">
@@ -43,7 +32,7 @@
 				</div>
 				<div class="popup__btn">
 					<div class="btns">
-						<button class="btns__submit">确定</button>
+						<button class="btns__submit">通过</button>
 					</div>
 				</div>
 				<div class="popup__upload"> 
@@ -67,14 +56,23 @@
 	</div>
 </template>
 
-
 <script lang="ts">
-
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import { State, Action, Getter, namespace } from "vuex-class";
+import * as Model from "@/models/interfaces/member";
+
+const memberModule = namespace("Member");
 
 @Component
-export default class SearchEditPopup extends Vue {
-}
+export default class Detail extends Vue {
+  @memberModule.State("memberInfos") members!: Model.ITestMemberResponse[];
 
+  @Action("Member/getMember") private getMember!: any;
+  mounted() {
+    this.getMember();
+    // console.log(this.$route.params.uuid);
+  }
+}
 </script>
+
