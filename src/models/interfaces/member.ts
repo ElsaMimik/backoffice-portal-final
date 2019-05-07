@@ -4,7 +4,7 @@ import { IFile } from './file';
 export interface IMembersResponse {
     members: IMember[];
 }
-interface IMember {
+export interface IMember {
     uuid: string;
     riskControlLevel: Status.RiskControllLevel;
     isBlacklisting: Status.YesNo;

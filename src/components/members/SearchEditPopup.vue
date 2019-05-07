@@ -47,7 +47,7 @@
         </div>
         <div class="popup__btn">
           <div class="btns">
-            <button class="btns__submit">确定</button>
+            <button class="btns__submit" @click="confirm">确定</button>
           </div>
         </div>
         <div class="popup__upload">
@@ -65,7 +65,7 @@
             </div>
           </div>
           <div class="btns">
-            <button class="btns__green">上传</button>
+            <input type="file" class="btns__green" id="file" @change="getFile">
           </div>
         </div>
       </form>
@@ -78,13 +78,37 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { PopupType } from "@/models/status/member";
+import * as FileModel from "@/models/interfaces/file";
 
 @Component
 export default class SearchEditPopup extends Vue {
+  uploadedFiles: FileModel.IFile[] = [];
+
   close() {
     this.$emit("close-popup", {
       type: PopupType.Edit
     });
+  }
+
+  confirm() {}
+
+  mounted() {}
+
+  getFile(evt: any) {
+    const f = evt.target.files[0];
+    const reader = new FileReader();
+    reader.onload = ((theFile) => {
+      return (e: any) => {
+        const binaryData = e.target.result;
+        const base64String = window.btoa(binaryData);
+        this.uploadedFiles.push({
+          fileId: "",
+          fileName: f.name,
+          file: base64String
+        });
+      };
+    })(f);
+    reader.readAsBinaryString(f);
   }
 }
 </script>

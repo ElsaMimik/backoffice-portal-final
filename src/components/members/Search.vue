@@ -29,7 +29,28 @@
           <th></th>
           <th></th>
         </tr>
-        <tr>
+        <tr v-for="(item, index) in searchResult" :key="random(index)">
+          <td class="notice">{{ item.uuid | firstEightYards }}</td>
+          <td> {{ item.riskControlLevel }} </td>
+          <td> {{ item.amount }} </td>
+          <td> {{ item.freezeAmount }} </td>
+          <td> {{ item.accountStatus }} </td>
+          <td> {{ item.withdrawalStatus }} </td>
+          <td> {{ item.createDate }} </td>
+          <td> {{ item.isBlacklisting }} </td>
+          <td> {{ item.roleCode }} </td>
+          <td> {{ item.uuid }} </td>
+          <td>
+            <button class="btns__green" @click="showUpdateStatusPopup">执行</button>
+          </td>
+          <td>
+            <button class="btns__green" @click="showStatusRecordPopup">查询异动纪录</button>
+          </td>
+          <td>
+            <div class="btns__right"></div>
+          </td>
+        </tr>
+        <!-- <tr>
           <td class="notice">75339673</td>
           <td>C</td>
           <td>1,000.0000</td>
@@ -73,7 +94,7 @@
           <td>
             <div class="btns__right"></div>
           </td>
-        </tr>
+        </tr> -->
       </table>
     </div>
   </div>
@@ -81,7 +102,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-// import { mapState } from 'vuex'
 import { Component, Prop, Emit } from "vue-property-decorator";
 import { State, Action, Getter, namespace } from "vuex-class";
 import * as Model from "@/models/interfaces/member";
@@ -90,21 +110,25 @@ import MemberApi from "@/api/member";
 
 const memberModule = namespace("Member");
 
-@Component
+@Component({
+  filters: { 
+    firstEightYards(data: string) {
+      return data.slice(0, 8);
+    }
+  }
+})
 export default class Search extends Vue {
   shortUuid: string = "";
-  @memberModule.State("memberInfos") members!: Model.ITestMemberResponse[];
+  searchResult: Model.IMember[] = [];
   @Action("Member/getMember") private getMember!: any;
 
   mounted() {
     this.getMember();
   }
   searchClick() {
-    console.log(this.shortUuid);
-    MemberApi.getMemberListAsync(this.shortUuid).then(aaa => {
-      // console.log(aaa);
+    MemberApi.getMemberListAsync(this.shortUuid).then(res => {
+      this.searchResult = res.members;
     });
-    // console.log(yyy)
   }
 
   showUpdateStatusPopup(data: any) {
@@ -120,6 +144,10 @@ export default class Search extends Vue {
       open: true,
       data
     });
+  }
+
+  random(data: string) {
+    return Math.random();
   }
 }
 </script>
