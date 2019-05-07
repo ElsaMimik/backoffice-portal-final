@@ -36,7 +36,7 @@
           <td> {{ item.freezeAmount | amountDisplay }} </td>
           <td :class="{ 'notice': item.accountStatus !== 'Normal' }">{{ item.accountStatus | accountStatusDisplay }}</td>
           <td :class="{ 'notice': item.withdrawalStatus !== 'Normal' }">{{ item.withdrawalStatus | withdrawalStatusDisplay }}</td>
-          <td> {{ item.createDate | timestampDisplay }} </td>
+          <td> {{ item.createDate | timestampToDate }} </td>
           <td :class="{ 'notice': item.isBlacklisting }"> {{ item.isBlacklisting | isBlacklistingDisplay }} </td>
           <td> {{ item.roleCode }} </td>
           <td> {{ item.uuid }} </td>

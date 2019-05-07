@@ -79,13 +79,11 @@ import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import { PopupType } from "@/models/status/member";
 import * as Model from "@/models/interfaces/member";
-import { fileHandlerMixin } from '@/utilities/file-handler';
+import FileHandlerMixin from '@/utilities/file-handler';
 
-@Component({
-  mixins: [fileHandlerMixin]
-})
+@Component
 
-export default class SearchEditPopup extends Vue {
+export default class SearchEditPopup extends FileHandlerMixin {
   [x: string]: any;
   @Prop(Object) readonly editMemberData!: Model.IMember;
 
@@ -104,7 +102,7 @@ export default class SearchEditPopup extends Vue {
   mounted() {}
 
   selectFile(evt: any) {
-    this.getFile(evt);
+    this.uploadFile(evt);
   }
 }
 </script>

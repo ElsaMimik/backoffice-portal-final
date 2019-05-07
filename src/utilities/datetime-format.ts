@@ -1,6 +1,6 @@
 export const datetimeMixin = {
     filters: {
-        timestampDisplay(timestamp: number) {
+        timestampToDate(timestamp: number) {
             const date = new Date(timestamp);
             const iso = date.toISOString().slice(0, 10).replace(/-/g, '-');
             return iso;
