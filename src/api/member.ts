@@ -7,22 +7,13 @@ export default {
      * 1. Get Member List
      * @description 後台人員查詢會員資料(使用uuid前八碼查詢) [BO-18]
      */
-    async getMemberListAsync(shortUuid: string): Promise<any> {
+    async getMemberListAsync(shortUuid: string): Promise<Model.IMembersResponse> {
         const config = {
             url: `/member/members?short-uuid=${shortUuid}`,
             method: 'get'
         };
-        const result = await Handler.request(config);
-        // .then(data => {
-        //     console.log(data)
-        //     return Promise.resolve(data);
-        // })
-        // .catch(err => {
-        //     console.log(err)
-        //     return Promise.reject();
-        // });
-        return result;
-        return Promise.reject();
+        const result: Model.IMembersResponse = await Handler.request(config);
+        return <Model.IMembersResponse>result;
     },
     /**
      * 2. Get Member Profile By Uuid
