@@ -11,8 +11,7 @@
         <div class="popup__info-title">
           帐号ID
           <div class="popup__info-items">
-            <p>7533967396736733</p>
-            <p>7533967396736733</p>
+            <p> {{ uuid }}</p>
           </div>
         </div>
       </div>
@@ -100,6 +99,8 @@ import * as Model from "@/models/interfaces/member";
 @Component
 export default class SearchRecordpopup extends Vue {
   @Prop(Object) readonly editMemberData!: Model.IMember;
+
+  uuid: string = this.editMemberData.uuid;
   close() {
     this.$emit("close-popup", {
       type: PopupType.Record
