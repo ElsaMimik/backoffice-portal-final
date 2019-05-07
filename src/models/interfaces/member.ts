@@ -7,12 +7,12 @@ export interface IMembersResponse {
 export interface IMember {
     uuid: string;
     riskControlLevel: Status.RiskControllLevel;
-    isBlacklisting: Status.YesNo;
-    amount: string;
-    freezeAmount: string;
+    isBlacklisting: boolean;
+    amount: number;
+    freezeAmount: number;
     accountStatus: Status.AccountStatus;
     withdrawalStatus: Status.WithdrawalStatus;
-    createDate: string;
+    createDate: number;
     roleCode: Status.RoleCode;
 }
 

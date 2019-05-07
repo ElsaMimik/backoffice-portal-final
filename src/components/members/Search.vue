@@ -32,12 +32,12 @@
         <tr v-for="(item, index) in searchResult" :key="random(index)">
           <td class="notice">{{ item.uuid | firstEightYards }}</td>
           <td> {{ item.riskControlLevel }} </td>
-          <td> {{ item.amount }} </td>
-          <td> {{ item.freezeAmount }} </td>
-          <td> {{ item.accountStatus }} </td>
-          <td> {{ item.withdrawalStatus }} </td>
-          <td> {{ item.createDate }} </td>
-          <td> {{ item.isBlacklisting }} </td>
+          <td> {{ item.amount | amountDisplay }} </td>
+          <td> {{ item.freezeAmount | amountDisplay }} </td>
+          <td :class="{ 'notice': item.accountStatus !== 'Normal' }">{{ item.accountStatus | accountStatusDisplay }}</td>
+          <td :class="{ 'notice': item.withdrawalStatus !== 'Normal' }">{{ item.withdrawalStatus | withdrawalStatusDisplay }}</td>
+          <td> {{ item.createDate | timestampDisplay }} </td>
+          <td :class="{ 'notice': item.isBlacklisting }"> {{ item.isBlacklisting | isBlacklistingDisplay }} </td>
           <td> {{ item.roleCode }} </td>
           <td> {{ item.uuid }} </td>
           <td>
@@ -50,51 +50,6 @@
             <div class="btns__right"></div>
           </td>
         </tr>
-        <!-- <tr>
-          <td class="notice">75339673</td>
-          <td>C</td>
-          <td>1,000.0000</td>
-          <td>1,000.0000</td>
-          <td class="notice">
-            <p>不可登入</p>
-            <p>(E2)</p>
-          </td>
-          <td>自动</td>
-          <td>2019-01-03</td>
-          <td>Ｙ</td>
-          <td>直客</td>
-          <td>75339673967367337533967396736733</td>
-          <td>
-            <button class="btns__green" @click="showUpdateStatusPopup">执行</button>
-          </td>
-          <td>
-            <button class="btns__green" @click="showStatusRecordPopup">查询异动纪录</button>
-          </td>
-          <td>
-            <div class="btns__right"></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="notice">75339673</td>
-          <td>C</td>
-          <td>1,000.0000</td>
-          <td>1,000.0000</td>
-          <td>正常</td>
-          <td class="notice">不可提现</td>
-          <td>2019-01-03</td>
-          <td class="notice">Ｙ</td>
-          <td>直客</td>
-          <td>75339673967367337533967396736733</td>
-          <td class="notice">
-            <button class="btns__green">执行</button>
-          </td>
-          <td>
-            <button class="btns__green">查询异动纪录</button>
-          </td>
-          <td>
-            <div class="btns__right"></div>
-          </td>
-        </tr> -->
       </table>
     </div>
   </div>
@@ -114,6 +69,26 @@ const memberModule = namespace("Member");
   filters: { 
     firstEightYards(data: string) {
       return data.slice(0, 8);
+    },
+    uuidDisplay(data: string) {
+      return data.replace(/\-/g,'');
+    },
+    accountStatusDisplay(data: string) {
+      return data === 'Normal' ? '正常' : '不可登入';
+    },
+    withdrawalStatusDisplay(data: string) {
+      return data === 'Normal' ? '正常' : '不可提現';
+    },
+    isBlacklistingDisplay(data: boolean) {
+      return data ? '是' : '不是';
+    },
+    timestampDisplay(timestamp: number) {
+      const date = new Date(timestamp);
+      const iso = date.toISOString().slice(0,10).replace(/-/g, '-');
+      return iso;
+    },
+    amountDisplay(amount: number) {
+      return amount.toFixed(2);
     }
   }
 })
