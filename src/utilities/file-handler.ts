@@ -28,4 +28,4 @@ export const fileHandlerMixin = {
             reader.readAsBinaryString(f);
         }
     }
-}
+};

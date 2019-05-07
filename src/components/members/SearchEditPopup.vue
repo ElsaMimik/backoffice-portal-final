@@ -86,7 +86,8 @@ import { fileHandlerMixin } from '@/utilities/file-handler';
 })
 
 export default class SearchEditPopup extends Vue {
-  @Prop(Object) readonly editMemberData!: Model.IMember
+  [x: string]: any;
+  @Prop(Object) readonly editMemberData!: Model.IMember;
 
   editData: Model.IMember = this.editMemberData;
   selectedLoginStatus: string = '';

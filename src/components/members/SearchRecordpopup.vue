@@ -99,7 +99,7 @@ import * as Model from "@/models/interfaces/member";
 
 @Component
 export default class SearchRecordpopup extends Vue {
-  @Prop(Object) readonly editMemberData!: Model.IMember
+  @Prop(Object) readonly editMemberData!: Model.IMember;
   close() {
     this.$emit("close-popup", {
       type: PopupType.Record
