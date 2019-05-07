@@ -8,7 +8,6 @@
 			<DetailLogin />
 			<DetailRelations />
 			<DetailRiskControl />
-			
 		</div>
 	</div>
 </template>

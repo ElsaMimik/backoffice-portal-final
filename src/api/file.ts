@@ -7,7 +7,7 @@ export default {
      */
     async uploadFile(fileName: string, file: string): Promise<FileModel.IFile> {
         const config = {
-            url: '/file/123',
+            url: '/file',
             method: 'post',
             data: { file, fileName }
         };

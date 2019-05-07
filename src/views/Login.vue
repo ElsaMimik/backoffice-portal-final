@@ -13,7 +13,7 @@ import { Component } from "vue-property-decorator";
 export default class Login extends Vue {
 
   mounted() {
-    Cookies.set('token','eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyMjIyMjIiLCJ1c2VyX2lkIjoiOTI2NjQ3ZjQtM2QxYy00ZjdkLWI3YTEtMTk3NmUyMjEzZWFmIiwiZXhwaXJlZF9hdCI6MTU1NzEzMTc5NX0.6c6SEqAd8r2gAD7lqW0yVdt1DT7enxYtXbafkoAN9h2qmTxrsKwcOcEqTQODKjijBds5oR6yOJoM45Uvg26S6A');
+    Cookies.set('token','eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyMjIyMjIiLCJ1c2VyX2lkIjoiYWI5NDQyNmEtZDMwZi00ZDhiLWE1YzMtZjczYTViYjM5ZDhhIiwiZXhwaXJlZF9hdCI6MTU1NzIxNjI3NH0.km_WSrw_OhCG9ClCCGS5s2vahgUGpuxcQbI-G8WnGrndNSitHhkM-LvG53y3RfvCDW0SabW7P7L4NlArk6tKkQ');
   }
 }
 </script>
