@@ -17,7 +17,6 @@ import { IError } from "@/models/interfaces/error";
 import EventBus from "@/utilities/event-bus";
 const authModule = namespace("Auth");
 const errorModule = namespace("Error");
-import AuthApi from "@/api/auth";
 
 @Component({
   components: {
@@ -26,7 +25,6 @@ import AuthApi from "@/api/auth";
   }
 })
 export default class App extends Vue {
-  
   isLogin: boolean = false;
   @authModule.State("apiPaths") apiPaths!: string[];
   @errorModule.State("errorHistory") errorHistory!: IError[];
@@ -34,12 +32,8 @@ export default class App extends Vue {
   @Action("Auth/setApiPath") private setApiPath!: any;
   @Action("Error/getError") private getError!: any;
   mounted() {
-    // AuthApi.getMenu().then(data => {
-      // context.commit(GET_AUTH_ROLE_STRING, data);
-      this.setApiPath(["/member", "/account/modified/abnormal/approval","/risk-control/check-member-status"]);
-      this.isLogin = this.apiPaths.length > 0;
-    // });
-    
+    this.isLogin = this.apiPaths.length > 0;
+
     EventBus.$on("api-error", (err: any) => {
       this.getError(err);
       // console.log('api-error', err);

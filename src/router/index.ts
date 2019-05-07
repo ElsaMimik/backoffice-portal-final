@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Vuex from 'vuex';
 import { checkPageAuth } from '@/router/auth';
+import AuthApi from "@/api/auth";
 
 Vue.use(Router);
 Vue.use(Vuex);
@@ -31,10 +32,12 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   next();
   let apiPaths = [];
-  if (router.app.$options.store) {
-    // router.app.$options.store.dispatch('Auth/getApiPath');
-    apiPaths = router.app.$options.store.state.Auth.apiPaths;
-    router.app.$options.store.dispatch('Auth/setCurrentPath', to.name);
+  const store = router.app.$options.store;
+  if (store) {
+    // AuthApi.getMenu().then(data => {});
+    store.dispatch('Auth/setApiPath', ["/member", "/account/modified/abnormal/approval","/risk-control/check-member-status"]);
+    apiPaths = store.state.Auth.apiPaths;
+    store.dispatch('Auth/setCurrentPath', to.name);
   }
   checkPageAuth(to.name, apiPaths).then(res => {
     // console.log('是否有權限', res);

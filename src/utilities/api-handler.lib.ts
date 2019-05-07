@@ -6,7 +6,6 @@ class HttpModel {
   constructor() {
     // axios.defaults.baseURL = baseURL;
   }
-
   /**
    * axios API handler
    * @author rourou
@@ -17,7 +16,6 @@ class HttpModel {
     // cfg.baseURL = 'https://backoffice-api.devel.starlordtech.com/api/v1/222222/';
     cfg.headers = {
       'Authorization': `Bearer ${Cookies.get('token')}`,
-      // 'Authorization': 'Bearer ',
       'content-type': 'application/x-www-form-urlencoded',
     };
     const instance = axios.create();
