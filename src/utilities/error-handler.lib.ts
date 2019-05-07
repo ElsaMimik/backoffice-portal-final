@@ -9,7 +9,7 @@ import EventBus from '@/utilities/event-bus';
  */
 const responseSuccess = (response: any) => {
     // return Promise.resolve(response.data);
-    return Promise.resolve(response.data);
+    return Promise.resolve(response);
 };
 
 /**

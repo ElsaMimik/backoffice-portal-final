@@ -12,8 +12,8 @@ export default {
             url: `/member/members?short-uuid=${shortUuid}`,
             method: 'get'
         };
-        const result: Model.IMembersResponse = await Handler.request(config);
-        return <Model.IMembersResponse>result;
+        const result = await Handler.request<Model.IMembersResponse>(config);
+        return <Model.IMembersResponse>(result.data);
     },
     /**
      * 2. Get Member Profile By Uuid
