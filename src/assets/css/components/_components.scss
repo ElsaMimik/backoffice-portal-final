@@ -88,9 +88,6 @@ table.list {
 		word-break: break-all;
 		padding: 0 5px;
 		max-width: 130px;
-		// &:first-child {
-		// 	max-width: 115px;
-		// }
 	}
 }
 
@@ -215,7 +212,6 @@ table.list {
 		padding: 10px 0;
 	}
 	&__info {
-		border-top: 1px dotted #687826;
 		padding: 5px 0 0 0;
 		&-title {
 			color: #979797;

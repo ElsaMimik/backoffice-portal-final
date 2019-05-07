@@ -53,9 +53,8 @@
 					<input id="langugae" type="checkbox">
 					<label for="langugae"><span>簡</span><span>繁</span></label>
 				</div>
-				<p>CS_0001
-					<div class="logout">登出</div>
-				</p>
+				<span>CS_0001</span>
+				<div class="logout">登出</div>
 			</div>
     </header>
 		<router-view/>

@@ -152,20 +152,3 @@ export default class Detail extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.account-transaction {
-	table.list {
-		text-align: left;
-		td {
-			height: 100px;
-			vertical-align: middle;
-			word-break: break-all;
-			padding: 0 10px;
-			max-width: 160px;
-			&:nth-child(2) {
-				max-width: 135px;
-			}
-		}
-	}
-}
-</style>

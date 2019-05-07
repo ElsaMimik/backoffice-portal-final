@@ -7,7 +7,7 @@
 				</div>
 			</div>
 			<div class="popup__title">交易 - 人工提现</div>
-			<div class="popup__info">
+			<div class="popup__info dottedline-top">
 				<div class="popup__info-title">帐号ID
 					<div class="popup__info-items">
 						<p>7533967396736733</p>
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="popup__title">建单</div>
-			<div class="popup__info">
+			<div class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">提现金额
 						<div class="popup__info-items">1,000.00</div>
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 			<div class="popup__title">风控审核</div>
-			<div class="popup__info">
+			<div class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">时间
 						<div class="popup__info-items">2019-01-01 17:00</div>
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<div class="popup__title">审核</div>
-			<div class="popup__info">
+			<div class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">时间
 						<div class="popup__info-items">2019-01-01 17:00</div>

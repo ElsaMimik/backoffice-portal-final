@@ -18,3 +18,17 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+	.account--vip-withdraw--bill {
+		table.list {
+			text-align: left;
+			td {
+				max-width: inherit;
+				&:first-child {
+					max-width: 120px;
+				}
+			}
+		}
+	}
+</style>

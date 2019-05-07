@@ -1,6 +1,6 @@
 <template>
 	<div class="member__detail-logindata">
-        <div class="member__detail-list dottedline">
+        <div class="member__detail-list dottedline-bottom">
             <div class="member__detail-title">最新登入时间
                 <div class="member__detail-items">2019-01-01 12:00</div>
             </div>

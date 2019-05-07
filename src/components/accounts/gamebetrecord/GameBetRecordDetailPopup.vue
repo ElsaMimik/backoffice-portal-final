@@ -7,7 +7,7 @@
 				</div>
 			</div>
 			<div class="popup__title">注单明细</div>
-			<div class="popup__info">
+			<div class="popup__info dottedline-top">
 				<div class="popup__info-title">帐号ID
 					<div class="popup__info-items">
 						<p>7533967396736733</p>
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="popup__title"></div>
-			<div class="popup__info">
+			<div class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">名称
 						<div class="popup__info-items">火龙珠</div>
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 			<div class="popup__title"></div>
-			<div class="popup__info">
+			<div class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">派彩时间
 						<div class="popup__info-items">2019-01-01 17:00</div>
