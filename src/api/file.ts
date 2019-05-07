@@ -17,6 +17,7 @@ export default {
         //         data = <FileModel.IFile>res.data;
         //     });
         // return data;
+        return Promise.resolve();
     },
     /**
      * 2. Get File

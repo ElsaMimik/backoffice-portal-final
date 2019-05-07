@@ -28,16 +28,16 @@
         <div class="popup__action">
           <div class="popup__action-title">
             更改帐号状态
-            <select name>
-              <option value>正常</option>
-              <option value>不可登入(E2)</option>
+            <select v-model="selectedLoginStatus">
+              <option value="Normal">正常</option>
+              <option value="E2">不可登入(E2)</option>
             </select>
           </div>
           <div class="popup__action-title">
             更改提现状态
-            <select name>
-              <option value>自动</option>
-              <option value>不可提現(E1)</option>
+            <select v-model="selectedWithdrawalStatus">
+              <option value="Normal">自动</option>
+              <option value="E1">不可提現(E1)</option>
             </select>
           </div>
         </div>
@@ -65,7 +65,7 @@
             </div>
           </div>
           <div class="btns">
-            <input type="file" class="btns__green" id="file" @change="getFile">
+            <input type="file" class="btns__green" id="file" @change="selectFile">
           </div>
         </div>
       </form>
@@ -78,15 +78,19 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import { PopupType } from "@/models/status/member";
-import * as FileModel from "@/models/interfaces/file";
 import * as Model from "@/models/interfaces/member";
+import { fileHandlerMixin } from '@/utilities/file-handler';
 
-@Component
+@Component({
+  mixins: [fileHandlerMixin]
+})
+
 export default class SearchEditPopup extends Vue {
   @Prop(Object) readonly editMemberData!: Model.IMember
 
   editData: Model.IMember = this.editMemberData;
-  uploadedFiles: FileModel.IFile[] = [];
+  selectedLoginStatus: string = '';
+  selectedWithdrawalStatus: string = '';
 
   close() {
     this.$emit("close-popup", {
@@ -98,21 +102,8 @@ export default class SearchEditPopup extends Vue {
 
   mounted() {}
 
-  getFile(evt: any) {
-    const f = evt.target.files[0];
-    const reader = new FileReader();
-    reader.onload = ((theFile) => {
-      return (e: any) => {
-        const binaryData = e.target.result;
-        const base64String = window.btoa(binaryData);
-        this.uploadedFiles.push({
-          fileId: "",
-          fileName: f.name,
-          file: base64String
-        });
-      };
-    })(f);
-    reader.readAsBinaryString(f);
+  selectFile(evt: any) {
+    this.getFile(evt);
   }
 }
 </script>
