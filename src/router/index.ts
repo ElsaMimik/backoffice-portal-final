@@ -31,22 +31,26 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   next();
-  let apiPaths = [];
+  let roleString: string[] = [];
   const store = router.app.$options.store;
   if (store) {
-    // AuthApi.getMenu().then(data => {});
-    store.dispatch('Auth/setApiPath', ["/member", "/account/modified/abnormal/approval","/risk-control/check-member-status"]);
-    apiPaths = store.state.Auth.apiPaths;
-    store.dispatch('Auth/setCurrentPath', to.name);
+    AuthApi.getMenu().then(data => {
+      store.dispatch('Auth/setApiPath', data.menu);
+      roleString = data.menu;
+      store.dispatch('Auth/setCurrentPath', to.name);
+
+      checkPageAuth(to.name, roleString).then(res => {
+        // console.log(roleString)
+        // console.log(to.name)
+        console.log('是否有權限', res);
+        if (res) {
+          next();
+        } else {
+          // window.location.href = 'http://www.google.com';
+        }
+      });
+    });
   }
-  checkPageAuth(to.name, apiPaths).then(res => {
-    // console.log('是否有權限', res);
-    if (res) {
-      next();
-    } else {
-      // window.location.href = 'http://www.google.com';
-    }
-  });
 });
 
 export default router;

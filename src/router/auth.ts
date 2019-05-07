@@ -124,12 +124,13 @@ const component = [
  * @author rourou
  * @description router.beforeEach 檢查
 */
-const checkPageAuth = async (to: any, apiPaths: string[]) => {
+const checkPageAuth = async (to: any, roleString: string[]) => {
+    console.log(roleString)
     let isAuth = false;
-    await spiltPath(apiPaths).then(() => {
+    await spiltPath(roleString).then(() => {
         const componentInfo = component.find(s => s.routerName === to);
         if (componentInfo) {
-            isAuth = apiPaths.includes(componentInfo.apiPath);
+            isAuth = roleString.includes(componentInfo.apiPath);
         }
     });
     return isAuth;

@@ -7,15 +7,19 @@ export default {
      * @description 取得客服後台菜單清單與權限，且每次換頁也會詢問
      */
     async getMenu(): Promise<Model.IMenuResponse> {
-        const config = {
-            url: '/menu',
-            method: 'get',
-        };
-        let data!: Model.IMenuResponse;
-        Handler.request<Model.IMenuResponse>(config)
-            .then(res => {
-                data = <Model.IMenuResponse>res.data;
-            });
-        return data;
+        // const config = {
+        //     url: '/menu',
+        //     method: 'get',
+        // };
+        // let data!: Model.IMenuResponse;
+        // Handler.request<Model.IMenuResponse>(config)
+        //     .then(res => {
+        //         data = <Model.IMenuResponse>res.data;
+        //     });
+        return Promise.resolve(
+            <Model.IMenuResponse>(
+                { menu: ["/member", "/account/modified/abnormal/approval", "/risk-control/check-member-status"] }
+            ));
+        // return data;
     },
 };
