@@ -8,7 +8,8 @@ import EventBus from '@/utilities/event-bus';
  * @description response success
  */
 const responseSuccess = (response: any) => {
-    return response;
+    // return Promise.resolve(response.data);
+    return Promise.resolve(response.data);
 };
 
 /**

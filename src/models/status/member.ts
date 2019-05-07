@@ -67,3 +67,11 @@ export enum YesNo {
   No = '0',
   Yes = '1',
 }
+
+/**
+ * @description
+ */
+export enum PopupType {
+  Edit = 'Edit',
+  Record = 'Record',
+}

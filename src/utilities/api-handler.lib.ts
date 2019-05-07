@@ -11,7 +11,7 @@ class HttpModel {
    * @author rourou
    * @description 一律透過此method呼叫api
   */
-  async request<T>(cfg: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  async request(cfg: AxiosRequestConfig) {
     cfg.baseURL = '/backoffice/api/v1/222222/';
     // cfg.baseURL = 'https://backoffice-api.devel.starlordtech.com/api/v1/222222/';
     cfg.headers = {
@@ -28,7 +28,7 @@ class HttpModel {
     let result;
     try {
       result = await instance.request(cfg);
-      return <AxiosResponse<T>>result;
+      return Promise.resolve(result);
     }
     catch (throwError) {
       return Promise.reject(throwError);
