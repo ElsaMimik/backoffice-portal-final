@@ -102,14 +102,14 @@ export default class Layout extends Vue {
 	
 	mounted() {
 		getMenu(this.apiPaths).then(res => {
-				this.menu = res;
-				const rounter = Auth.component.find(s => s.routerName === this.currentPath);
-				if(rounter) {
-					spiltPath([rounter.apiPath]).then(response => {
-						this.openMenu = response;
-					});
-				}
-			});
+			this.menu = res;
+			const rounter = Auth.component.find(s => s.routerName === this.currentPath);
+			if(rounter) {
+				spiltPath([rounter.apiPath]).then(response => {
+					this.openMenu = response;
+				});
+			}
+		});
 	}
 }
 </script>
