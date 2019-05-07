@@ -82,11 +82,8 @@ router.beforeEach((to, from, next) => {
       store.dispatch('Auth/setApiPath', data.menu);
       roleString = data.menu;
       store.dispatch('Auth/setCurrentPath', to.name);
-
       checkPageAuth(to.name, roleString).then(res => {
-        // console.log(roleString)
-        // console.log(to.name)
-        console.log('是否有權限', res);
+        // console.log('是否有權限', res);
         if (res) {
           next();
         } else {
