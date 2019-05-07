@@ -101,12 +101,12 @@ export default class Detail extends Vue {
 		text-align: right;
 		padding: 0 10px;
 		&::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-			background-image: url("/./src/assets/image/plus-green.svg"),url("/./src/assets/image/minus-red.svg");
+			-webkit-appearance: none;
+			background-image: url("../../../../assets/image/plus-green.svg"),url("../../../../assets/image/minus-red.svg");
 			background-repeat: no-repeat,no-repeat;
 			background-position: top center, bottom center;
 			background-size: contain;
-			width: 30px;
+			width: 10%;
 			opacity: .6; 
 			position: absolute;
 			top: 0;
