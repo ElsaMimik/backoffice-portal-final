@@ -7,14 +7,14 @@
 			<li v-for="(item01, index) in filterMenuByAuth(menu)" :key="index" class="level01" @click.stop="menuClick(item01)">
 				<div v-if="item01.isShow" v-show="isOpen(item01)">{{ item01.displayName }}</div>
 				<ul v-for="(item02, index) in  filterMenuByAuth(item01.children)" :key="index">
-					<li class="level02" @click.stop="menuClick(item02)">
-						<div v-if="item02.isShow" v-show="isOpen(item02)">{{ item02.displayName }}</div>
+					<li class="level02" @click.stop="menuClick(item02)" v-show="isOpen(item02)">
+						<div v-if="item02.isShow">{{ item02.displayName }}</div>
 						<ul v-for="(item03, index) in filterMenuByAuth(item02.children)" :key="index">
-							<li class="level03" @click.stop="menuClick(item03)">
-								<div v-if="item03.isShow" v-show="isOpen(item03)">{{ item03.displayName }}</div>
+							<li class="level03" @click.stop="menuClick(item03)" v-show="isOpen(item03)">
+								<div v-if="item03.isShow">{{ item03.displayName }}</div>
 								<ul v-for="(item04, index) in filterMenuByAuth(item03.children)" :key="index">
-									<li class="level04" @click.stop="menuClick(item04)">
-										<div v-if="item04.isShow" v-show="isOpen(item04)">{{ item04.displayName }}</div>
+									<li class="level04" @click.stop="menuClick(item04)" v-if="item04.isShow" v-show="isOpen(item04)">
+										<div>{{ item04.displayName }}</div>
 									</li>
 								</ul>
 							</li>
@@ -33,7 +33,7 @@
 				<span>CS_0001</span>
 				<div class="logout">登出</div>
 			</div>
-    </header>
+		</header>
 		<router-view/>
 	</div>
 </template>
@@ -60,11 +60,11 @@ export default class Layout extends Vue {
 	@authModule.State("apiPaths") apiPaths!: string[];
 	@authModule.State("currentPath") currentPath!: string;
 	
-  btnshow() {
-    this.isActive = !this.isActive;
-  }
-  open() {
-    this.popup = !this.popup;
+	btnshow() {
+		this.isActive = !this.isActive;
+	}
+	open() {
+		this.popup = !this.popup;
 	}
 
 	isOpen(obj: any) {
