@@ -57,12 +57,13 @@ export default {
      * 3. Update Member Status
      * @description 調整會員狀態 [BO-17/BO-185]
      */
-    async updateMemberStatus(payload: Model.IMemberStatusRequest, uuid: string): Promise<boolean|any> {
+    async updateMemberStatus(payload: Model.IMemberStatusRequest, uuid: string): Promise<boolean> {
         const config = {
             url: `/member/status/${uuid}`,
             method: 'patch',
             data: payload,
         };
+        return Promise.resolve(true);
     },
     /**
      * 4. Get Member Status History

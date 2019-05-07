@@ -74,4 +74,5 @@ export enum YesNo {
 export enum PopupType {
   Edit = 'Edit',
   Record = 'Record',
+  Reload = 'Reload',
 }

@@ -113,7 +113,11 @@ export default class SearchEditPopup extends FileHandlerMixin {
       files: this.uploadedFiles.map(s=>s.fileId),
     };
     // console.log(data)
-    // MemberApi.updateMemberStatus()
+    MemberApi.updateMemberStatus(data, this.editMemberData.uuid).then((res) => {
+      this.$emit("close-popup", {
+        type: Status.PopupType.Reload
+      });
+    });
   }
 
   selectFile(evt: any) {

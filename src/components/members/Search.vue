@@ -57,7 +57,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Component, Prop, Emit, Mixins } from "vue-property-decorator";
+import { Component, Prop, Emit, Mixins, Watch } from "vue-property-decorator";
 import { State, Action, Getter, namespace } from "vuex-class";
 import * as Model from "@/models/interfaces/member";
 import { PopupType } from "@/models/status/member";
@@ -74,7 +74,13 @@ const memberModule = namespace("Member");
 export default class Search extends Vue {
   shortUuid: string = "";
   searchResult: Model.IMember[] = [];
+  @Prop(Number) readonly reload!: number;
   @Action("Member/getMember") private getMember!: any;
+  
+  @Watch('reload')
+  onReloadChange() {
+    this.searchClick();
+  }
 
   mounted() {
     this.getMember();
