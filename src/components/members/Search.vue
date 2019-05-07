@@ -102,7 +102,7 @@ export default class Search extends Vue {
   searchClick() {
     console.log(this.shortUuid);
     MemberApi.getMemberListAsync(this.shortUuid).then(aaa => {
-      console.log(aaa);
+      // console.log(aaa);
     });
     // console.log(yyy)
   }
