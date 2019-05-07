@@ -76,12 +76,16 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Component } from "vue-property-decorator";
+import { Component, Prop } from "vue-property-decorator";
 import { PopupType } from "@/models/status/member";
 import * as FileModel from "@/models/interfaces/file";
+import * as Model from "@/models/interfaces/member";
 
 @Component
 export default class SearchEditPopup extends Vue {
+  @Prop(Object) readonly editMemberData!: Model.IMember
+
+  editData: Model.IMember = this.editMemberData;
   uploadedFiles: FileModel.IFile[] = [];
 
   close() {

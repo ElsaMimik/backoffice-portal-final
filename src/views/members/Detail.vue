@@ -2,12 +2,12 @@
   <div class="wrap">
 		<div class="title">会员状态修改</div>
 		<div class="member__detail">
-			<Detail />
-			<DetailBasic />
-			<DetailTransaction />
-			<DetailLogin />
-			<DetailRelations />
-			<DetailRiskControl />
+			<Detail @change-tab="changeTab"/>
+			<DetailBasic v-if="currentTab==='Basic'"/>
+			<DetailTransaction v-if="currentTab==='Transaction'"/>
+			<DetailLogin v-if="currentTab==='Login'"/>
+			<DetailRelations v-if="currentTab==='Relations'"/>
+			<DetailRiskControl v-if="currentTab==='RiskControl'"/>
 		</div>
 	</div>
 </template>
@@ -31,6 +31,16 @@ export default Vue.extend({
     DetailRiskControl,
     DetailTransaction,
   },
+  data: () => {
+    return {
+      currentTab: 'Basic'
+    };
+  },
+  methods: {
+	  changeTab(tab: string) {
+		  this.currentTab = tab;
+	  }
+  }
 });
 </script>
 

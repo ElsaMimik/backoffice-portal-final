@@ -58,11 +58,11 @@
 		<div class="member__detail-btns">
 			<div class="member__detail-list">
 				<div class="btns">
-					<button class="btns__green active">基本资料</button>
-					<button class="btns__green">交易资料</button>
-					<button class="btns__green">登入资料</button>
-					<button class="btns__green">关联资料</button>
-					<button class="btns__green">风控条件</button>
+					<button class="btns__green active" @click="changeTab('Basic')">基本资料</button>
+					<button class="btns__green" @click="changeTab('Transaction')">交易资料</button>
+					<button class="btns__green" @click="changeTab('Login')">登入资料</button>
+					<button class="btns__green" @click="changeTab('Relations')">关联资料</button>
+					<button class="btns__green" @click="changeTab('RiskControl')">风控条件</button>
 				</div>
 			</div>
 		</div>
@@ -80,11 +80,18 @@ const memberModule = namespace("Member");
 @Component
 export default class Detail extends Vue {
   @memberModule.State("memberInfos") members!: Model.ITestMemberResponse[];
-
   @Action("Member/getMember") private getMember!: any;
   mounted() {
     this.getMember();
     // console.log(this.$route.params.uuid);
+  }
+
+  changeTab(tab: string) {
+	this.init();
+	this.$emit("change-tab", tab);
+  }
+  init() {
+	//   console.log(this.$route.params.uuid);
   }
 }
 </script>

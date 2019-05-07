@@ -1,8 +1,8 @@
 <template>
   <div>
     <Search @show-update-status="showPopup"/>
-    <SearchEdit v-if="editPopup" @close-popup="closePopup"/>
-    <SearchRecord v-if="recordPopup" @close-popup="closePopup"/>
+    <SearchEdit v-if="editPopup" @close-popup="closePopup" :edit-member-data="editMemberData"/>
+    <SearchRecord v-if="recordPopup" @close-popup="closePopup" :edit-member-data="editMemberData"/>
   </div>
 </template>
 
@@ -23,12 +23,14 @@ export default Vue.extend({
   data: () => {
     return {
       editPopup: false,
-      recordPopup: false
+      recordPopup: false,
+      editMemberData: {},
     };
   },
   mounted() {},
   methods: {
     showPopup(payload: any) {
+      this.editMemberData = payload.data;
       if (payload.type === PopupType.Edit) {
         this.editPopup = payload.open;
       } else if (payload.type === PopupType.Record) {
@@ -36,6 +38,7 @@ export default Vue.extend({
       }
     },
     closePopup(payload: any) {
+      this.editMemberData = payload.data;
       if (payload.type === PopupType.Edit) {
         this.editPopup = false;
       } else if (payload.type === PopupType.Record) {

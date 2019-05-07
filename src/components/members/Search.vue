@@ -41,10 +41,10 @@
           <td> {{ item.roleCode }} </td>
           <td> {{ item.uuid }} </td>
           <td>
-            <button class="btns__green" @click="showUpdateStatusPopup">执行</button>
+            <button class="btns__green" @click="showUpdateStatusPopup(item)">执行</button>
           </td>
           <td>
-            <button class="btns__green" @click="showStatusRecordPopup">查询异动纪录</button>
+            <button class="btns__green" @click="showStatusRecordPopup(item)">查询异动纪录</button>
           </td>
           <td>
             <div class="btns__right"></div>
@@ -57,41 +57,20 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Component, Prop, Emit } from "vue-property-decorator";
+import { Component, Prop, Emit, Mixins } from "vue-property-decorator";
 import { State, Action, Getter, namespace } from "vuex-class";
 import * as Model from "@/models/interfaces/member";
 import { PopupType } from "@/models/status/member";
 import MemberApi from "@/api/member";
+import { datetimeMixin } from '@/utilities/datetime-format';
+import { displayFiltersMixin } from '@/utilities/display-filters';
 
 const memberModule = namespace("Member");
 
 @Component({
-  filters: { 
-    firstEightYards(data: string) {
-      return data.slice(0, 8);
-    },
-    uuidDisplay(data: string) {
-      return data.replace(/\-/g,'');
-    },
-    accountStatusDisplay(data: string) {
-      return data === 'Normal' ? '正常' : '不可登入';
-    },
-    withdrawalStatusDisplay(data: string) {
-      return data === 'Normal' ? '正常' : '不可提現';
-    },
-    isBlacklistingDisplay(data: boolean) {
-      return data ? '是' : '不是';
-    },
-    timestampDisplay(timestamp: number) {
-      const date = new Date(timestamp);
-      const iso = date.toISOString().slice(0,10).replace(/-/g, '-');
-      return iso;
-    },
-    amountDisplay(amount: number) {
-      return amount.toFixed(2);
-    }
-  }
+  mixins: [datetimeMixin, displayFiltersMixin]
 })
+
 export default class Search extends Vue {
   shortUuid: string = "";
   searchResult: Model.IMember[] = [];
