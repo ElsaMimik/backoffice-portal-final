@@ -100,10 +100,11 @@ export default class Search extends Vue {
     this.getMember();
   }
   searchClick() {
-    // console.log(this.shortUuid);
-    const yyy = MemberApi.getMemberListAsync(this.shortUuid).then(aaa => {
-    //   console.log(aaa);
+    console.log(this.shortUuid);
+    MemberApi.getMemberListAsync(this.shortUuid).then(aaa => {
+      // console.log(aaa);
     });
+    // console.log(yyy)
   }
 
   showUpdateStatusPopup(data: any) {
