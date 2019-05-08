@@ -5,6 +5,12 @@ export const displayFiltersMixin = {
         firstEightYards(data: string) {
           return data.slice(0, 8);
         },
+        firstUuidYards(data: string) {
+          return data.slice(0, 18);
+        },
+        lastUuidYards(data: string) {
+          return data.replace(data.slice(0, 18), '');
+        },
         uuidDisplay(data: string) {
           return data.replace(/\-/g,'');
         },
@@ -19,6 +25,15 @@ export const displayFiltersMixin = {
         },
         isBlacklistingDisplay(data: boolean) {
           return data ? '是' : '不是';
+        },
+        isSettledDisplay(data: boolean) {
+          return data ? '已結算' : '尚未結算完畢';
+        },
+        isBidWinDisplay(data: boolean) {
+          return data ? '是' : '無';
+        },
+        settleStatusDisplay(data: string) {
+          return data === Status.SettleStatus.Normal ? '正常' : '金額不符合-異常';
         },
         amountDisplay(amount: number) {
           return amount.toFixed(2);

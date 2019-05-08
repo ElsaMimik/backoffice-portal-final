@@ -5,7 +5,8 @@
         <div class="member__detail-title">
           帐号ID
           <div class="member__detail-items">
-            <p>321312312</p>
+            <p>{{ memberData.uuid | firstUuidYards }}</p>
+			<p>{{ memberData.uuid | lastUuidYards }}</p>
           </div>
         </div>
         <div class="member__detail-title">
@@ -17,62 +18,92 @@
         </div>
         <div class="member__detail-title">
           提现状态
-          <div class="member__detail-items">正常</div>
+          <div :class="{ 'member__detail-items notice': memberData.withdrawalStatus !== 'Normal',
+		  					'member__detail-items': memberData.withdrawalStatus === 'Normal' }">
+			  {{ memberData.withdrawalStatus | withdrawalStatusDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           帐号状态
-          <div class="member__detail-items">正常</div>
+          <div :class="{ 'member__detail-items notice': memberData.accountStatus !== 'Normal',
+		  					'member__detail-items': memberData.accountStatus === 'Normal' }">
+			  {{ memberData.accountStatus | accountStatusDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           风控黑名单
           <div :class="{ 'member__detail-items notice': memberData.isBlackListing,
 		  					'member__detail-items': !memberData.isBlackListing }">
 			  {{ memberData.isBlackListing | isBlacklistingDisplay }}
+			  <p>{{ memberData.blackListingCreateDate | timestampToDateAndTime }}更新</p>
           </div>
         </div>
         <div class="member__detail-title">
           风控等级
           <div class="member__detail-items">
 			  {{ memberData.riskControlLevel }}
+			  <p>{{ memberData.riskControlLevelCreateDate | timestampToDateAndTime }}更新</p>
           </div>
         </div>
       </div>
       <div class="member__detail-list dottedline-bottom">
         <div class="member__detail-title">
           钱包金额
-          <div class="member__detail-items">34,234.23</div>
+          <div class="member__detail-items">
+			  {{ memberData.amount | amountDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           保险箱金额
-          <div class="member__detail-items">5,000.00</div>
+          <div class="member__detail-items">
+			  {{ memberData.securityBoxAmount | amountDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           游戏冻结金额
-          <div class="member__detail-items">0</div>
+          <div class="member__detail-items">
+			  {{ memberData.freezeAmount | amountDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           提款限额
-          <div class="member__detail-items">200.00</div>
+          <div class="member__detail-items">
+			  {{ memberData.availableWithdrawalLimitAmount | amountDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           有效流水
-          <div class="member__detail-items">200.00</div>
+          <div class="member__detail-items">
+			  {{ memberData.turnoverAmount | amountDisplay }}
+			  <p>{{ memberData.turnoverAmountCreateDate | timestampToDateAndTime }}更新</p>
+          </div>
         </div>
         <div class="member__detail-title">
           会员注单
-          <div class="member__detail-items">已结算</div>
+          <div class="member__detail-items">
+			  {{ memberData.isSettled | isSettledDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           注单结算金额
-          <div class="member__detail-items notice">異常</div>
+          <div :class="{ 'member__detail-items notice': memberData.settleStatus !== 'Normal',
+		  					'member__detail-items': memberData.settleStatus === 'Normal' }">
+			  {{ memberData.settleStatus | settleStatusDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           可提领金额
-          <div class="member__detail-items">43,549.00</div>
+          <div class="member__detail-items">
+			  {{ memberData.availableWithdrawalLimitAmount | amountDisplay }}
+          </div>
         </div>
         <div class="member__detail-title">
           会员中大奖
-          <div class="member__detail-items notice">是</div>
+          <div :class="{ 'member__detail-items notice': memberData.isBidWin,
+		  					'member__detail-items': !memberData.isBidWin }">
+			  {{ memberData.isBidWin | isBidWinDisplay }}
+			  <p v-if="memberData.isBidWin">{{ memberData.bigWinCreateDate | timestampToDateAndTime }}更新</p>
+          </div>
         </div>
       </div>
       <button class="btns__green">查询交易纪录</button>

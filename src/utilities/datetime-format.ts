@@ -13,6 +13,7 @@ export const datetimeMixin = {
             return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
         },
         timestampToDateAndTime(timestamp: number) {
+            if(!timestamp) { return ''; }
             const date = new Date(timestamp);
             const iso = date.toISOString().slice(0, 10).replace(/-/g, '-');
             const time = new Date(timestamp * 1000);

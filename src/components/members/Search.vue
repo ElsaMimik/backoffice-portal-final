@@ -39,7 +39,9 @@
           <td> {{ item.createDate | timestampToDate }} </td>
           <td :class="{ 'notice': item.isBlacklisting }"> {{ item.isBlacklisting | isBlacklistingDisplay }} </td>
           <td> {{ item.roleCode | roleCodeStatusDisplay }} </td>
-          <td> {{ item.uuid }} </td>
+          <td>
+            <p>{{ item.uuid | firstUuidYards }}</p>
+            <p>{{ item.uuid | lastUuidYards }}</p>
           <td>
             <button class="btns__green" @click="showUpdateStatusPopup(item)">执行</button>
           </td>
