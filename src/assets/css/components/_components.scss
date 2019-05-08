@@ -35,6 +35,13 @@ button {
 		background-color: red;
 		color: #fff;
 	}
+	&__cancel {
+		width: 165px;
+		height: 50px;
+		border-radius: 25px;
+		background-color: rgb(173, 173, 173);
+		color: #fff;
+	}
 	&__close {
 		background: url("./../../image/close.svg") center center no-repeat;
 		background-color: transparent;
@@ -184,7 +191,6 @@ table.list {
 		left: 0;
 		right: 0;
 		width: 490px;
-		min-height: 660px;
 		border-radius: 15px;
 		box-shadow: 0 10px 20px 0 rgba(149, 167, 74, 0.3);
 		background-color: #ffffff;
