@@ -105,3 +105,8 @@ export default class Detail extends Vue {
 	}
 }
 </script>
+<style lang="scss" scoped>
+.popup__upload-items {
+	cursor: pointer;
+}
+</style>

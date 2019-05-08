@@ -69,7 +69,7 @@
 				<td>CNY</td>
 				<td>Peter</td>
 				<td>
-				<div class="btns__right" v-on:click="open"></div>
+				<div class="btns__right"></div>
 				</td>
 			</tr>
 			<tr>
@@ -85,7 +85,7 @@
 				<td>CNY</td>
 				<td>Peter</td>
 				<td>
-				<div class="btns__right" v-on:click="open"></div>
+				<div class="btns__right"></div>
 				</td>
 			</tr>
 			</table>

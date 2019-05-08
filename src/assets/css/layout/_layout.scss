@@ -1,9 +1,19 @@
-$view-width:80%;
+$view-width: (
+  all: 80%,
+  min: 1280px,
+);
 //color
 $layoutcolor:#687826;
 $bgcolor:rgb(241, 241, 241);
 $bgGradient:linear-gradient(71deg, #c5983d, #f6e190, #f6e190);
-
+@mixin width{
+    @media screen and (min-width: 1400px) {
+        width: map-get($view-width, all);
+    }
+    @media screen and (max-width: 1401px) {
+        width: map-get($view-width, min);
+    }
+}
 * {
     padding: 0;
     margin: 0;
@@ -21,7 +31,7 @@ html, body {
 
 .wrap {
     min-height: 100%;
-    width: $view-width;
+    @include width;
     position: relative;
     margin: 0 auto;
 }
@@ -29,7 +39,7 @@ html, body {
 header {
     height: 40px;
     position: relative;
-    width: $view-width;
+    @include width;
     margin: 0 auto;
     margin-top: 20px;
     .header {

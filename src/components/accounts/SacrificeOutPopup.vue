@@ -73,4 +73,3 @@ export default class Detail extends Vue {
 	}
 }
 </script>
-
