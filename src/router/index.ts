@@ -58,7 +58,23 @@ const routes = [
 	},
 	{
 		path: '/accounts/sacrificeout',
-		name: 'accounts-acrificeout', component: () => import('@/views/accounts/SacrificeOut.vue'),
+		name: 'accounts-sacrificeout', component: () => import('@/views/accounts/SacrificeOut.vue'),
+	},
+	{
+		path: '/riskcontrol/approval',
+		name: 'riskcontrol-approval', component: () => import('@/views/riskcontrol/Approval.vue'),
+	},
+	{
+		path: '/riskcontrol/checkmemberstatus',
+		name: 'riskcontrol-checkmemberstatus', component: () => import('@/views/riskcontrol/CheckMemberStatus.vue'),
+	},
+	{
+		path: '/riskcontrol/levelsetting',
+		name: 'riskcontrol-levelsetting', component: () => import('@/views/riskcontrol/LevelSetting.vue'),
+	},
+	{
+		path: '/riskcontrol/withdrawlimitationsetting',
+		name: 'riskcontrol-withdrawlimitationsetting', component: () => import('@/views/riskcontrol/WithdrawLimitationSetting.vue'),
 	},
 	{
 		path: '/login',

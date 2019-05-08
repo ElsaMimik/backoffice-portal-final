@@ -18,7 +18,7 @@ export default {
         //     });
         return Promise.resolve(
             <Model.IMenuResponse>(
-                { menu: ["/member", "/account/modified/abnormal/approval", "/risk-control/check-member-status"] }
+                { menu: ["/member", "/account/modified/abnormal/approval", "/risk-control/check-member-status",] }
             ));
         // return data;
     },

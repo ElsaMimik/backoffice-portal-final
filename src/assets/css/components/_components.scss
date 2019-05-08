@@ -136,7 +136,7 @@ table.list {
 			margin: 20px 0;
 			&-list {
 				margin: auto;
-				width: 700px;
+				// width: 700px;
 				text-align: center;
 				margin-top: 20px;
 			tr {
@@ -151,6 +151,7 @@ table.list {
 				background: #fff;
 				border:0px solid #fff;
 				text-align: center;
+				padding: 0 30px;
 			}
 		}
 	}
@@ -294,6 +295,64 @@ table.list {
 			margin: 5px 0;
 			width: 100%;
 			display: inline-block;
+		}
+	}
+	&-editrecord {
+		border: 1px solid #95a74a;
+		margin: 20px 0;
+		padding: 0 20px;
+		&:nth-child(even) {
+			background-color: rgba($color: #daddce, $alpha: 0.3);
+		}
+		table {
+			width: 100%;
+			margin: 0 0 20px 0 ;
+			text-align: center;
+			th {
+				vertical-align: middle;
+				color: #687826;
+				text-align: center;
+			}
+			tr {
+				height: 40px;
+			}
+			td {
+				vertical-align: middle;
+				&:first-child {
+					color: #687826;
+					width: 200px;
+					text-align: right;
+				}
+			}
+		}
+	}
+	&__parameter {
+		table {
+			width: 100%;
+			margin: 0 0 20px 0 ;
+			
+			th {
+				vertical-align: middle;
+				color: #979797;
+				text-align: left;
+				padding: 0 20px;
+			}
+			tr {
+				height: 40px;
+			}
+			td {
+				vertical-align: middle;
+				padding: 0 20px;
+				&:first-child {
+					color: #979797;
+					width: 150px;
+					text-align: right;
+					padding: 0 0;
+				}
+			}
+			input {
+				width: 100%;
+			}
 		}
 	}
 }
