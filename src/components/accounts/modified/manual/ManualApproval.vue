@@ -69,7 +69,7 @@
 				<td>CNY</td>
 				<td>Peter</td>
 				<td>
-				<div class="btns__right"></div>
+				<div class="btns__right" v-on:click="open"></div>
 				</td>
 			</tr>
 			<tr>
@@ -85,7 +85,7 @@
 				<td>CNY</td>
 				<td>Peter</td>
 				<td>
-				<div class="btns__right"></div>
+				<div class="btns__right" v-on:click="open"></div>
 				</td>
 			</tr>
 			</table>
@@ -97,31 +97,12 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { State, Action, Getter, namespace } from "vuex-class";
-import * as Model from "@/models/interfaces/member";
-
-const memberModule = namespace("Member");
 
 @Component
-export default class Detail extends Vue {
-  @memberModule.State("memberInfos") members!: Model.ITestMemberResponse[];
-
-  @Action("Member/getMember") private getMember!: any;
-  mounted() {
-	this.getMember();
-	// console.log(this.$route.params.uuid);
-  }
+export default class ManualApproval extends Vue {
 }
 </script>
 
 <style lang="scss" scoped>
-.account--modified--manual--approval {
-	table.list {
-		td {
-			max-width: inherit;
-			&:nth-child(2) {
-				max-width: 120px;
-			}
-		}
-	}
-}
+
 </style>

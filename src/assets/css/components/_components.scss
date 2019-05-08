@@ -69,15 +69,15 @@ button {
 
 table.list {
 	width: 100%;
-	text-align: center;
 	margin: 50px 0;
 	box-sizing: border-box;
+	line-height: 150%;
 	th {
 		height: 50px;
 		color: #9a9a9a;
-		text-align: center;
 		vertical-align: middle;
 		line-height: 150%;
+		padding: 0 15px;
 	}
 	tr{
 		border: solid 1px #95a74a;
@@ -93,7 +93,7 @@ table.list {
 		height: 100px;
 		vertical-align: middle;
 		word-break: break-all;
-		padding: 0 5px;
+		padding: 0 15px;
 	}
 }
 
@@ -373,9 +373,11 @@ table.list {
 		}
 	}
 }
+
 input[type="file"] {
 	zoom: 1.1;
 }
+
 .member__detail {
 	line-height: 200%;
 	&-title {

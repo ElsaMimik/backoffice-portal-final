@@ -110,15 +110,5 @@ export default class Detail extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.account-modified-abnormal-approval {
-	table.list {
-		text-align: left;
-		td {
-			max-width: inherit;
-			&:first-child {
-				max-width: 128px;
-			}
-		}
-	}
-}
+
 </style>

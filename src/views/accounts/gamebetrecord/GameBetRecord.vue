@@ -21,13 +21,5 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss" scoped>
-.account--game-bet-record {
-	table.list {
-		td {
-			&:first-child {
-				max-width: 110px;
-			}
-		}
-	}
-}
+
 </style>

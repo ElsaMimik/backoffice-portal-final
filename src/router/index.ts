@@ -77,6 +77,14 @@ const routes = [
 		name: 'riskcontrol-withdrawlimitationsetting', component: () => import('@/views/riskcontrol/WithdrawLimitationSetting.vue'),
 	},
 	{
+		path: '/accounts/vipdeposit/apply',
+		name: 'accounts-vipdeposit/apply', component: () => import('@/views/accounts/vipdeposit/VipDepositApply.vue'),
+	},
+	{
+		path: '/accounts/vipdeposit/approval',
+		name: 'accounts-vipdeposit/approval', component: () => import('@/views/accounts/vipdeposit/VipDepositApproval.vue'),
+	},
+	{
 		path: '/login',
 		name: 'login',
 		component: () => import(/* webpackChunkName: "about" */ '@/views/Login.vue')

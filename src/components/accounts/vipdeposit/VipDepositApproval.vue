@@ -1,10 +1,10 @@
 <template>
 	<div class="wrap">
-		<div class="account--vip--withdraw--approval">
-			<div class="title">帐务 - 人工提现 - 提现审核</div>
+		<div class="account--vip-withdrawt--apply">
+			<div class="title">帐务 - 人工充值 - 审核 </div>
 			<div class="search">
 				<div class="search-title">▼依编号查询</div>
-				<div class="search-form">
+				<form class="search-form">
 					<div class="search-items">
 						<label>交易编号</label>
 						<input type="text" required>
@@ -14,9 +14,9 @@
 					<div class="search-items">
 						<button class="btns__green">查找</button>
 					</div>
-				</div>
+				</form>
 				<div class="search-title">▼依纪录查询</div>
-				<div class="search-form">
+				<form class="search-form">
 					<div class="search-items">
 						<label>帐号ID</label>
 						<input type="text" required>
@@ -32,26 +32,7 @@
 					<div class="search-items">
 						<button class="btns__green">查找</button>
 					</div>
-				</div>
-			</div>
-			<div class="search__result">
-				<div class="title">交易查询结果</div>
-				<table class="search__result-list">
-					<tr>
-						<th>笔数</th>
-						<th>总有效流水</th>
-						<th>总贡献度</th>
-						<th>总派彩</th>
-						<th>总下注</th>
-					</tr>
-					<tr>
-						<td>30</td>
-						<td>80,000.00</td>
-						<td>+50,000.00</td>
-						<td>30,000.00</td>
-						<td>30,000.00</td>
-					</tr>
-				</table>
+				</form>
 			</div>
 			<table class="list">
 				<tr>
@@ -60,7 +41,6 @@
 					<th>交易时间</th>
 					<th>钱包金额</th>
 					<th>提款限额</th>
-					<th>有效流水</th>
 					<th>类别</th>
 					<th>状态</th>
 					<th>平台交易编号
@@ -71,45 +51,43 @@
 					<th> </th>
 				</tr>
 				<tr>
-					<td>75339673967367337533967396736733</td>
-					<td>AKR543985</td>
+					<td>SYSTEM</td>
+					<td>87654321</td>
 					<td>2018-12-31 18:00</td>
-					<td>100.00</td>
-					<td>100.00</td>
 					<td>+100.00</td>
-					<td>人工提現</td>
-					<td>
-						<p class="success">审核中</p>
+					<td>+100.00</td>
+					<td>人工充值</td>
+					<td> 
+						<p class="success">申请中</p>
 					</td>
-					<td>
+					<td> 
 						<p>gm20181206101063455</p>
 						<p>ZHY123991</p>
 					</td>
 					<td>CNY</td>
-					<td>John</td>
-					<td>
-						<div class="btns__right"></div>
+					<td>JORDAN</td>
+					<td> 
+						<div class="btns__right" v-on:click="open"></div>
 					</td>
 				</tr>
 				<tr>
-					<td>75339673967367337533967396736733</td>
-					<td>AKR543985</td>
+					<td>SYSTEM</td>
+					<td>87654321</td>
 					<td>2018-12-31 18:00</td>
-					<td>100.00</td>
-					<td>100.00</td>
 					<td>+100.00</td>
-					<td>人工提現</td>
-					<td>
-						<p class="success">审核中</p>
+					<td>+100.00</td>
+					<td>人工充值</td>
+					<td> 
+						<p class="success">申请中</p>
 					</td>
-					<td>
+					<td> 
 						<p>gm20181206101063455</p>
 						<p>ZHY123991</p>
 					</td>
 					<td>CNY</td>
-					<td>John</td>
-					<td>
-						<div class="btns__right"></div>
+					<td>JORDAN</td>
+					<td> 
+						<div class="btns__right" v-on:click="open"></div>
 					</td>
 				</tr>
 			</table>
