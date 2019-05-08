@@ -3,13 +3,13 @@ import * as Status from '@/models/status/member';
 export const displayFiltersMixin = {
 	filters: {
 		firstEightYards(data: string) {
-			return data.slice(0, 8);
+			return data ? data.slice(0, 8) : '';
 		},
 		firstUuidYards(data: string) {
-			return data.slice(0, 18);
+			return data ? data.slice(0, 18) : '';
 		},
 		lastUuidYards(data: string) {
-			return data.replace(data.slice(0, 18), '');
+			return data ? data.replace(data.slice(0, 18), '') : '';
 		},
 		uuidDisplay(data: string) {
 			return data.replace(/\-/g,'');
@@ -36,7 +36,7 @@ export const displayFiltersMixin = {
 			return data === Status.SettleStatus.Normal ? '正常' : '金額不符合-異常';
 		},
 		amountDisplay(amount: number) {
-			return amount.toFixed(2);
+			return amount ? amount.toFixed(2) : '';
 		},
 		currencyCodeDisplay(data: string) {
 			return data === Status.CurrencyCode.CNY ? '人民币' : '';

@@ -58,11 +58,14 @@ export default class App extends Vue {
 		EventBus.$on("information", (info: any) => {
 			switch (info.type) {
 				case MsgPopupType.Information:
-				this.isInformation = true;
-				this.informationType = MsgPopupType.Information;
-				this.informationText = info.message;
+					this.isInformation = true;
+					this.informationType = MsgPopupType.Information;
+					this.informationText = info.message;
 					break;
 				case MsgPopupType.Warning:
+					this.isInformation = true;
+					this.informationType = MsgPopupType.Warning;
+					this.informationText = info.message;
 					break;
 				case MsgPopupType.Error:
 					break;

@@ -62,11 +62,11 @@ const routes = [
 	},
 	{
 		path: '/risk-control/approval',
-		name: 'riskcontrol-approval', component: () => import('@/views/riskcontrol/Approval.vue'),
+		name: 'risk-control-approval', component: () => import('@/views/riskcontrol/Approval.vue'),
 	},
 	{
 		path: '/risk-control/check-member-status',
-		name: 'riskcontrol-check-member-status', component: () => import('@/views/riskcontrol/CheckMemberStatus.vue'),
+		name: 'risk-control-check-member-status', component: () => import('@/views/riskcontrol/CheckMemberStatus.vue'),
 	},
 	{
 		path: '/risk-control/level-setting',

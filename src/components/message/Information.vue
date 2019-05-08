@@ -5,10 +5,10 @@
 				<div class="popup__close">
 				</div>
 				<div class="popup__title notice" v-if="type==='Warning'">
-					Warning
+					系统警告
 				</div>
 				<div class="popup__title"  v-if="type==='Information'">
-					Information
+					系统提示
 				</div>
 				<div class="popup__info dottedline-top"></div>
 				<div class="popup-list">

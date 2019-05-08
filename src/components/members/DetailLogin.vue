@@ -67,12 +67,12 @@ import { Component } from "vue-property-decorator";
 
 @Component
 export default class DetailLogin extends Vue {
-    startDate: string = '';
-    endDate: string = '';
+	startDate: string = '';
+	endDate: string = '';
 
-    search() {
-       console.log(new Date(this.startDate).getTime())
-    }
+	search() {
+		// console.log(new Date(this.startDate).getTime())
+	}
 }
 
 </script>

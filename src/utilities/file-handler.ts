@@ -40,7 +40,6 @@ export default class FileHandlerMixin extends Vue{
 			return (e: any) => {
 				const binaryData = e.target.result;
 				const base64String = window.btoa(binaryData);
-				// call upload api ...
 				FileApi.uploadFile(f.name, base64String).then((res: any) => {
 					self.uploadedFiles.push({
 						fileId: res.fileID,

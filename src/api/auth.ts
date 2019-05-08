@@ -13,10 +13,5 @@ export default {
 		};
 		const result = await Handler.request<Model.IMenuResponse>(config);
 		return <Model.IMenuResponse>(result.data);
-
-		// return Promise.resolve(
-		// 	<Model.IMenuResponse>(
-		// 		{ menu: ["/member", "/account/modified/abnormal/approval", "/risk-control/check-member-status",] }
-		// 	));
 	},
 };

@@ -76,7 +76,7 @@ const memberModule = namespace("Member");
 })
 
 export default class Search extends Vue {
-	shortUuid: string = "";
+	shortUuid: string = '';
 	searchResult: Model.IMember[] = [];
 	@Prop(Number) readonly reload!: number;
 	

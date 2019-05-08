@@ -82,17 +82,7 @@ export default class SearchEditPopup extends FileHandlerMixin {
 	[x: string]: any;
 	@Prop(Object) readonly editMemberData!: Model.IMember;
 
-	editData: Model.IMember = {
-		uuid: '',
-		riskControlLevel: Status.RiskControllLevel.D,
-		isBlacklisting: true,
-		amount: 0.000,
-		freezeAmount: 0.000,
-		accountStatus: Status.AccountStatus.E2,
-		withdrawalStatus: Status.WithdrawalStatus.E1,
-		createDate: 0,
-		roleCode: Status.RoleCode.Normal,
-	};
+	editData: Model.IMember = {} as Model.IMember;
 	reason: string = '';
 
 
@@ -103,25 +93,23 @@ export default class SearchEditPopup extends FileHandlerMixin {
 	}
 
 	confirm() {
-		const file = this.uploadedFiles.map((item) => { return item.fileId });
-		console.log(file);
 		const data: Model.IMemberStatusRequest = {
 			accountAction: this.editData.accountStatus,
 			withdrawalAction: this.editData.withdrawalStatus,
 			reason: this.reason,
-			files: this.uploadedFiles.map((item) => { return item.fileId }),
+			files: this.uploadedFiles.map((item) => { return item.fileId; }),
 		};
 		if(data.reason === '') {
 			EventBus.$emit('information', {
-				type: MsgPopupType.Information,
-				message: '請填寫原因'
+				type: MsgPopupType.Warning,
+				message: '请填写原因'
 			});
 			return;
 		}
 		if(data.files.length === 0) {
 			EventBus.$emit('information', {
-				type: MsgPopupType.Information,
-				message: '請上傳檔案'
+				type: MsgPopupType.Warning,
+				message: '请上传档案'
 			});
 			return;
 		}
@@ -137,18 +125,7 @@ export default class SearchEditPopup extends FileHandlerMixin {
 	}
 
 	mounted() {
-		const temp = {
-			uuid: this.editMemberData.uuid,
-			riskControlLevel: this.editMemberData.riskControlLevel,
-			isBlacklisting: this.editMemberData.isBlacklisting,
-			amount: this.editMemberData.amount,
-			freezeAmount: this.editMemberData.freezeAmount,
-			accountStatus: this.editMemberData.accountStatus,
-			withdrawalStatus: this.editMemberData.withdrawalStatus,
-			createDate: this.editMemberData.createDate,
-			roleCode: this.editMemberData.roleCode,
-		};
-		this.editData = temp;
+		this.editData = { ...this.editMemberData };
 	}
 
 	random(data: string) {
