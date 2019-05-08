@@ -130,10 +130,3 @@ export interface ITurnoverResponse {
 	sevenDaysAccumulatedDepositAmount: string;
 	sevenDaysAccumulatedTurnoverAmount: string;
 }
-
-
-export interface ITestMemberResponse {
-	uuid: string;
-	name: string;
-	status: Status.AccountStatus;
-}

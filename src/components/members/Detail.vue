@@ -168,9 +168,9 @@ export default class Detail extends Vue {
 		isSettled: false,
 		settleStatus: Status.SettleStatus.Abnormal,
 	};
+	@Action("Member/setMember") private setMember!: any;
 	mounted() {
 		this.init();
-		// console.log(this.$route.params.uuid);
 	}
 
 	changeTab(tab: string) {
@@ -179,9 +179,9 @@ export default class Detail extends Vue {
 	}
 	init() {
 		MemberApi.getMemberDetail(this.$route.params.uuid).then(res => {
+			this.setMember(res);
 			this.memberData = res;
 		});
-		//   console.log(this.$route.params.uuid);
 	}
 }
 </script>

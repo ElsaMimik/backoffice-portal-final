@@ -38,5 +38,8 @@ export const displayFiltersMixin = {
 		amountDisplay(amount: number) {
 			return amount.toFixed(2);
 		},
+		currencyCodeDisplay(data: string) {
+			return data === Status.CurrencyCode.CNY ? '人民币' : '';
+		},
 	}
 };

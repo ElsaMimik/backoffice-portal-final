@@ -21,60 +21,60 @@ const routes = [
 		name: 'detail', component: () => import('@/views/members/Detail.vue'),
 	},
 	{
-		path: '/accounts/transaction',
-		name: 'accounts-transaction', component: () => import('@/views/accounts/transaction/Transaction.vue'),
+		path: '/account/transaction',
+		name: 'account-transaction', component: () => import('@/views/accounts/transaction/Transaction.vue'),
 	},
 	{
-		path: '/accounts/gamebetrecord',
-		name: 'accounts-gamebetrecord', component: () => import('@/views/accounts/gamebetrecord/GameBetRecord.vue'),
+		path: '/account/game-bet-record',
+		name: 'account-game-bet-record', component: () => import('@/views/accounts/gamebetrecord/GameBetRecord.vue'),
 	},
 	{
-		path: '/accounts/vipwithdraw/apply',
-		name: 'accounts-vipwithdraw/apply', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawApply.vue'),
+		path: '/account/vip-withdraw/apply',
+		name: 'account-vip-withdraw/apply', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawApply.vue'),
 	},
 	{
-		path: '/accounts/vipwithdraw/approval',
-		name: 'accounts-vipwithdraw/approval', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawApproval.vue'),
+		path: '/account/vip-withdraw/approval',
+		name: 'account-vip-withdraw-approval', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawApproval.vue'),
 	},
 	{
-		path: '/accounts/vipwithdraw/bill',
-		name: 'accounts-vipwithdraw/bill', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawBill.vue'),
+		path: '/account/vip-withdraw/bill',
+		name: 'account-vip-withdraw-bill', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawBill.vue'),
 	},
 	{
-		path: '/accounts/modified/abnormal/apply',
-		name: 'accounts-modified-abnormal/apply', component: () => import('@/views/accounts/modified/abnormal/AbnormalApply.vue'),
+		path: '/account/modified/abnormal/apply',
+		name: 'account-modified-abnormal-apply', component: () => import('@/views/accounts/modified/abnormal/AbnormalApply.vue'),
 	},
 	{
-		path: '/accounts/modified/abnormal/approval',
-		name: 'accounts-modified-abnormal/approval', component: () => import('@/views/accounts/modified/abnormal/AbnormalApproval.vue'),
+		path: '/account/modified/abnormal/approval',
+		name: 'account-modified-abnormal-approval', component: () => import('@/views/accounts/modified/abnormal/AbnormalApproval.vue'),
 	},
 	{
-		path: '/accounts/modified/manual/apply',
-		name: 'accounts-modified-manual/apply', component: () => import('@/views/accounts/modified/manual/ManualApply.vue'),
+		path: '/account/modified/manual/apply',
+		name: 'account-modified-manual-apply', component: () => import('@/views/accounts/modified/manual/ManualApply.vue'),
 	},
 	{
-		path: '/accounts/modified/manual/approval',
-		name: 'accounts-modified-manual/approval', component: () => import('@/views/accounts/modified/manual/ManualApproval.vue'),
+		path: '/account/modified/manual/approval',
+		name: 'account-modified-manual-approval', component: () => import('@/views/accounts/modified/manual/ManualApproval.vue'),
 	},
 	{
-		path: '/accounts/sacrificeout',
-		name: 'accounts-sacrificeout', component: () => import('@/views/accounts/SacrificeOut.vue'),
+		path: '/account/sacrifice-out',
+		name: 'account-sacrifice-out', component: () => import('@/views/accounts/SacrificeOut.vue'),
 	},
 	{
-		path: '/riskcontrol/approval',
+		path: '/risk-control/approval',
 		name: 'riskcontrol-approval', component: () => import('@/views/riskcontrol/Approval.vue'),
 	},
 	{
-		path: '/riskcontrol/checkmemberstatus',
-		name: 'riskcontrol-checkmemberstatus', component: () => import('@/views/riskcontrol/CheckMemberStatus.vue'),
+		path: '/risk-control/check-member-status',
+		name: 'riskcontrol-check-member-status', component: () => import('@/views/riskcontrol/CheckMemberStatus.vue'),
 	},
 	{
-		path: '/riskcontrol/levelsetting',
-		name: 'riskcontrol-levelsetting', component: () => import('@/views/riskcontrol/LevelSetting.vue'),
+		path: '/risk-control/level-setting',
+		name: 'risk-control-level-setting', component: () => import('@/views/riskcontrol/LevelSetting.vue'),
 	},
 	{
-		path: '/riskcontrol/withdrawlimitationsetting',
-		name: 'riskcontrol-withdrawlimitationsetting', component: () => import('@/views/riskcontrol/WithdrawLimitationSetting.vue'),
+		path: '/risk-control/withdraw-limitation-setting',
+		name: 'risk-control-withdraw-limitation-setting', component: () => import('@/views/riskcontrol/WithdrawLimitationSetting.vue'),
 	},
 	{
 		path: '/login',
@@ -95,8 +95,8 @@ router.beforeEach((to, from, next) => {
 	const store = router.app.$options.store;
 	if (store) {
 		AuthApi.getMenu().then(data => {
-			store.dispatch('Auth/setApiPath', data.menu);
-			roleString = data.menu;
+			store.dispatch('Auth/setApiPath', data.roles);
+			roleString = data.roles;
 			store.dispatch('Auth/setCurrentPath', to.name);
 			checkPageAuth(to.name, roleString).then(res => {
 				// console.log('是否有權限', res);

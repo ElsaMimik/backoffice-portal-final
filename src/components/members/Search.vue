@@ -77,16 +77,12 @@ export default class Search extends Vue {
 	shortUuid: string = "";
 	searchResult: Model.IMember[] = [];
 	@Prop(Number) readonly reload!: number;
-	@Action("Member/getMember") private getMember!: any;
 	
 	@Watch('reload')
 	onReloadChange() {
 		this.searchClick();
 	}
-
-	mounted() {
-		this.getMember();
-	}
+	
 	searchClick() {
 		MemberApi.getMemberListAsync(this.shortUuid).then(res => {
 			this.searchResult = res.members;

@@ -41,7 +41,7 @@ export default class App extends Vue {
 	@Action("Error/getError") private getError!: any;
 	mounted() {
 		AuthApi.getMenu().then(data => {
-			this.setApiPath(data.menu);
+			this.setApiPath(data.roles);
 			this.isLogin = this.apiPaths.length > 0;
 		});
 		
