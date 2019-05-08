@@ -47,11 +47,13 @@ export default {
      * 2. Get Member Profile By Uuid
      * @description 後台人員查詢會員資料(針對單一uuid查詢) [BO-12]
      */
-    async getMemberDetail(uuid: string): Promise<Model.IMemberDetailResponse|any> {
+    async getMemberDetail(uuid: string): Promise<Model.IMemberDetailResponse> {
         const config = {
-            url: `/member/profile/${uuid}`,
+            url: `/members/${uuid}/profile`,
             method: 'get'
         };
+        const result = await Handler.request<Model.IMemberDetailResponse>(config);
+        return <Model.IMemberDetailResponse>(result.data);
     },
     /**
      * 3. Update Member Status
