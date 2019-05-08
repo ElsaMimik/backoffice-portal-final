@@ -19,5 +19,5 @@ export default Vue.extend({
 		WithdrawLimitationSettingUpdate,
 		WithdrawLimitationSettingRecord,
 	},
-})
+});
 </script>

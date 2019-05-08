@@ -19,5 +19,5 @@ export default Vue.extend({
 		LevelSettingUpdate,
 		LevelSettingRecord
 	},
-})
+});
 </script>

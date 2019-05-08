@@ -32,7 +32,8 @@
       "semicolon": [true, "always"],
       "no-object-literal-type-assertion": false,
       "no-var-requires": false,
-      "no-this-assignment": false
+      "no-this-assignment": false,
+      "indent": [true, "spaces", 4]
     },
     "rulesDirectory": ["tslint-plugin-prettier"]
 }
