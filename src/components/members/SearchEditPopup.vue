@@ -50,14 +50,9 @@
 				</div>
 				<div class="popup__upload">
 					<div class="popup__upload-title">附件</div>
-					<div class="popup__upload-items">
-						Type something.jpg
-						<div class="btns">
-							<button class="btns__close"></button>
-						</div>
-					</div>
-					<div class="popup__upload-items">
-						Type something.jpg
+					<div v-for="(item, index) in uploadedFiles" :key="random(index)" 
+					class="popup__upload-items">
+						{{ item.fileName }}
 						<div class="btns">
 							<button class="btns__close"></button>
 						</div>
@@ -78,6 +73,8 @@ import * as Model from "@/models/interfaces/member";
 import FileHandlerMixin from '@/utilities/file-handler';
 import MemberApi from "@/api/member";
 import * as Status from '@/models/status/member';
+import EventBus from "@/utilities/event-bus";
+import { MsgPopupType } from '@/models/status/message';
 
 @Component
 
@@ -106,13 +103,28 @@ export default class SearchEditPopup extends FileHandlerMixin {
 	}
 
 	confirm() {
+		const file = this.uploadedFiles.map((item) => { return item.fileId });
+		console.log(file);
 		const data: Model.IMemberStatusRequest = {
 			accountAction: this.editData.accountStatus,
 			withdrawalAction: this.editData.withdrawalStatus,
 			reason: this.reason,
-			files: this.uploadedFiles.map(s=>s.fileId),
+			files: this.uploadedFiles.map((item) => { return item.fileId }),
 		};
-		// console.log(data)
+		if(data.reason === '') {
+			EventBus.$emit('information', {
+				type: MsgPopupType.Information,
+				message: '請填寫原因'
+			});
+			return;
+		}
+		if(data.files.length === 0) {
+			EventBus.$emit('information', {
+				type: MsgPopupType.Information,
+				message: '請上傳檔案'
+			});
+			return;
+		}
 		MemberApi.updateMemberStatus(data, this.editMemberData.uuid).then((res) => {
 			this.$emit("close-popup", {
 				type: Status.PopupType.Reload
@@ -137,6 +149,10 @@ export default class SearchEditPopup extends FileHandlerMixin {
 			roleCode: this.editMemberData.roleCode,
 		};
 		this.editData = temp;
+	}
+
+	random(data: string) {
+		return Math.random();
 	}
 }
 </script>

@@ -49,7 +49,9 @@
 						<button class="btns__green" @click="showStatusRecordPopup(item)">查询异动纪录</button>
 					</td>
 					<td>
-						<div class="btns__right"></div>
+						<a :href="`/member/detail/${ item.uuid }`" target="_blank" title="Detail">
+							<div class="btns__right"/>
+						</a>
 					</td>
 				</tr>
 			</table>

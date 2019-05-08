@@ -60,6 +60,7 @@ export default {
 	 * @description 調整會員狀態 [BO-17/BO-185]
 	 */
 	async updateMemberStatus(payload: Model.IMemberStatusRequest, uuid: string): Promise<boolean> {
+		console.log(payload)
 		const config = {
 			url: `/members/${uuid}/status`,
 			method: 'patch',
