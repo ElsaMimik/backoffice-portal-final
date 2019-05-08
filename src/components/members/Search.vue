@@ -38,7 +38,7 @@
           <td :class="{ 'notice': item.withdrawalStatus !== 'Normal' }">{{ item.withdrawalStatus | withdrawalStatusDisplay }}</td>
           <td> {{ item.createDate | timestampToDate }} </td>
           <td :class="{ 'notice': item.isBlacklisting }"> {{ item.isBlacklisting | isBlacklistingDisplay }} </td>
-          <td> {{ item.roleCode }} </td>
+          <td> {{ item.roleCode | roleCodeStatusDisplay }} </td>
           <td> {{ item.uuid }} </td>
           <td>
             <button class="btns__green" @click="showUpdateStatusPopup(item)">执行</button>
