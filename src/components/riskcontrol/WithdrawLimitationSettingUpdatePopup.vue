@@ -133,7 +133,9 @@ export default class Detail extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.popup__view {
-	width: 1280px;
+.popup {
+	&__view {
+		width: 1280px;
+	}
 }
 </style>

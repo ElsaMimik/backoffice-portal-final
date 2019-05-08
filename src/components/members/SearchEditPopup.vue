@@ -57,7 +57,7 @@
 						</div>
 					</div>
 					<div class="popup__upload-items">
-						Type something.jpg
+						Type something.jpgType something.jpgType something.jpgType something.jpgType something.jpg
 						<div class="btns">
 							<button class="btns__close"></button>
 						</div>

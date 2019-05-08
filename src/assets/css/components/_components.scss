@@ -3,8 +3,8 @@ button {
 	margin: 0 0 0 5px;
 }
 .btns {
-    height: 100%;
-    button {
+		height: 100%;
+		button {
 		border: 0px solid #fff;
 	}
 	.active {
@@ -27,7 +27,7 @@ button {
 		border-radius: 25px;
 		background-color: #687826;
 		color: #fff;
-    }
+		}
 	&__reject {
 		width: 165px;
 		height: 50px;
@@ -48,14 +48,14 @@ button {
 		background-size: 100% auto;
 		border: 0px;
 		vertical-align: middle;
-    }
-    &__right {
-        width: 20px;
-        height: 35px;
-        background: url("./../../image/arrow-right.svg") no-repeat;
-        background-size: contain;
-        cursor: pointer;
-    }
+		}
+		&__right {
+				width: 20px;
+				height: 35px;
+				background: url("./../../image/arrow-right.svg") no-repeat;
+				background-size: contain;
+				cursor: pointer;
+		}
 }
 
 .title {
@@ -94,7 +94,6 @@ table.list {
 		vertical-align: middle;
 		word-break: break-all;
 		padding: 0 5px;
-		max-width: 130px;
 	}
 }
 
@@ -268,26 +267,38 @@ table.list {
 		}
 	}
 	&__upload {
-		width: 220px;
 		&-title {
 			color: #979797;
 			margin: 5px 0;
 		}
 		&-items {
 			box-sizing: border-box;
-			height: 35px;
-			min-width: 220px;
+			min-height: 35px;
+			width: 220px;
 			border-radius: 3px;
 			background-color: #eaeaea;
 			line-height: 200%;
-			padding: 0 10px;
+			padding: 0 25px 0 10px;
 			margin: 5px 0;
 			color: #000;
+			word-break: break-all;
+			position: relative;
 			.btns {
-				float: right;
+				position: absolute;
+				width: 25px;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
 				&__close {
 					width: 15px;
 					height: 15px;
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					margin: auto;
 				}
 			}
 		}

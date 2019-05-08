@@ -1,4 +1,4 @@
-$view-width:1280px;
+$view-width:80%;
 //color
 $layoutcolor:#687826;
 $bgcolor:rgb(241, 241, 241);
@@ -29,7 +29,9 @@ html, body {
 header {
     height: 40px;
     position: relative;
-    margin: 20px 100px;
+    width: $view-width;
+    margin: 0 auto;
+    margin-top: 20px;
     .header {
         float: right;
     }
