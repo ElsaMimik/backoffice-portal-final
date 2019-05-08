@@ -1,22 +1,26 @@
 <template>
-  <div class="popup">
-    <div class="popup__view">
-      <div class="popup__title">Warning</div>
-      <div class="popup__info dottedline-top">
-        <div class="popup__info-title">
-          <div class="popup__info-items">
-            <p>你確定要嗎</p>
-          </div>
-        </div>
-      </div>
-      <div class="popup__btn">
-        <div class="btns">
-          <button class="btns__submit">确定</button>
-          <button class="btns__submit">取消</button>
-        </div>
-      </div>
-    </div>
-  </div>
+	<section id="informationpopup">
+		<div class="popup">
+			<div class="popup__view">
+				<div class="popup__close">
+					<div class="btns">
+						<button class="btns__close"></button>
+					</div>
+				</div>
+				<div class="popup__title">Warning</div>
+				<form>
+					<div class="popup__info dottedline-top"></div>
+					<div class="popup-list">
+						<div class="popup-text">確定要嗎</div>
+					</div>
+					<div class="btns">
+						<button class="btns__submit">确定</button>
+						<button class="btns__cancel">取消</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
 </template>
 
 
@@ -27,3 +31,20 @@ import { Component, Prop } from "vue-property-decorator";
 @Component
 export default class ConfirmPopup extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+#informationpopup {
+	text-align: center;
+	.popup {
+		&-list {
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			min-height: 200px;
+		}
+		&-text {
+			font-size: 30px;
+		}
+	}
+}
+</style>
