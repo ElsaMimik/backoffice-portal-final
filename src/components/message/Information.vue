@@ -4,11 +4,7 @@
 			<div class="popup__view">
 				<div class="popup__close">
 				</div>
-<<<<<<< HEAD
 				<div class="popup__title notice">Information</div>
-=======
-				<div class="popup__title">Information</div>
->>>>>>> origin/UI-accounts
 				<div class="popup__info dottedline-top"></div>
 				<div class="popup-list">
 					<div class="popup-text">詳述錯誤</div>
