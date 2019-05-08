@@ -1,11 +1,6 @@
 <template>
   <div class="popup">
     <div class="popup__view">
-      <div class="popup__close">
-        <div class="btns">
-          <button class="btns__close"></button>
-        </div>
-      </div>
       <div class="popup__title">Information</div>
       <div class="popup__info dottedline-top">
         <div class="popup__info-title">

@@ -1,11 +1,6 @@
 <template>
   <div class="popup">
     <div class="popup__view">
-      <div class="popup__close">
-        <div class="btns">
-          <button class="btns__close"></button>
-        </div>
-      </div>
       <div class="popup__title">Warning</div>
       <div class="popup__info dottedline-top">
         <div class="popup__info-title">
@@ -16,8 +11,8 @@
       </div>
       <div class="popup__btn">
         <div class="btns">
-          <button class="btns__submit">取消</button>
           <button class="btns__submit">确定</button>
+          <button class="btns__submit">取消</button>
         </div>
       </div>
     </div>
