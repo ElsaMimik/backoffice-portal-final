@@ -1,3 +1,5 @@
+import * as Status from '@/models/status/member';
+
 export const displayFiltersMixin = {
     filters: {
         firstEightYards(data: string) {
@@ -7,10 +9,10 @@ export const displayFiltersMixin = {
             return data.replace(/\-/g,'');
           },
           accountStatusDisplay(data: string) {
-            return data === 'Normal' ? '正常' : '不可登入';
+            return data === Status.AccountStatus.Normal ? '正常' : '不可登入';
           },
           withdrawalStatusDisplay(data: string) {
-            return data === 'Normal' ? '正常' : '不可提現';
+            return data === Status.WithdrawalStatus.Normal ? '正常' : '不可提現';
           },
           isBlacklistingDisplay(data: boolean) {
             return data ? '是' : '不是';

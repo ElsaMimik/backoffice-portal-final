@@ -32,22 +32,29 @@ export default Vue.extend({
   methods: {
     showPopup(payload: any) {
       this.editMemberData = payload.data;
-      if (payload.type === PopupType.Edit) {
-        this.editPopup = payload.open;
-      } else if (payload.type === PopupType.Record) {
-        this.recordPopup = payload.open;
+      switch(payload.type) {
+        case PopupType.Edit:
+          this.editPopup = payload.open;
+          break;
+        case PopupType.Record:
+          this.recordPopup = payload.open;
+          break;
       }
     },
     closePopup(payload: any) {
       this.editMemberData = payload.data;
-      if (payload.type === PopupType.Edit) {
-        this.editPopup = false;
-      } else if (payload.type === PopupType.Record) {
-        this.recordPopup = false;
-      } else if (payload.type === PopupType.Reload) {
-        this.editPopup = false;
-        this.recordPopup = false;
-        this.reload ++;
+      switch(payload.type) {
+        case PopupType.Edit:
+          this.editPopup = false;
+          break;
+        case PopupType.Record:
+          this.recordPopup = false;
+          break;
+        case PopupType.Reload:
+          this.editPopup = false;
+          this.recordPopup = false;
+          this.reload ++;
+          break;
       }
     }
   }
