@@ -11,100 +11,100 @@
 			</div>
 			</div>
 			<div class="member__detail-title">
-			角色
-			<div :class="{ 'member__detail-items notice': memberData.roleCode !== 'Normal',
-								'member__detail-items': memberData.roleCode === 'Normal' }">
-				{{ memberData.roleCode | roleCodeStatusDisplay }}
-			</div>
-			</div>
-			<div class="member__detail-title">
-			提现状态
-			<div :class="{ 'member__detail-items notice': memberData.withdrawalStatus !== 'Normal',
-								'member__detail-items': memberData.withdrawalStatus === 'Normal' }">
-				{{ memberData.withdrawalStatus | withdrawalStatusDisplay }}
-			</div>
+				角色
+				<div :class="{ 'member__detail-items notice': memberData.roleCode !== 'Normal',
+									'member__detail-items': memberData.roleCode === 'Normal' }">
+					{{ memberData.roleCode | roleCodeStatusDisplay }}
+				</div>
 			</div>
 			<div class="member__detail-title">
-			帐号状态
-			<div :class="{ 'member__detail-items notice': memberData.accountStatus !== 'Normal',
-								'member__detail-items': memberData.accountStatus === 'Normal' }">
-				{{ memberData.accountStatus | accountStatusDisplay }}
-			</div>
+				提现状态
+				<div :class="{ 'member__detail-items notice': memberData.withdrawalStatus !== 'Normal',
+									'member__detail-items': memberData.withdrawalStatus === 'Normal' }">
+					{{ memberData.withdrawalStatus | withdrawalStatusDisplay }}
+				</div>
 			</div>
 			<div class="member__detail-title">
-			风控黑名单
-			<div :class="{ 'member__detail-items notice': memberData.isBlackListing,
-								'member__detail-items': !memberData.isBlackListing }">
-				{{ memberData.isBlackListing | isBlacklistingDisplay }}
+				帐号状态
+				<div :class="{ 'member__detail-items notice': memberData.accountStatus !== 'Normal',
+									'member__detail-items': memberData.accountStatus === 'Normal' }">
+					{{ memberData.accountStatus | accountStatusDisplay }}
+				</div>
+			</div>
+			<div class="member__detail-title">
+				风控黑名单
 				<span>{{ memberData.blackListingCreateDate | timestampToDateAndTime }}更新</span>
-			</div>
+				<div :class="{ 'member__detail-items notice': memberData.isBlackListing,
+									'member__detail-items': !memberData.isBlackListing }">
+					{{ memberData.isBlackListing | isBlacklistingDisplay }}
+				</div>
 			</div>
 			<div class="member__detail-title">
-			风控等级
-			<div class="member__detail-items">
-				{{ memberData.riskControlLevel }}
+				风控等级
 				<span>{{ memberData.riskControlLevelCreateDate | timestampToDateAndTime }}更新</span>
-			</div>
+				<div class="member__detail-items">
+					{{ memberData.riskControlLevel }}
+				</div>
 			</div>
 		</div>
 		<div class="member__detail-list dottedline-bottom">
 			<div class="member__detail-title">
-			钱包金额
-			<div class="member__detail-items">
-				{{ memberData.amount | amountDisplay }}
-			</div>
-			</div>
-			<div class="member__detail-title">
-			保险箱金额
-			<div class="member__detail-items">
-				{{ memberData.securityBoxAmount | amountDisplay }}
-			</div>
+				钱包金额
+				<div class="member__detail-items">
+					{{ memberData.amount | amountDisplay }}
+				</div>
 			</div>
 			<div class="member__detail-title">
-			游戏冻结金额
-			<div class="member__detail-items">
-				{{ memberData.freezeAmount | amountDisplay }}
-			</div>
-			</div>
-			<div class="member__detail-title">
-			提款限额
-			<div class="member__detail-items">
-				{{ memberData.availableWithdrawalLimitAmount | amountDisplay }}
-			</div>
+				保险箱金额
+				<div class="member__detail-items">
+					{{ memberData.securityBoxAmount | amountDisplay }}
+				</div>
 			</div>
 			<div class="member__detail-title">
-			有效流水
-			<div class="member__detail-items">
-				{{ memberData.turnoverAmount | amountDisplay }}
+				游戏冻结金额
+				<div class="member__detail-items">
+					{{ memberData.freezeAmount | amountDisplay }}
+				</div>
+			</div>
+			<div class="member__detail-title">
+				提款限额
+				<div class="member__detail-items">
+					{{ memberData.availableWithdrawalLimitAmount | amountDisplay }}
+				</div>
+			</div>
+			<div class="member__detail-title">
+				有效流水
 				<span>{{ memberData.turnoverAmountCreateDate | timestampToDateAndTime }}更新</span>
-			</div>
-			</div>
-			<div class="member__detail-title">
-			会员注单
-			<div class="member__detail-items">
-				{{ memberData.isSettled | isSettledDisplay }}
-			</div>
+				<div class="member__detail-items">
+					{{ memberData.turnoverAmount | amountDisplay }}
+				</div>
 			</div>
 			<div class="member__detail-title">
-			注单结算金额
-			<div :class="{ 'member__detail-items notice': memberData.settleStatus !== 'Normal',
-								'member__detail-items': memberData.settleStatus === 'Normal' }">
-				{{ memberData.settleStatus | settleStatusDisplay }}
-			</div>
-			</div>
-			<div class="member__detail-title">
-			可提领金额
-			<div class="member__detail-items">
-				{{ memberData.availableWithdrawalLimitAmount | amountDisplay }}
-			</div>
+				会员注单
+				<div class="member__detail-items">
+					{{ memberData.isSettled | isSettledDisplay }}
+				</div>
 			</div>
 			<div class="member__detail-title">
-			会员中大奖
-			<div :class="{ 'member__detail-items notice': memberData.isBidWin,
-								'member__detail-items': !memberData.isBidWin }">
-				{{ memberData.isBidWin | isBidWinDisplay }}
+				注单结算金额
+				<div :class="{ 'member__detail-items notice': memberData.settleStatus !== 'Normal',
+									'member__detail-items': memberData.settleStatus === 'Normal' }">
+					{{ memberData.settleStatus | settleStatusDisplay }}
+				</div>
+			</div>
+			<div class="member__detail-title">
+				可提领金额
+				<div class="member__detail-items">
+					{{ memberData.availableWithdrawalLimitAmount | amountDisplay }}
+				</div>
+			</div>
+			<div class="member__detail-title">
+				会员中大奖
 				<span v-if="memberData.isBidWin">{{ memberData.bigWinCreateDate | timestampToDateAndTime }}更新</span>
-			</div>
+				<div :class="{ 'member__detail-items notice': memberData.isBidWin,
+									'member__detail-items': !memberData.isBidWin }">
+					{{ memberData.isBidWin | isBidWinDisplay }}
+				</div>
 			</div>
 		</div>
 		<div class="btns">

@@ -62,8 +62,8 @@
               <button class="btns__close"></button>
             </div>
           </div>
-          <div class="btns">
-            <input type="file" class="btns__green" id="file" @change="selectFile">
+          <div class="popup-list">
+            <input type="file" id="file" @change="selectFile">
           </div>
         </div>
     </div>
