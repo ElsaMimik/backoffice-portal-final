@@ -129,8 +129,8 @@
 						<button class="btns__close"></button>
 					</div>
 				</div>
-				<div class="btns">
-					<button class="btns__green">上传</button>
+				<div class="popup-list">
+					<input type="file" name="">
 				</div>
 			</div>
 		</div>

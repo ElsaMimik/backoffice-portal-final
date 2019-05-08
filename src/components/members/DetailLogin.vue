@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="search">
-            <form class="search-form">
+            <div class="search-form">
                 <div class="search-items">
                     <label>开始日期</label>
                     <input type="date">
@@ -34,7 +34,7 @@
                 <div class="search-items">
                     <button class="btns__green">查找</button>
                 </div>
-            </form>
+            </div>
             <table class="list">
                 <tr>
                     <th>登入时间</th>

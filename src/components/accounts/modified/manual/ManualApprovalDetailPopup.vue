@@ -6,18 +6,17 @@
 				<button class="btns__close"></button>
 				</div>
 			</div>
-			<form>
-				<div class="popup__title">手动调帐</div>
-				<div class="popup__info dottedline-top">
+			<div class="popup__title">手动调帐</div>
+			<div class="popup__info dottedline-top">
 				<div class="popup__info-title">帐号ID
 					<div class="popup__info-items"> 
 					<p>7533967396736733</p>
 					<p>7533967396736733</p>
 					</div>
 				</div>
-				</div>
-				<div class="popup__title">建单</div>
-				<div class="popup__info dottedline-top">
+			</div>
+			<div class="popup__title">建单</div>
+			<div class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">钱包金额
 					<div class="popup__info-items notice">-1,000.00</div>
@@ -83,11 +82,10 @@
 					<button class="btns__close"></button>
 					</div>
 				</div>
-				<div class="btns">
-					<button class="btns__green">上传</button>
+				<div class="popup-list">
+					<input type="file" name="">
 				</div>
-				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 </template>

@@ -3,7 +3,7 @@
 		<div class="risk-control--check-member-status">
 			<div class="title">风控 - 会员风控状态</div>
 			<div class="search">
-				<form class="search-form">
+				<div class="search-form">
 					<div class="search-items">
 						<label>帐号ID</label>
 						<input type="text">
@@ -11,7 +11,7 @@
 					<div class="search-items">
 						<button class="btns__green">查找</button>
 					</div>
-				</form>
+				</div>
 				<div class="search__result">
 					<div class="title">查询结果</div>
 					<table class="search__result-list">

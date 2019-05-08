@@ -2,8 +2,11 @@
 	<div class="wrap">
 		<div class="risk-control--level-setting">
 			<div class="title">风控 - 当前风控等级</div>
-			<div class="popup__info-title">最新修改人员</div>
-			<p>AMY</p>
+			<div class="member__detail-list">
+				<div class="member__detail-title">最新修改人员
+					<div class="member__detail-items">AMY</div>
+				</div>
+			</div>
 			<table>
 				<tr>
 					<th></th>
