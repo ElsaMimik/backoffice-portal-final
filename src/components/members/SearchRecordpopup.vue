@@ -74,10 +74,10 @@ import MemberApi from "@/api/member";
 import FileApi from "@/api/file";
 import { datetimeMixin } from '@/utilities/datetime-format';
 import { displayFiltersMixin } from '@/utilities/display-filters';
-import { download } from '@/utilities/file-handler';
+import { downloadMixin } from '@/utilities/file-handler';
 
 @Component({
-	mixins: [datetimeMixin, displayFiltersMixin]
+	mixins: [datetimeMixin, displayFiltersMixin, downloadMixin]
 })
 export default class SearchRecordpopup extends Vue {
 	@Prop(Object) readonly editMemberData!: Model.IMember;
@@ -99,20 +99,5 @@ export default class SearchRecordpopup extends Vue {
 	random(data: string) {
 		return Math.random();
 	}
-	downloadFile(fileId: string) {
-		download(fileId);
-	}
-
-	// downloadFile(fileId: string) {
-	// 	FileApi.getFile(fileId).then((fileData) => {
-	// 		var element = document.createElement('a');
-	// 		element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileData.file));
-	// 		element.setAttribute('download', fileData.fileName);
-	// 		element.style.display = 'none';
-	// 		document.body.appendChild(element);
-	// 		element.click();
-	// 		document.body.removeChild(element);
-	// 	});
-	// }
 }
 </script>

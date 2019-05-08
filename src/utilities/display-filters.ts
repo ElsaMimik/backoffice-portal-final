@@ -15,10 +15,10 @@ export const displayFiltersMixin = {
 			return data.replace(/\-/g,'');
 		},
 		accountStatusDisplay(data: string) {
-			return data === Status.AccountStatus.Normal ? '正常' : '不可登入';
+			return data === Status.AccountStatus.Normal ? '正常' : '不可登入(E2)';
 		},
 		withdrawalStatusDisplay(data: string) {
-			return data === Status.WithdrawalStatus.Normal ? '正常' : '不可提現';
+			return data === Status.WithdrawalStatus.Normal ? '正常' : '不可提現(E1)';
 		},
 		roleCodeStatusDisplay(data: string) {
 			return data === Status.RoleCode.Normal ? '直客' : '';
