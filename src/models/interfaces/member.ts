@@ -50,10 +50,10 @@ export interface IMemberStatusRequest {
 }
 
 export interface IMemberStatusResponse {
-	history: IMemberStatusHistory[];
+	histories: IMemberStatusHistory[];
 }
 
-interface IMemberStatusHistory {
+export interface IMemberStatusHistory {
 	createDate: string;
 	csID: string;
 	csName: string;
@@ -64,7 +64,7 @@ interface IMemberStatusHistory {
 }
 
 export interface ILoginHistoryResponse {
-	history: ILoginHistory[];
+	histories: ILoginHistory[];
 }
 
 interface ILoginHistory {
