@@ -3,35 +3,35 @@ import { IError } from '@/models/interfaces/error';
 
 
 export interface IState {
-    errorHistory: IError[];
+	errorHistory: IError[];
 }
 const ERROR = 'ERROR';
 
 const initState: IState = {
-    errorHistory: [],
+	errorHistory: [],
 };
 
 const getters = {
-    getErrorHistory: (state: IState) => state.errorHistory,
+	getErrorHistory: (state: IState) => state.errorHistory,
 };
 
 const actions = {
-    getError(context: IActionContextBasic, error: IError) {
-        context.commit(ERROR, error);
-    },
+	getError(context: IActionContextBasic, error: IError) {
+		context.commit(ERROR, error);
+	},
 };
 
 const mutations = {
-    [ERROR](state: IState, payload: IError) {
-        state.errorHistory.splice(0, 0, payload);
-    },
+	[ERROR](state: IState, payload: IError) {
+		state.errorHistory.splice(0, 0, payload);
+	},
 };
 
 export default {
-    namespaced: true,
-    state: initState,
-    getters,
-    actions,
-    mutations,
+	namespaced: true,
+	state: initState,
+	getters,
+	actions,
+	mutations,
 };
 

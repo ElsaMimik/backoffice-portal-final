@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+	<div class="wrap">
 		<div class="title">会员状态修改</div>
 		<div class="member__detail">
 			<Detail @change-tab="changeTab"/>
@@ -22,25 +22,25 @@ import DetailRiskControl from '@/components/members/DetailRiskControl.vue';
 import DetailTransaction from '@/components/members/DetailTransaction.vue';
 
 export default Vue.extend({
-  name: 'home',
-  components: {
-    Detail,
-    DetailBasic,
-    DetailLogin,
-    DetailRelations,
-    DetailRiskControl,
-    DetailTransaction,
-  },
-  data: () => {
-    return {
-      currentTab: 'Basic'
-    };
-  },
-  methods: {
-	  changeTab(tab: string) {
-		  this.currentTab = tab;
-	  }
-  }
+	name: 'home',
+	components: {
+		Detail,
+		DetailBasic,
+		DetailLogin,
+		DetailRelations,
+		DetailRiskControl,
+		DetailTransaction,
+	},
+	data: () => {
+		return {
+			currentTab: 'Basic'
+		};
+	},
+	methods: {
+		changeTab(tab: string) {
+			this.currentTab = tab;
+		}
+	}
 });
 </script>
 

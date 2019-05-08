@@ -7,14 +7,14 @@ import Error from '@/store/error';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    modules: {
-      Member,
-      Auth,
-      Error,
-  }
+	modules: {
+		Member,
+		Auth,
+		Error,
+	}
 });
 
 export interface IActionContextBasic {
-  commit: Commit;
-  dispatch: Dispatch;
+	commit: Commit;
+	dispatch: Dispatch;
 }

@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <Layout v-if="isLogin"/>
-    <Login v-if="!isLogin"/>
-    <!-- <Information /> -->
-    <!-- <Confirm /> -->
-  </div>
+	<div>
+		<Layout v-if="isLogin"/>
+		<Login v-if="!isLogin"/>
+		<!-- <Information /> -->
+		<!-- <Confirm /> -->
+	</div>
 </template>
 
 
@@ -24,32 +24,32 @@ const errorModule = namespace("Error");
 import AuthApi from "@/api/auth";
 
 @Component({
-  components: {
-    Layout,
-    Login,
-    Information,
-    Confirm,
-  }
+	components: {
+		Layout,
+		Login,
+		Information,
+		Confirm,
+	}
 })
 export default class App extends Vue {
-  
-  isLogin: boolean = false;
-  @authModule.State("apiPaths") apiPaths!: string[];
-  @errorModule.State("errorHistory") errorHistory!: IError[];
+	
+	isLogin: boolean = false;
+	@authModule.State("apiPaths") apiPaths!: string[];
+	@errorModule.State("errorHistory") errorHistory!: IError[];
 
-  @Action("Auth/setApiPath") private setApiPath!: any;
-  @Action("Error/getError") private getError!: any;
-  mounted() {
-    AuthApi.getMenu().then(data => {
-      this.setApiPath(data.menu);
-      this.isLogin = this.apiPaths.length > 0;
-    });
-    
-    EventBus.$on("api-error", (err: any) => {
-      this.getError(err);
-      // console.log('api-error', err);
-    });
-  }
+	@Action("Auth/setApiPath") private setApiPath!: any;
+	@Action("Error/getError") private getError!: any;
+	mounted() {
+		AuthApi.getMenu().then(data => {
+			this.setApiPath(data.menu);
+			this.isLogin = this.apiPaths.length > 0;
+		});
+		
+		EventBus.$on("api-error", (err: any) => {
+			this.getError(err);
+			// console.log('api-error', err);
+		});
+	}
 }
 </script>
 

@@ -1,9 +1,9 @@
 export interface IError {
-    traceId: string;
-    error: IErrorData;
+	traceId: string;
+	error: IErrorData;
 }
 
 export interface IErrorData {
-    code: string;
-    message: string;
+	code: string;
+	message: string;
 }

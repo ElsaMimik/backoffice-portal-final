@@ -1,5 +1,5 @@
 export interface IFile {
-    fileId: string;
-    fileName: string;
-    file: string;
+	fileId: string;
+	fileName: string;
+	file: string;
 }
