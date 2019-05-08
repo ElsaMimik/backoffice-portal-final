@@ -3,9 +3,6 @@
 		<div class="popup">
 			<div class="popup__view">
 				<div class="popup__close">
-					<div class="btns">
-						<button class="btns__close"></button>
-					</div>
 				</div>
 				<div class="popup__title">Warning</div>
 				<form>
@@ -36,6 +33,7 @@ export default class ConfirmPopup extends Vue {}
 #informationpopup {
 	text-align: center;
 	.popup {
+		z-index:9999;
 		&-list {
 			flex-direction: row;
 			justify-content: center;
