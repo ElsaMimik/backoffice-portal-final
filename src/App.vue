@@ -2,7 +2,7 @@
   <div>
     <Layout v-if="isLogin"/>
     <Login v-if="!isLogin"/>
-    <Information />
+    <!-- <Information /> -->
     <!-- <Confirm /> -->
   </div>
 </template>
