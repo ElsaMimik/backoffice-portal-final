@@ -2,8 +2,8 @@
   <div>
     <Layout v-if="isLogin"/>
     <Login v-if="!isLogin"/>
-    <!-- <Information />
-    <Confirm /> -->
+    <Information />
+    <!-- <Confirm /> -->
   </div>
 </template>
 

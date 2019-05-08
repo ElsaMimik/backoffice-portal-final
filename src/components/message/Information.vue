@@ -4,16 +4,14 @@
 			<div class="popup__view">
 				<div class="popup__close">
 				</div>
-				<div class="popup__title">Information</div>
-				<form>
-					<div class="popup__info dottedline-top"></div>
-					<div class="popup-list">
-						<div class="popup-text">詳述錯誤</div>
-					</div>
-					<div class="btns">
-						<button class="btns__submit">确定</button>
-					</div>
-				</form>
+				<div class="popup__title notice">Information</div>
+				<div class="popup__info dottedline-top"></div>
+				<div class="popup-list">
+					<div class="popup-text">詳述錯誤</div>
+				</div>
+				<div class="btns">
+					<button class="btns__submit">确定</button>
+				</div>
 			</div>
 		</div>
 	</section>
