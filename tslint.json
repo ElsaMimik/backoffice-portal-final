@@ -31,7 +31,8 @@
       "member-access": false,
       "semicolon": [true, "always"],
       "no-object-literal-type-assertion": false,
-      "no-var-requires": false
+      "no-var-requires": false,
+      "no-this-assignment": false
     },
     "rulesDirectory": ["tslint-plugin-prettier"]
 }

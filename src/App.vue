@@ -2,6 +2,8 @@
   <div>
     <Layout v-if="isLogin"/>
     <Login v-if="!isLogin"/>
+    <!-- <Information />
+    <Confirm /> -->
   </div>
 </template>
 
@@ -9,6 +11,8 @@
 <script lang="ts">
 import Layout from "@/views/Layout.vue";
 import Login from "@/views/Login.vue";
+import Information from "@/components/message/Information.vue";
+import Confirm from "@/components/message/Confirm.vue";
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { State, Action, Getter, namespace } from "vuex-class";
@@ -22,7 +26,9 @@ import AuthApi from "@/api/auth";
 @Component({
   components: {
     Layout,
-    Login
+    Login,
+    Information,
+    Confirm,
   }
 })
 export default class App extends Vue {

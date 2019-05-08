@@ -8,33 +8,64 @@ export default {
      * @description 後台人員查詢會員資料(使用uuid前八碼查詢) [BO-18]
      */
     async getMemberListAsync(shortUuid: string): Promise<Model.IMembersResponse> {
-        const config = {
-            url: `/member/members?short-uuid=${shortUuid}`,
-            method: 'get'
-        };
-        const result = await Handler.request<Model.IMembersResponse>(config);
-        return <Model.IMembersResponse>(result.data);
+        // const config = {
+        //     url: `/member/members?short-uuid=${shortUuid}`,
+        //     method: 'get'
+        // };
+        // const result = await Handler.request<Model.IMembersResponse>(config);
+        // return <Model.IMembersResponse>(result.data);
+
+        return Promise.resolve(
+            <Model.IMembersResponse>(
+                { members: [
+                    {
+                        uuid: "5095ebd8-3175-4fb5-97f3-dddd4af0b6d8",
+                        riskControlLevel: "D",
+                        isBlacklisting: false,
+                        amount: 10000.1234,
+                        freezeAmount: 0,
+                        accountStatus: "E2",
+                        withdrawalStatus: "Normal",
+                        createDate: 1556668800000,
+                        roleCode: "Normal"
+                    },
+                    {
+                        uuid: "5095ebd8-3175-4fb5-97f3-dddd4af0b6d8",
+                        riskControlLevel: "D",
+                        isBlacklisting: true,
+                        amount: 10000,
+                        freezeAmount: 0,
+                        accountStatus: "Normal",
+                        withdrawalStatus: "E1",
+                        createDate: 1556668800000,
+                        roleCode: "Normal"
+                    }
+                ]}
+            ));
     },
     /**
      * 2. Get Member Profile By Uuid
      * @description 後台人員查詢會員資料(針對單一uuid查詢) [BO-12]
      */
-    async getMemberDetail(uuid: string): Promise<Model.IMemberDetailResponse|any> {
+    async getMemberDetail(uuid: string): Promise<Model.IMemberDetailResponse> {
         const config = {
-            url: `/member/profile/${uuid}`,
+            url: `/members/${uuid}/profile`,
             method: 'get'
         };
+        const result = await Handler.request<Model.IMemberDetailResponse>(config);
+        return <Model.IMemberDetailResponse>(result.data);
     },
     /**
      * 3. Update Member Status
      * @description 調整會員狀態 [BO-17/BO-185]
      */
-    async updateMemberStatus(payload: Model.IMemberStatusRequest, uuid: string): Promise<boolean|any> {
+    async updateMemberStatus(payload: Model.IMemberStatusRequest, uuid: string): Promise<boolean> {
         const config = {
             url: `/member/status/${uuid}`,
             method: 'patch',
             data: payload,
         };
+        return Promise.resolve(true);
     },
     /**
      * 4. Get Member Status History

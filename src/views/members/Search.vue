@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Search @show-update-status="showPopup"/>
-    <SearchEdit v-if="editPopup" @close-popup="closePopup"/>
-    <SearchRecord v-if="recordPopup" @close-popup="closePopup"/>
+    <Search @show-update-status="showPopup" :reload="reload" />
+    <SearchEdit v-if="editPopup" @close-popup="closePopup" :edit-member-data="editMemberData"/>
+    <SearchRecord v-if="recordPopup" @close-popup="closePopup" :edit-member-data="editMemberData"/>
   </div>
 </template>
 
@@ -23,23 +23,38 @@ export default Vue.extend({
   data: () => {
     return {
       editPopup: false,
-      recordPopup: false
+      recordPopup: false,
+      editMemberData: {},
+      reload: 0,
     };
   },
   mounted() {},
   methods: {
     showPopup(payload: any) {
-      if (payload.type === PopupType.Edit) {
-        this.editPopup = payload.open;
-      } else if (payload.type === PopupType.Record) {
-        this.recordPopup = payload.open;
+      this.editMemberData = payload.data;
+      switch(payload.type) {
+        case PopupType.Edit:
+          this.editPopup = payload.open;
+          break;
+        case PopupType.Record:
+          this.recordPopup = payload.open;
+          break;
       }
     },
     closePopup(payload: any) {
-      if (payload.type === PopupType.Edit) {
-        this.editPopup = false;
-      } else if (payload.type === PopupType.Record) {
-        this.recordPopup = false;
+      this.editMemberData = payload.data;
+      switch(payload.type) {
+        case PopupType.Edit:
+          this.editPopup = false;
+          break;
+        case PopupType.Record:
+          this.recordPopup = false;
+          break;
+        case PopupType.Reload:
+          this.editPopup = false;
+          this.recordPopup = false;
+          this.reload ++;
+          break;
       }
     }
   }
