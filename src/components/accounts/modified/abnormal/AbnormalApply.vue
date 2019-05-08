@@ -4,7 +4,7 @@
 			<div class="title">帐务 - 调帐 - 注单异常调帐</div>
 			<div class="search">
 			<div class="search-title">▼依编号查询</div>
-			<form class="search-form">
+			<div class="search-form">
 				<div class="search-items">
 				<label>交易编号</label>
 				<input type="text" required>
@@ -14,9 +14,9 @@
 				<div class="search-items">
 				<button class="btns__green">查找</button>
 				</div>
-			</form>
+			</div>
 			<div class="search-title">▼依纪录查询</div>
-			<form class="search-form">
+			<div class="search-form">
 				<div class="search-items">
 				<label>开始日期</label>
 				<input type="date">
@@ -28,7 +28,7 @@
 				<div class="search-items">
 				<button class="btns__green">查找</button>
 				</div>
-			</form>
+			</div>
 			</div>
 			<table class="list">
 			<tr>

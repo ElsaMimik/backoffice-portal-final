@@ -1,5 +1,5 @@
 <template>
-	<section id="informationpopup">
+	<section id="confirmpop">
 		<div class="popup">
 			<div class="popup__view">
 				<div class="popup__close">
@@ -28,7 +28,7 @@ export default class ConfirmPopup extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-#informationpopup {
+#confirmpop {
 	text-align: center;
 	.popup {
 		z-index:9999;

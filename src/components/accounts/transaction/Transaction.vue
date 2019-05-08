@@ -4,7 +4,7 @@
 			<div class="title">帐务 - 交易</div>
 			<div class="search">
 				<div class="search-title">▼依编号查询</div>
-				<form class="search-form">
+				<div class="search-form">
 					<div class="search-items">
 						<label>交易编号</label>
 						<input type="text" required>
@@ -14,9 +14,9 @@
 					<div class="search-items">
 						<button class="btns__green">查找</button>
 					</div>
-				</form>
+				</div>
 				<div class="search-title">▼依纪录查询</div>
-				<form class="search-form">
+				<div class="search-form">
 					<div class="search-items">
 						<label>帐号ID</label>
 						<input type="text" required>
@@ -48,7 +48,7 @@
 					<div class="search-items">
 						<button class="btns__green">查找</button>
 					</div>
-				</form>
+				</div>
 				<div class="title">交易查询结果</div>
 			</div>
 			<div class="search__result">

@@ -1,5 +1,5 @@
 <template>
-	<form>
+	<div class="account--modified--manual--apply">
 		<div class="popup__info dottedline-top">
 			<div class="popup-list">
 				<div class="popup__info-title">操作人员
@@ -54,11 +54,11 @@
 					<button class="btns__close"></button>
 				</div>
 			</div>
-			<div class="btns">
-				<button class="btns__green">上传</button>
+			<div class="popup-list">
+				<input type="file" name="">
 			</div>
 		</div>
-	</form>
+	</div>
 </template>
 
 <script lang="ts">
@@ -83,10 +83,8 @@ export default class Detail extends Vue {
 
 <style lang="scss" scoped>
 .account--modified--manual--apply {
-	form {
 		width: 800px;
 		line-height: 180%;
-	}
 	.popup {
 		&__info {
 			border: 0px;
