@@ -24,21 +24,21 @@ export interface IMemberDetailResponse {
     roleCode: Status.RoleCode;
     phoneNumber: string;
     riskControlLevel: Status.RiskControllLevel;
-    isBlacklisting: Status.YesNo;
-    riskControlLevelCreateDate: string;
-    blacklistingCreateDate: string;
-    amount: string;
-    freezeAmount: string;
-    securityBoxAmount: string;
-    withdrawalLimitAmount: string;
-    availableWithdrawalLimitAmount: string;
-    turnoverAmount: string;
-    turnoverAmountCreateDate: string;
+    isBlacklisting: boolean;
+    riskControlLevelCreateDate: number;
+    blacklistingCreateDate: number;
+    amount: number;
+    freezeAmount: number;
+    securityBoxAmount: number;
+    withdrawalLimitAmount: number;
+    availableWithdrawalLimitAmount: number;
+    turnoverAmount: number;
+    turnoverAmountCreateDate: number;
     accountStatus: Status.AccountStatus;
     withdrawalStatus: Status.WithdrawalStatus;
-    isBigWin: Status.YesNo;
-    bigWinCreateDate: string;
-    isSettled: Status.YesNo;
+    isBigWin: boolean;
+    bigWinCreateDate: number;
+    isSettled: boolean;
     settleStatus: Status.SettleStatus;
 }
 
