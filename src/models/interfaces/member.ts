@@ -75,14 +75,14 @@ interface ILoginHistory {
 }
 
 export interface IRelationLoginHistoryResponse {
-	relation: IRelationLogin[];
+	relations: IRelationLogin[];
 }
 
-interface IRelationLogin {
+export interface IRelationLogin {
 	uuid: string;
-	createDate: string;
+	createDate: number;
 	ip: string;
-	isSuccess: Status.YesNo;
+	isSuccess: boolean;
 	loginType: Status.LoginType;
 	roleCode: Status.RoleCode;
 }

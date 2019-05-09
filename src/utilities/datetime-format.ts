@@ -24,3 +24,7 @@ export const datetimeMixin = {
 		},
 	}
 };
+
+export const dateToTimeStamp = (date: string) => {
+	return new Date(date).getTime();
+};
