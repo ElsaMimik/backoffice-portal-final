@@ -106,8 +106,11 @@
 					</div>
 				</div>
 				<div class="btns">
-					<button class="btns__green">更新</button>
-					<button class="btns__green">查询交易纪录</button>
+					<button @click="init" class="btns__green">更新</button>
+					
+					<a type="button" href="/account/transaction" value="查询交易纪录" target="_blank" class="button">
+						<button class="btns__green">查询交易纪录</button>
+					</a>
 				</div>
 			</div>
 		</div>

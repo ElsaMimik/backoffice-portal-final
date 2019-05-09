@@ -14,6 +14,9 @@ export const datetimeMixin = {
 		},
 		timestampToDateAndTime(timestamp: number) {
 			if(!timestamp) { return ''; }
+			// console.log(timestamp)
+			timestamp = timestamp + timezoneOffset *60000 + (24 *60 *60 *1000);
+			// console.log(timestamp)
 			const date = new Date(timestamp);
 			const iso = date.toISOString().slice(0, 10).replace(/-/g, '-');
 			const time = new Date(timestamp * 1000);
@@ -24,6 +27,14 @@ export const datetimeMixin = {
 		},
 	}
 };
+
+/**
+ * TODO : 設定站台timezoneOffset
+ * 用站台時間顯示於網頁上
+ * for filter timestamp to string
+ * 然後要提示站台時區在網頁上
+ */
+const timezoneOffset = -480;
 
 /**
  * yyyy-mm-dd 轉換成TimeStamp
