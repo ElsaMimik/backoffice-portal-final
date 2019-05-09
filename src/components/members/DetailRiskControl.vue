@@ -1,5 +1,5 @@
 <template>
-	<div class="member__detail-riskcontrol">
+	<div class="member__detail-riskcontrol" v-if="getData">
         <div class="title">▼会员风控资料</div>
         <div class="member__detail-list">
             <div class="member__detail-title">
@@ -11,7 +11,7 @@
             <div class="member__detail-title">
                 累积充值金额
                 <div class="member__detail-items">
-                    {{ riskControlData.depositAmount }}
+                    {{ riskControlData.depositAmount | amountDisplay }}
                 </div>
             </div>
             <div class="member__detail-title">
@@ -23,7 +23,7 @@
             <div class="member__detail-title">
                 本日累积贡献度
                 <div class="member__detail-items">
-                    {{ riskControlData.dailyContributionAmount }}
+                    {{ riskControlData.dailyContributionAmount | amountDisplay }}
                 </div>
             </div>
         </div>
@@ -42,9 +42,9 @@
                     </td>
                     <td :class="{ 'notice': !riskControlData.dailyWithdrawal.isLegal }">本日提款</td>
                     <td :class="{ 'notice': !riskControlData.dailyWithdrawal.isLegal }">
-                        {{ riskControlData.dailyWithdrawal.amount }}
+                        {{ riskControlData.dailyWithdrawal.amount | amountDisplay }}
                     </td>
-                    <td>{{ riskControlData.riskControlRule.dailyWithdrawalAmount }}</td>
+                    <td>{{ riskControlData.riskControlRule.dailyWithdrawalAmount | amountDisplay }}</td>
                 </tr>
                 <tr>
                     <td :class="{ 'notice': !riskControlData.dailyTurnover.isLegal }">
@@ -52,9 +52,9 @@
                     </td>
                     <td :class="{ 'notice': !riskControlData.dailyTurnover.isLegal }">本日有效流水</td>
                     <td :class="{ 'notice': !riskControlData.dailyTurnover.isLegal }">
-                        {{ riskControlData.dailyTurnover.amount }}
+                        {{ riskControlData.dailyTurnover.amount | amountDisplay }}
                     </td>
-                    <td>{{ riskControlData.riskControlRule.dailyTurnoverAmount }}</td>
+                    <td>{{ riskControlData.riskControlRule.dailyTurnoverAmount | amountDisplay }}</td>
                 </tr>
                 <tr>
                     <td :class="{ 'notice': !riskControlData.dailyContribution.isLegal }">
@@ -62,10 +62,10 @@
                     </td>
                     <td :class="{ 'notice': !riskControlData.dailyContribution.isLegal }">本日贡献度</td>
                     <td :class="{ 'notice': !riskControlData.dailyContribution.isLegal }">
-                        {{ riskControlData.dailyContribution.amount }}
+                        {{ riskControlData.dailyContribution.amount | amountDisplay }}
                     </td>
                     <td>
-                        {{ riskControlData.riskControlRule.dailyContributionAmount }}
+                        {{ riskControlData.riskControlRule.dailyContributionAmount | amountDisplay }}
                     </td>
                 </tr>
                 <tr>
@@ -74,9 +74,9 @@
                     </td>
                     <td :class="{ 'notice': !riskControlData.sevenDaysContribution.isLegal }">七日贡献度</td>
                     <td :class="{ 'notice': !riskControlData.sevenDaysContribution.isLegal }">
-                        {{ riskControlData.sevenDaysContribution.amount }}
+                        {{ riskControlData.sevenDaysContribution.amount | amountDisplay }}
                     </td>
-                    <td>{{ riskControlData.riskControlRule.sevenDaysContributionAmount }}</td>
+                    <td>{{ riskControlData.riskControlRule.sevenDaysContributionAmount | amountDisplay }}</td>
                 </tr>
             </table>
             <table>
@@ -90,9 +90,9 @@
                         {{ !riskControlData.riskControlRuleDepositing.isLegal? '違反' : '' }}
                     </td>
                     <td :class="{ 'notice': !riskControlData.riskControlRuleDepositing.isLegal }">
-                        {{ riskControlData.riskControlRuleDepositing.amount }}
+                        {{ riskControlData.riskControlRuleDepositing.amount | amountDisplay }}
                     </td>
-                    <td>{{ riskControlData.riskControlRule.depositingAmount }}</td>
+                    <td>{{ riskControlData.riskControlRule.depositingAmount | amountDisplay }}</td>
                 </tr>
             </table>
         </div>
@@ -107,7 +107,7 @@
             <div class="member__detail-title">
                 会员存流比
                 <div class="member__detail-items">
-                    {{ riskControlData.sevenDaysTurnoverRate }}
+                    {{ riskControlData.sevenDaysTurnoverRate | amountDisplay }}
                 </div>
             </div>
             <div class="member__detail-title">
@@ -136,12 +136,14 @@ import { Component } from "vue-property-decorator";
 import MemberApi from "@/api/member";
 import * as Model from "@/models/interfaces/member";
 import { datetimeMixin } from '@/utilities/datetime-format';
+import { displayFiltersMixin } from '@/utilities/display-filters';
 import * as Status from '@/models/status/member';
 
 @Component({
-	mixins: [datetimeMixin]
+	mixins: [datetimeMixin, displayFiltersMixin]
 })
 export default class DetailRiskControl extends Vue {
+    getData: boolean = false;
     riskControlData: Model.IRiskControlResponse = {
         uuid: '',
         riskControlRule: {
@@ -182,6 +184,7 @@ export default class DetailRiskControl extends Vue {
     };
     mounted() {
         MemberApi.getMemberRiskControl(this.$route.params.uuid).then(res => {
+            this.getData = true;
             this.riskControlData = { ...res };
         });
     }

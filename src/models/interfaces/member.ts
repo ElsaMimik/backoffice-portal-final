@@ -67,10 +67,10 @@ export interface ILoginHistoryResponse {
 	histories: ILoginHistory[];
 }
 
-interface ILoginHistory {
-	createDate: string;
+export interface ILoginHistory {
+	createDate: number;
 	ip: string;
-	isSuccess: Status.YesNo;
+	isSuccess: boolean;
 	loginType: Status.LoginType;
 }
 
