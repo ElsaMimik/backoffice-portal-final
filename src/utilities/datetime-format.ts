@@ -1,40 +1,48 @@
 export const datetimeMixin = {
 	filters: {
 		timestampToDate(timestamp: number) {
-			const date = new Date(timestamp);
-			const iso = date.toISOString().slice(0, 10).replace(/-/g, '-');
+			if(!timestamp) { return ''; }
+			timestamp = timestamp + (timezone *60 *60 *1000);
+			// 加上時區
+			const webTime = new Date(timestamp);
+			// Date
+			const iso = webTime.toISOString().slice(0, 10).replace(/-/g, '-');
 			return iso;
 		},
 		timestampToDatetime(timestamp: number) {
-			const time = new Date(timestamp * 1000);
-			const hours = time.getHours() < 10 ? `0${time.getHours()}` : time.getHours();
-			const minutes = `0${time.getMinutes()}`;
-			const seconds = `0${time.getSeconds()}`;
+			if(!timestamp) { return ''; }
+			timestamp = timestamp + (timezone *60 *60 *1000);
+			// 加上時區
+			const webTime = new Date(timestamp);
+			// Time 這裡用UTC取得已經轉換過的時間
+			// const time = webTime;
+			const hours = webTime.getUTCHours() < 10 ? `0${webTime.getUTCHours()}` : webTime.getUTCHours();
+			const minutes = `0${webTime.getUTCMinutes()}`;
+			const seconds = `0${webTime.getUTCSeconds()}`;
 			return `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
 		},
 		timestampToDateAndTime(timestamp: number) {
 			if(!timestamp) { return ''; }
-			// console.log(timestamp)
-			timestamp = timestamp + timezoneOffset *60000 + (24 *60 *60 *1000);
-			// console.log(timestamp)
-			const date = new Date(timestamp);
-			const iso = date.toISOString().slice(0, 10).replace(/-/g, '-');
-			const time = new Date(timestamp * 1000);
-			const hours = time.getHours() < 10 ? `0${time.getHours()}` : time.getHours();
-			const minutes = `0${time.getMinutes()}`;
-			const seconds = `0${time.getSeconds()}`;
-			return `${iso}  ${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
+			timestamp = timestamp + (timezone *60 *60 *1000);
+			// 加上時區
+			const webTime = new Date(timestamp);
+			// Date
+			const iso = webTime.toISOString().slice(0, 10).replace(/-/g, '-');
+			// Time 這裡用UTC取得已經轉換過的時間
+			// const time = webTime;
+			const hours = webTime.getUTCHours() < 10 ? `0${webTime.getUTCHours()}` : webTime.getUTCHours();
+			const minutes = `0${webTime.getUTCMinutes()}`;
+			const seconds = `0${webTime.getUTCSeconds()}`;
+			return `${iso} ${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
 		},
 	}
 };
 
 /**
- * TODO : 設定站台timezoneOffset
- * 用站台時間顯示於網頁上
+ * 站台timezone
  * for filter timestamp to string
- * 然後要提示站台時區在網頁上
  */
-const timezoneOffset = -480;
+const timezone = 8;
 
 /**
  * yyyy-mm-dd 轉換成TimeStamp
