@@ -136,16 +136,51 @@ import { Component } from "vue-property-decorator";
 import MemberApi from "@/api/member";
 import * as Model from "@/models/interfaces/member";
 import { datetimeMixin } from '@/utilities/datetime-format';
+import * as Status from '@/models/status/member';
 
 @Component({
 	mixins: [datetimeMixin]
 })
 export default class DetailRiskControl extends Vue {
-    riskControlData: Model.IRiskControlResponse = {} as Model.IRiskControlResponse;
+    riskControlData: Model.IRiskControlResponse = {
+        uuid: '',
+        riskControlRule: {
+            riskControlLevel: Status.RiskControllLevel.C,
+            dailyWithdrawalAmount: 0,
+            dailyTurnoverAmount: 0,
+            dailyContributionAmount: 0,
+            sevenDaysContributionAmount: 0,
+            depositingAmount: 0
+        },
+        depositAmount: 0,
+        depositCount: 0,
+        dailyContributionAmount: 0,
+        dailyWithdrawal: {
+            amount: 0,
+            isLegal: false
+        },
+        dailyTurnover: {
+            amount: 0,
+            isLegal: false
+        },
+        dailyContribution: {
+            amount : 0,
+            isLegal: false
+        },
+        sevenDaysContribution: {
+            amount: 0,
+            isLegal: false
+        },
+        riskControlRuleDepositing: {
+            amount: 0,
+            isLegal: false
+        },
+        riskControlLevelCreateDate: 0,
+        riskControlLevelReason: '',
+        riskControlLevelCreateUser: '',
+        sevenDaysTurnoverRate: 0
+    };
     mounted() {
-        this.riskControlData.riskControlRule = {} as Model.IRiskControlRule;
-        // this.riskControlData.riskControlRule.riskControlLevel = {} as Model.RiskControllLevel;
-        console.log(this.riskControlData.riskControlRule)
         MemberApi.getMemberRiskControl(this.$route.params.uuid).then(res => {
             this.riskControlData = { ...res };
         });

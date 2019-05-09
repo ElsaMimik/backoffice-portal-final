@@ -91,30 +91,30 @@ interface IRelationLogin {
 export interface IRiskControlResponse {
 	uuid: string;
 	riskControlRule: IRiskControlRule;
-	depositAmount: string;
+	depositAmount: number;
 	depositCount: number;
-	dailyContributionAmount: string;
-	dailyDeposit: IRuleCheck;
+	dailyContributionAmount: number;
+	dailyWithdrawal: IRuleCheck;
 	dailyTurnover: IRuleCheck;
 	dailyContribution: IRuleCheck;
 	sevenDaysContribution: IRuleCheck;
 	riskControlRuleDepositing: IRuleCheck;
-	riskControlLevelCreateDate: string;
+	riskControlLevelCreateDate: number;
 	riskControlLevelReason: string;
 	riskControlLevelCreateUser: string;
-	sevenDaysTurnoverRate: string;
+	sevenDaysTurnoverRate: number;
 }
-interface IRiskControlRule {
+export interface IRiskControlRule {
 	riskControlLevel: Status.RiskControllLevel;
-	dailyDepositAmount: string;
-	dailyTurnoverAmount: string;
-	dailyContributionAmount: string;
-	sevenDaysContributionAmount: string;
-	depositingAmount: string;
+	dailyWithdrawalAmount: number;
+	dailyTurnoverAmount: number;
+	dailyContributionAmount: number;
+	sevenDaysContributionAmount: number;
+	depositingAmount: number;
 }
-interface IRuleCheck {
-	amount: string;
-	isLegal: Status.YesNo;
+export interface IRuleCheck {
+	amount: number;
+	isLegal: boolean;
 }
 
 export interface ITurnoverResponse {
