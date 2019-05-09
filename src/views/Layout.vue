@@ -114,5 +114,9 @@ export default class Layout extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.active {
+    left: 0px;
+    transition-duration: 1s;
+}
 </style>
