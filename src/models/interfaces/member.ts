@@ -67,22 +67,22 @@ export interface ILoginHistoryResponse {
 	histories: ILoginHistory[];
 }
 
-interface ILoginHistory {
-	createDate: string;
+export interface ILoginHistory {
+	createDate: number;
 	ip: string;
-	isSuccess: Status.YesNo;
+	isSuccess: boolean;
 	loginType: Status.LoginType;
 }
 
 export interface IRelationLoginHistoryResponse {
-	relation: IRelationLogin[];
+	relations: IRelationLogin[];
 }
 
-interface IRelationLogin {
+export interface IRelationLogin {
 	uuid: string;
-	createDate: string;
+	createDate: number;
 	ip: string;
-	isSuccess: Status.YesNo;
+	isSuccess: boolean;
 	loginType: Status.LoginType;
 	roleCode: Status.RoleCode;
 }
@@ -119,14 +119,14 @@ export interface IRuleCheck {
 
 export interface ITurnoverResponse {
 	uuid: string;
-	lastWithdrawnDate: string;
-	lastdepositDate: string;
-	withdrawingAmount: string;
-	depositingAmount: string;
-	dailyWithdrawalAmount: string;
-	dailyDepositAmount: string;
-	dailyTurnoverAmount: string;
-	sevenDaysAccumulatedWithdrawalAmount: string;
-	sevenDaysAccumulatedDepositAmount: string;
-	sevenDaysAccumulatedTurnoverAmount: string;
+	lastWithdrawnDate: number;
+	lastdepositDate: number;
+	withdrawingAmount: number;
+	depositingAmount: number;
+	dailyWithdrawalAmount: number;
+	dailyDepositAmount: number;
+	dailyTurnoverAmount: number;
+	sevenDaysAccumulatedWithdrawalAmount: number;
+	sevenDaysAccumulatedDepositAmount: number;
+	sevenDaysAccumulatedTurnoverAmount: number;
 }

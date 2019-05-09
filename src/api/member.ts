@@ -61,8 +61,13 @@ export default {
 		startDate: number,
 		endDate: number,
 		isSuccess: null | boolean): Promise<Model.ILoginHistoryResponse> {
-		const config = {
-			url: `/members/login-history/${uuid}?startDate=${startDate}&endDate=${endDate}&isSuccess=${isSuccess}`,
+		const config = isSuccess === null ?
+		{
+			url: `/members/${uuid}/login-history?startDate=${startDate}&endDate=${endDate}`,
+			method: 'get'
+		}:
+		{
+			url: `/members/${uuid}/login-history?startDate=${startDate}&endDate=${endDate}&isSuccess=${isSuccess}`,
 			method: 'get'
 		};
 

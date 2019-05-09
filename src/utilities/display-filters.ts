@@ -41,5 +41,8 @@ export const displayFiltersMixin = {
 		currencyCodeDisplay(data: string) {
 			return data === Status.CurrencyCode.CNY ? '人民币' : '';
 		},
+		isSuccessDisplay(data: boolean) {
+			return data ? '成功' : '失敗';
+		},
 	}
 };
