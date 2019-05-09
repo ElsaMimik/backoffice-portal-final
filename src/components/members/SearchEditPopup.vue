@@ -73,7 +73,7 @@ import * as Model from "@/models/interfaces/member";
 import FileHandlerMixin from '@/utilities/file-handler';
 import MemberApi from "@/api/member";
 import * as Status from '@/models/status/member';
-import EventBus from "@/utilities/event-bus";
+import * as EventBus from "@/utilities/event-bus";
 import { MsgPopupType } from '@/models/status/message';
 
 @Component
@@ -97,30 +97,21 @@ export default class SearchEditPopup extends FileHandlerMixin {
 			accountAction: this.editData.accountStatus,
 			withdrawalAction: this.editData.withdrawalStatus,
 			reason: this.reason,
-			files: this.uploadedFiles.map((item) => { return item.fileID; }),
+			files: this.uploadedFiles.map((item) => item.fileID),
 		};
 		if(data.reason === '') {
-			EventBus.$emit('information', {
-				type: MsgPopupType.Warning,
-				message: '请填写原因'
-			});
+			EventBus.SystemAlert(MsgPopupType.Warning, '请填写原因');
 			return;
 		}
 		if(data.files.length === 0) {
-			EventBus.$emit('information', {
-				type: MsgPopupType.Warning,
-				message: '请上传档案'
-			});
+			EventBus.SystemAlert(MsgPopupType.Warning, '请上传档案');
 			return;
 		}
 		MemberApi.updateMemberStatus(data, this.editMemberData.uuid).then((res) => {
 			this.$emit("close-popup", {
 				type: Status.PopupType.Reload
 			});
-			EventBus.$emit('information', {
-				type: MsgPopupType.Information,
-				message: '修改成功'
-			});
+			EventBus.SystemAlert(MsgPopupType.Information, '修改成功');
 		});
 	}
 
@@ -137,9 +128,7 @@ export default class SearchEditPopup extends FileHandlerMixin {
 	}
 
 	delFile(fileID: string) {
-		console.log(fileID)
 		const index = this.uploadedFiles.findIndex(s => s.fileID === fileID);
-		console.log(index)
 		if(index >= 0) {
 			this.uploadedFiles.splice(index, 1);
 		}

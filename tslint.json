@@ -33,8 +33,7 @@
 		"no-object-literal-type-assertion": false,
 		"no-var-requires": false,
 		"no-this-assignment": false,
-		"indent": [true, "tabs", 4],
-		"arrow-return-shorthand": false
+		"indent": [true, "tabs", 4]
 	},
 	"rulesDirectory": ["tslint-plugin-prettier"]
 }
