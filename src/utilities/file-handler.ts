@@ -4,8 +4,8 @@ import FileApi from "@/api/file";
 
 export const downloadMixin = {
 	methods: {
-		downloadFile(fileId: string) {
-			FileApi.getFile(fileId).then((fileData) => {
+		downloadFile(fileID: string) {
+			FileApi.getFile(fileID).then((fileData) => {
 				const element = document.createElement('a');
 				element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileData.file));
 				element.setAttribute('download', fileData.fileName);
@@ -16,18 +16,6 @@ export const downloadMixin = {
 			});
 		}
 	},
-};
-
-export const download = (fileId: string) => {
-	FileApi.getFile(fileId).then((fileData) => {
-		const element = document.createElement('a');
-		element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileData.file));
-		element.setAttribute('download', fileData.fileName);
-		element.style.display = 'none';
-		document.body.appendChild(element);
-		element.click();
-		document.body.removeChild(element);
-	});
 };
 
 export default class FileHandlerMixin extends Vue{
@@ -42,7 +30,7 @@ export default class FileHandlerMixin extends Vue{
 				const base64String = window.btoa(binaryData);
 				FileApi.uploadFile(f.name, base64String).then((res: any) => {
 					self.uploadedFiles.push({
-						fileId: res.fileID,
+						fileID: res.fileID,
 						fileName: f.name,
 						file: base64String
 					});
