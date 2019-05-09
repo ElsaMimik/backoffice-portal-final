@@ -53,6 +53,7 @@ export const dateToTimeStamp = (date: string) => {
 
 /**
  * 取得前幾天的日期 yyyy-mm-dd
+ * @parameter 傳入7可取得前7天的時間戳
  */
 export const daysAgo = (day: number) => {
 	const newDate = new Date(new Date().getTime() - day *24 *60 *60 *1000);
