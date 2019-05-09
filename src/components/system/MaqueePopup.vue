@@ -44,7 +44,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="popup__title">建立</div>
+			<div class="popup__title">更新</div>
 			<div class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">时间
@@ -57,9 +57,9 @@
 				<div class="popup-list">
 					<div class="popup__info-title">设定上下架
 						<div class="popup__info-items">
-							<input class="radio" type="radio" value="">
+							<input class="radio" name="on" type="radio" value="">
 							<label>上架</label>
-							<input class="radio" type="radio" value="">
+							<input class="radio" name="on" type="radio" value="">
 							<label>下架</label>
 						</div>
 					</div>
@@ -67,9 +67,11 @@
 				<div class="popup-list">
 					<div class="popup__info-title">开始时间
 						<div class="popup__info-items">
-							<input class="radio" type="radio" value="">
+							<input class="radio" name="date" type="radio" value="">
 							<label>立刻</label>
-							<input class="radio" type="radio" value="">
+						</div>
+						<div class="popup__info-items">
+							<input class="radio" name="date" type="radio" value="">
 							<label>设定未来时间：</label>
 							<input type="date" value="">
 						</div>
