@@ -49,7 +49,9 @@
 						<button class="btns__green" @click="showStatusRecordPopup(item)">查询异动纪录</button>
 					</td>
 					<td>
-						<div class="btns__right"></div>
+						<a :href="`/member/detail/${ item.uuid }`" target="_blank" title="Detail">
+							<div class="btns__right"/>
+						</a>
 					</td>
 				</tr>
 			</table>
@@ -74,19 +76,15 @@ const memberModule = namespace("Member");
 })
 
 export default class Search extends Vue {
-	shortUuid: string = "";
+	shortUuid: string = '';
 	searchResult: Model.IMember[] = [];
 	@Prop(Number) readonly reload!: number;
-	@Action("Member/getMember") private getMember!: any;
 	
 	@Watch('reload')
 	onReloadChange() {
 		this.searchClick();
 	}
-
-	mounted() {
-		this.getMember();
-	}
+	
 	searchClick() {
 		MemberApi.getMemberListAsync(this.shortUuid).then(res => {
 			this.searchResult = res.members;

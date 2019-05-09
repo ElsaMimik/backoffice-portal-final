@@ -3,22 +3,22 @@ import * as Status from '@/models/status/member';
 export const displayFiltersMixin = {
 	filters: {
 		firstEightYards(data: string) {
-			return data.slice(0, 8);
+			return data ? data.slice(0, 8) : '';
 		},
 		firstUuidYards(data: string) {
-			return data.slice(0, 18);
+			return data ? data.slice(0, 18) : '';
 		},
 		lastUuidYards(data: string) {
-			return data.replace(data.slice(0, 18), '');
+			return data ? data.replace(data.slice(0, 18), '') : '';
 		},
 		uuidDisplay(data: string) {
 			return data.replace(/\-/g,'');
 		},
 		accountStatusDisplay(data: string) {
-			return data === Status.AccountStatus.Normal ? '正常' : '不可登入';
+			return data === Status.AccountStatus.Normal ? '正常' : '不可登入(E2)';
 		},
 		withdrawalStatusDisplay(data: string) {
-			return data === Status.WithdrawalStatus.Normal ? '正常' : '不可提現';
+			return data === Status.WithdrawalStatus.Normal ? '正常' : '不可提現(E1)';
 		},
 		roleCodeStatusDisplay(data: string) {
 			return data === Status.RoleCode.Normal ? '直客' : '';
@@ -36,7 +36,10 @@ export const displayFiltersMixin = {
 			return data === Status.SettleStatus.Normal ? '正常' : '金額不符合-異常';
 		},
 		amountDisplay(amount: number) {
-			return amount.toFixed(2);
+			return amount ? amount.toFixed(2) : '';
+		},
+		currencyCodeDisplay(data: string) {
+			return data === Status.CurrencyCode.CNY ? '人民币' : '';
 		},
 	}
 };

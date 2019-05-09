@@ -4,13 +4,20 @@
 			<div class="popup__view">
 				<div class="popup__close">
 				</div>
-				<div class="popup__title notice">Information</div>
+				<div class="popup__title notice" v-if="type==='Warning'">
+					系统警告
+				</div>
+				<div class="popup__title"  v-if="type==='Information'">
+					系统提示
+				</div>
 				<div class="popup__info dottedline-top"></div>
 				<div class="popup-list">
-					<div class="popup-text">詳述錯誤</div>
+					<div class="popup-text">
+						{{ text }}
+					</div>
 				</div>
 				<div class="btns">
-					<button class="btns__submit">确定</button>
+					<button class="btns__submit" @click="close">确定</button>
 				</div>
 			</div>
 		</div>
@@ -21,9 +28,17 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
+import { MsgPopupType } from '@/models/status/message';
 
 @Component
-export default class InformationPopup extends Vue {}
+export default class InformationPopup extends Vue {
+	@Prop(String) readonly type!: MsgPopupType;
+	@Prop(String) readonly text!: string;
+
+	close() {
+		this.$emit('close');
+	}
+}
 </script>
 
 <style lang="scss" scoped>

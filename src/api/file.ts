@@ -5,33 +5,24 @@ export default {
 	/**
 	 * 1. Upload File
 	 */
-	async uploadFile(fileName: string, file: string): Promise<FileModel.IFile|any> {
+	async uploadFile(fileName: string, file: string): Promise<FileModel.IFile> {
 		const config = {
-			url: '/file',
+			url: '/files',
 			method: 'post',
 			data: { file, fileName }
 		};
-		// let data!: FileModel.IFile;
-		// Handler.request<FileModel.IFile>(config)
-		//     .then(res => {
-		//         data = <FileModel.IFile>res.data;
-		//     });
-		// return data;
-		return Promise.resolve();
+		const result = await Handler.request<FileModel.IFile>(config);
+		return <FileModel.IFile>(result.data);
 	},
 	/**
 	 * 2. Get File
 	 */
-	async getFile(fildId: string): Promise<FileModel.IFile|any> {
+	async getFile(fildId: string): Promise<FileModel.IFile> {
 		const config = {
-			url: `/file/${fildId}`,
+			url: `/files/${fildId}`,
 			method: 'get'
 		};
-		// let data!: FileModel.IFile;
-		// Handler.request<FileModel.IFile>(config)
-		//     .then(res => {
-		//         data = <FileModel.IFile>res.data;
-		//     });
-		// return data;
+		const result = await Handler.request<FileModel.IFile>(config);
+		return <FileModel.IFile>(result.data);
 	},
 };

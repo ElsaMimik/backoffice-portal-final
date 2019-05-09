@@ -104,18 +104,8 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { State, Action, Getter, namespace } from "vuex-class";
-import * as Model from "@/models/interfaces/member";
-
-const memberModule = namespace("Member");
 
 @Component
-export default class Detail extends Vue {
-	@memberModule.State("memberInfos") members!: Model.ITestMemberResponse[];
-
-	@Action("Member/getMember") private getMember!: any;
-	mounted() {
-		this.getMember();
-		// console.log(this.$route.params.uuid);
-	}
+export default class GameBetRecordDetailPopup extends Vue {
 }
 </script>

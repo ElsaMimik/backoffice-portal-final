@@ -2,7 +2,7 @@
 	<div>
 		<Layout v-if="isLogin"/>
 		<Login v-if="!isLogin"/>
-		<!-- <Information /> -->
+		<Information v-if="isInformation" :type="informationType" :text="informationText" @close="closeInform" />
 		<!-- <Confirm /> -->
 	</div>
 </template>
@@ -17,6 +17,7 @@ import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { State, Action, Getter, namespace } from "vuex-class";
 import { checkPageAuth } from "@/router/auth";
+import { MsgPopupType } from '@/models/status/message';
 import { IError } from "@/models/interfaces/error";
 import EventBus from "@/utilities/event-bus";
 const authModule = namespace("Auth");
@@ -34,6 +35,10 @@ import AuthApi from "@/api/auth";
 export default class App extends Vue {
 	
 	isLogin: boolean = false;
+	isInformation: boolean = false;
+	informationText: string = '';
+	informationType: MsgPopupType = MsgPopupType.Information;
+
 	@authModule.State("apiPaths") apiPaths!: string[];
 	@errorModule.State("errorHistory") errorHistory!: IError[];
 
@@ -41,7 +46,7 @@ export default class App extends Vue {
 	@Action("Error/getError") private getError!: any;
 	mounted() {
 		AuthApi.getMenu().then(data => {
-			this.setApiPath(data.menu);
+			this.setApiPath(data.roles);
 			this.isLogin = this.apiPaths.length > 0;
 		});
 		
@@ -49,6 +54,27 @@ export default class App extends Vue {
 			this.getError(err);
 			// console.log('api-error', err);
 		});
+
+		EventBus.$on("information", (info: any) => {
+			switch (info.type) {
+				case MsgPopupType.Information:
+					this.isInformation = true;
+					this.informationType = MsgPopupType.Information;
+					this.informationText = info.message;
+					break;
+				case MsgPopupType.Warning:
+					this.isInformation = true;
+					this.informationType = MsgPopupType.Warning;
+					this.informationText = info.message;
+					break;
+				case MsgPopupType.Error:
+					break;
+			}
+		});
+	}
+
+	closeInform() {
+		this.isInformation = false;
 	}
 }
 </script>

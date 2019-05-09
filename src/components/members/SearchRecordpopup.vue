@@ -15,69 +15,48 @@
 					</div>
 				</div>
 			</div>
-			<div class="popup__info dottedline-top">
+			<div v-for="(item, index) in histories" :key="random(index)" class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">
 						时间
-						<div class="popup__info-items">2019-01-01 17:00</div>
+						<div class="popup__info-items">
+							{{ item.createDate | timestampToDateAndTime }}
+						</div>
 					</div>
 					<div class="popup__info-title">
 						操作人员
-						<div class="popup__info-items">DAVID</div>
+						<div class="popup__info-items">
+							{{ item.csName }} ( {{ item.csID }} )
+						</div>
 					</div>
 					<div class="popup__info-title">
 						更新帐号状态
-						<div class="popup__info-items notice">不可登入(E2)</div>
+						<div :class="{ 'popup__info-items notice': item.accountAction !== 'Normal',
+									'popup__info-items': item.accountAction === 'Normal' }">
+							{{ item.accountAction | accountStatusDisplay }}
+						</div>
 					</div>
 					<div class="popup__info-title">
 						更新提现状态
-						<div class="popup__info-items notice">不可提現(E1)</div>
+						<div :class="{ 'popup__info-items notice': item.withdrawalAction !== 'Normal',
+									'popup__info-items': item.withdrawalAction === 'Normal' }">
+							{{ item.withdrawalAction | withdrawalStatusDisplay }}
+						</div>
 					</div>
 				</div>
 				<div class="popup-list">
 					<div class="popup__info-title">
 						附注
-						<div class="popup__info-items">经确认会员资料后, 解除锁定</div>
+						<div class="popup__info-items">
+							{{ item.reason }}
+						</div>
 					</div>
 				</div>
 				<div class="popup-list">
 					<div class="popup__info-title">
 						附件
-						<div class="popup__upload-items">Type something.jpg</div>
-						<div class="popup__upload-items">Type something.jpg</div>
-					</div>
-				</div>
-			</div>
-			<div class="popup__info dottedline-top">
-				<div class="popup-list">
-					<div class="popup__info-title">
-						时间
-						<div class="popup__info-items">2019-01-01 17:00</div>
-					</div>
-					<div class="popup__info-title">
-						操作人员
-						<div class="popup__info-items">DAVID</div>
-					</div>
-					<div class="popup__info-title">
-						更新帐号状态
-						<div class="popup__info-items notice">不可登入(E2)</div>
-					</div>
-					<div class="popup__info-title">
-						更新提现状态
-						<div class="popup__info-items notice">不可提現(E1)</div>
-					</div>
-				</div>
-				<div class="popup-list">
-					<div class="popup__info-title">
-						附注
-						<div class="popup__info-items">经确认会员资料后, 解除锁定</div>
-					</div>
-				</div>
-				<div class="popup-list">
-					<div class="popup__info-title">
-						附件
-						<div class="popup__upload-items">Type something.jpg</div>
-						<div class="popup__upload-items">Type something.jpg</div>
+						<div v-for="(file, fileIndex) in item.files" :key="random(fileIndex)" 
+							class="popup__upload-items" @click="downloadFile(file.fileID)"> {{ file.fileName }}</div>
 					</div>
 				</div>
 			</div>
@@ -91,16 +70,34 @@ import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import { PopupType } from "@/models/status/member";
 import * as Model from "@/models/interfaces/member";
+import MemberApi from "@/api/member";
+import FileApi from "@/api/file";
+import { datetimeMixin } from '@/utilities/datetime-format';
+import { displayFiltersMixin } from '@/utilities/display-filters';
+import { downloadMixin } from '@/utilities/file-handler';
 
-@Component
+@Component({
+	mixins: [datetimeMixin, displayFiltersMixin, downloadMixin]
+})
 export default class SearchRecordpopup extends Vue {
 	@Prop(Object) readonly editMemberData!: Model.IMember;
 
 	uuid: string = this.editMemberData.uuid;
+	histories: Model.IMemberStatusHistory[] = [];
 	close() {
 		this.$emit("close-popup", {
 			type: PopupType.Record
 		});
+	}
+
+	mounted() {
+		MemberApi.getMemberStatusHistoryList(this.uuid).then((res) => {
+			this.histories = res.histories;
+		});
+	}
+
+	random(data: string) {
+		return Math.random();
 	}
 }
 </script>

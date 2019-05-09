@@ -22,11 +22,11 @@
             <div class="search-form">
                 <div class="search-items">
                     <label>开始日期</label>
-                    <input type="date">
+                    <input type="date" v-model="startDate">
                 </div>
                 <div class="search-items">
                     <label>结束日期</label>
-                    <input type="date">
+                    <input type="date" v-model="endDate">
                 </div>
                 <div class="search-items">
                     <label>类别</label>
@@ -36,7 +36,7 @@
                     </select>
                 </div>
                 <div class="search-items">
-                    <button class="btns__green">查找</button>
+                    <button class="btns__green" @click="search">查找</button>
                 </div>
             </div>
             <table class="list">
@@ -71,6 +71,12 @@ import { Component } from "vue-property-decorator";
 
 @Component
 export default class DetailLogin extends Vue {
+	startDate: string = '';
+	endDate: string = '';
+
+	search() {
+		// console.log(new Date(this.startDate).getTime())
+	}
 }
 
 </script>

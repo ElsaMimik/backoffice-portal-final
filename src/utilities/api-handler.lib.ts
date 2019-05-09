@@ -4,20 +4,25 @@ import { requestSuccess, requestFail, responseSuccess, responseFail } from './er
 
 class HttpModel {
 	constructor() {
-		// axios.defaults.baseURL = baseURL;
 	}
 	/**
 	 * axios API handler
 	 * @author rourou
 	 * @description 一律透過此method呼叫api
 	*/
-	async request<T>(cfg: AxiosRequestConfig) {
+	async request<T>(cfg: AxiosRequestConfig, isLogin = false) {
 		cfg.baseURL = '/backoffice/api/v1/222222/';
 		// cfg.baseURL = 'https://backoffice-api.devel.starlordtech.com/api/v1/222222/';
-		cfg.headers = {
-			'Authorization': `Bearer ${Cookies.get('token')}`,
-			'content-type': 'application/x-www-form-urlencoded',
-		};
+		if(isLogin) {
+			cfg.headers = {
+				'content-type': 'application/x-www-form-urlencoded',
+			};
+		} else {
+			cfg.headers = {
+				'Authorization': `Bearer ${Cookies.get('token')}`,
+				'content-type': 'application/x-www-form-urlencoded',
+			};
+		}
 		const instance = axios.create();
 		instance.interceptors.request.use(
 			config => requestSuccess(config),

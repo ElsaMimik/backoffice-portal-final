@@ -107,6 +107,7 @@
 				</div>
 			</div>
 			<div class="btns">
+<<<<<<< HEAD
 				<button class="btns__green">頁面更新</button>
 				<button class="btns__green">查询交易纪录</button>
 			</div>
@@ -120,6 +121,33 @@
 					<button class="btns__green" @click="changeTab('Relations')">关联资料</button>
 					<button class="btns__green" @click="changeTab('RiskControl')">风控条件</button>
 				</div>
+=======
+			<button :class="{ 'btns__green active': tab === 'Basic',
+						'btns__green': tab !== 'Basic'}" 
+						@click="changeTab('Basic')">
+				基本资料
+			</button>
+			<button :class="{ 'btns__green active': tab === 'Transaction',
+									'btns__green': tab !== 'Transaction'}" 
+									@click="changeTab('Transaction')">
+				交易资料
+			</button>
+			<button :class="{ 'btns__green active': tab === 'Login',
+						'btns__green': tab !== 'Login'}" 
+						@click="changeTab('Login')">
+				登入资料
+			</button>
+			<button :class="{ 'btns__green active': tab === 'Relations',
+						'btns__green': tab !== 'Relations'}" 
+						@click="changeTab('Relations')">
+				关联资料
+			</button>
+			<button :class="{ 'btns__green active': tab === 'RiskControl',
+						'btns__green': tab !== 'RiskControl'}" 
+						@click="changeTab('RiskControl')">
+				风控条件
+			</button>
+>>>>>>> origin/rourou/feat/BO-11
 			</div>
 		</div>
 	</div>
@@ -142,45 +170,24 @@ const memberModule = namespace("Member");
 })
 
 export default class Detail extends Vue {
-	memberData: Model.IMemberDetailResponse = {
-		uuid: '',
-		nickName: '',
-		createDate: '',
-		currencyCode: Status.CurrencyCode.CNY,
-		roleCode: Status.RoleCode.Normal,
-		phoneNumber: '',
-		riskControlLevel: Status.RiskControllLevel.D,
-		isBlacklisting: true,
-		riskControlLevelCreateDate: 0,
-		blacklistingCreateDate: 0,
-		amount: 0,
-		freezeAmount: 0,
-		securityBoxAmount: 0,
-		withdrawalLimitAmount: 0,
-		availableWithdrawalLimitAmount: 0,
-		turnoverAmount: 0,
-		turnoverAmountCreateDate: 0,
-		accountStatus: Status.AccountStatus.E2,
-		withdrawalStatus: Status.WithdrawalStatus.E1,
-		isBigWin: false,
-		bigWinCreateDate: 0,
-		isSettled: false,
-		settleStatus: Status.SettleStatus.Abnormal,
-	};
+	memberData: Model.IMemberDetailResponse = {} as Model.IMemberDetailResponse;
+	tab: string = 'Basic';
+
+	@Action("Member/setMember") private setMember!: any;
 	mounted() {
 		this.init();
-		// console.log(this.$route.params.uuid);
 	}
 
 	changeTab(tab: string) {
+		this.tab = tab;
 		this.init();
 		this.$emit("change-tab", tab);
 	}
 	init() {
 		MemberApi.getMemberDetail(this.$route.params.uuid).then(res => {
+			this.setMember(res);
 			this.memberData = res;
 		});
-		//   console.log(this.$route.params.uuid);
 	}
 }
 </script>

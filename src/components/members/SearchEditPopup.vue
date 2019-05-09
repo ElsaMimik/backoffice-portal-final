@@ -56,10 +56,17 @@
 						<button class="btns__close"></button>
 					</div>
 				</div>
-				<div class="popup__upload-items">
-					Type something.jpgType something.jpgType something.jpgType something.jpgType something.jpg
-					<div class="btns">
-						<button class="btns__close"></button>
+				<div class="popup__upload">
+					<div class="popup__upload-title">附件</div>
+					<div v-for="(item, index) in uploadedFiles" :key="random(index)" 
+					class="popup__upload-items">
+						{{ item.fileName }}
+						<div class="btns">
+							<button class="btns__close"></button>
+						</div>
+					</div>
+					<div class="popup-list">
+						<input type="file" id="file" @change="selectFile">
 					</div>
 				</div>
 				<div class="popup-list">
@@ -78,6 +85,8 @@ import * as Model from "@/models/interfaces/member";
 import FileHandlerMixin from '@/utilities/file-handler';
 import MemberApi from "@/api/member";
 import * as Status from '@/models/status/member';
+import EventBus from "@/utilities/event-bus";
+import { MsgPopupType } from '@/models/status/message';
 
 @Component
 
@@ -85,17 +94,7 @@ export default class SearchEditPopup extends FileHandlerMixin {
 	[x: string]: any;
 	@Prop(Object) readonly editMemberData!: Model.IMember;
 
-	editData: Model.IMember = {
-		uuid: '',
-		riskControlLevel: Status.RiskControllLevel.D,
-		isBlacklisting: true,
-		amount: 0.000,
-		freezeAmount: 0.000,
-		accountStatus: Status.AccountStatus.E2,
-		withdrawalStatus: Status.WithdrawalStatus.E1,
-		createDate: 0,
-		roleCode: Status.RoleCode.Normal,
-	};
+	editData: Model.IMember = {} as Model.IMember;
 	reason: string = '';
 
 
@@ -110,9 +109,22 @@ export default class SearchEditPopup extends FileHandlerMixin {
 			accountAction: this.editData.accountStatus,
 			withdrawalAction: this.editData.withdrawalStatus,
 			reason: this.reason,
-			files: this.uploadedFiles.map(s=>s.fileId),
+			files: this.uploadedFiles.map((item) => { return item.fileId; }),
 		};
-		// console.log(data)
+		if(data.reason === '') {
+			EventBus.$emit('information', {
+				type: MsgPopupType.Warning,
+				message: '请填写原因'
+			});
+			return;
+		}
+		if(data.files.length === 0) {
+			EventBus.$emit('information', {
+				type: MsgPopupType.Warning,
+				message: '请上传档案'
+			});
+			return;
+		}
 		MemberApi.updateMemberStatus(data, this.editMemberData.uuid).then((res) => {
 			this.$emit("close-popup", {
 				type: Status.PopupType.Reload
@@ -125,18 +137,11 @@ export default class SearchEditPopup extends FileHandlerMixin {
 	}
 
 	mounted() {
-		const temp = {
-			uuid: this.editMemberData.uuid,
-			riskControlLevel: this.editMemberData.riskControlLevel,
-			isBlacklisting: this.editMemberData.isBlacklisting,
-			amount: this.editMemberData.amount,
-			freezeAmount: this.editMemberData.freezeAmount,
-			accountStatus: this.editMemberData.accountStatus,
-			withdrawalStatus: this.editMemberData.withdrawalStatus,
-			createDate: this.editMemberData.createDate,
-			roleCode: this.editMemberData.roleCode,
-		};
-		this.editData = temp;
+		this.editData = { ...this.editMemberData };
+	}
+
+	random(data: string) {
+		return Math.random();
 	}
 }
 </script>
