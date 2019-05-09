@@ -112,31 +112,35 @@
 			</div>
 		</div>
 		<div class="member__detail-btns">
-			<button :class="{ 'btns__green active': tab === 'Basic',
-						'btns__green': tab !== 'Basic'}" 
-						@click="changeTab('Basic')">
-				基本资料
-			</button>
-			<button :class="{ 'btns__green active': tab === 'Transaction',
-									'btns__green': tab !== 'Transaction'}" 
-									@click="changeTab('Transaction')">
-				交易资料
-			</button>
-			<button :class="{ 'btns__green active': tab === 'Login',
-						'btns__green': tab !== 'Login'}" 
-						@click="changeTab('Login')">
-				登入资料
-			</button>
-			<button :class="{ 'btns__green active': tab === 'Relations',
-						'btns__green': tab !== 'Relations'}" 
-						@click="changeTab('Relations')">
-				关联资料
-			</button>
-			<button :class="{ 'btns__green active': tab === 'RiskControl',
-						'btns__green': tab !== 'RiskControl'}" 
-						@click="changeTab('RiskControl')">
-				风控条件
-			</button>
+			<div class="member__detail-list">
+				<div class="btns">
+					<button :class="{ 'btns__green active': tab === 'Basic',
+								'btns__green': tab !== 'Basic'}" 
+								@click="changeTab('Basic')">
+						基本资料
+					</button>
+					<button :class="{ 'btns__green active': tab === 'Transaction',
+											'btns__green': tab !== 'Transaction'}" 
+											@click="changeTab('Transaction')">
+						交易资料
+					</button>
+					<button :class="{ 'btns__green active': tab === 'Login',
+								'btns__green': tab !== 'Login'}" 
+								@click="changeTab('Login')">
+						登入资料
+					</button>
+					<button :class="{ 'btns__green active': tab === 'Relations',
+								'btns__green': tab !== 'Relations'}" 
+								@click="changeTab('Relations')">
+						关联资料
+					</button>
+					<button :class="{ 'btns__green active': tab === 'RiskControl',
+								'btns__green': tab !== 'RiskControl'}" 
+								@click="changeTab('RiskControl')">
+						风控条件
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
