@@ -68,6 +68,8 @@ import { PopupType } from "@/models/status/member";
 import MemberApi from "@/api/member";
 import { datetimeMixin } from '@/utilities/datetime-format';
 import { displayFiltersMixin } from '@/utilities/display-filters';
+import EventBus from "@/utilities/event-bus";
+import { MsgPopupType } from '@/models/status/message';
 
 const memberModule = namespace("Member");
 
@@ -86,6 +88,13 @@ export default class Search extends Vue {
 	}
 	
 	searchClick() {
+		if(this.shortUuid === '') {
+			EventBus.$emit('information', {
+				type: MsgPopupType.Warning,
+				message: '请输入帐号ID'
+			});
+			return;
+		}
 		MemberApi.getMemberListAsync(this.shortUuid).then(res => {
 			this.searchResult = res.members;
 		});

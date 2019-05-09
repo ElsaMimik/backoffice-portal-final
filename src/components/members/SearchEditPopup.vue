@@ -117,6 +117,10 @@ export default class SearchEditPopup extends FileHandlerMixin {
 			this.$emit("close-popup", {
 				type: Status.PopupType.Reload
 			});
+			EventBus.$emit('information', {
+				type: MsgPopupType.Information,
+				message: '修改成功'
+			});
 		});
 	}
 
