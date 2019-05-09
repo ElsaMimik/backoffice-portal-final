@@ -25,6 +25,17 @@ export const datetimeMixin = {
 	}
 };
 
+/**
+ * yyyy-mm-dd 轉換成TimeStamp
+ */
 export const dateToTimeStamp = (date: string) => {
 	return new Date(date).getTime();
+};
+
+/**
+ * 取得前幾天的日期 yyyy-mm-dd
+ */
+export const daysAgo = (day: number) => {
+	const newDate = new Date(new Date().getTime() - day *24 *60 *60 *1000);
+	return newDate.toISOString().slice(0, 10).replace(/-/g, '-');
 };

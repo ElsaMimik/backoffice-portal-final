@@ -99,22 +99,17 @@ export default class DetailLogin extends Vue {
     }
 
     filterType(select: string): boolean|null {
-        switch (select) {
-            case 'all':
-                return null;
-            case 'true':
-                return true;
-            case 'false':
-                return false;
-            default:
-                return null;
-        }
+        return select === 'true' ? true : select === 'false' ? false : null;
     }
 
-    init() {}
+    init() {
+        this.startDate = DatetimeConvert.daysAgo(7);
+        this.endDate = DatetimeConvert.daysAgo(0);
+        this.search();
+    }
     
     mounted() {
-        this.init(); // 前七天的資料   
+        this.init();
     }
 
     random(data: string) {
