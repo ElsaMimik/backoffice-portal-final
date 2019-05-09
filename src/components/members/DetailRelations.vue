@@ -50,6 +50,8 @@ import * as DatetimeConvert from '@/utilities/datetime-format';
 import * as Model from "@/models/interfaces/member";
 import { datetimeMixin } from '@/utilities/datetime-format';
 import { displayFiltersMixin } from '@/utilities/display-filters';
+import * as EventBus from "@/utilities/event-bus";
+import { MsgPopupType } from '@/models/status/message';
 
 @Component({
 	mixins: [datetimeMixin, displayFiltersMixin]
@@ -60,6 +62,10 @@ export default class DetailRelations extends Vue {
     relationsData: Model.IRelationLogin[] = [];
     
     search() {
+        if(this.startDate === '' || this.endDate === '') {
+            EventBus.SystemAlert(MsgPopupType.Warning, '请选择日期');
+			return;
+        }
         const startDate = DatetimeConvert.dateToTimeStamp(this.startDate);
         const endDate = DatetimeConvert.dateToTimeStamp(this.endDate);
         MemberApi.getMemberRelationLoginHistory(
