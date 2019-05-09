@@ -107,21 +107,6 @@
 				</div>
 			</div>
 			<div class="btns">
-<<<<<<< HEAD
-				<button class="btns__green">頁面更新</button>
-				<button class="btns__green">查询交易纪录</button>
-			</div>
-		</div>
-		<div class="member__detail-btns">
-			<div class="member__detail-list">
-				<div class="btns">
-					<button class="btns__green active" @click="changeTab('Basic')">基本资料</button>
-					<button class="btns__green" @click="changeTab('Transaction')">交易资料</button>
-					<button class="btns__green" @click="changeTab('Login')">登入资料</button>
-					<button class="btns__green" @click="changeTab('Relations')">关联资料</button>
-					<button class="btns__green" @click="changeTab('RiskControl')">风控条件</button>
-				</div>
-=======
 			<button :class="{ 'btns__green active': tab === 'Basic',
 						'btns__green': tab !== 'Basic'}" 
 						@click="changeTab('Basic')">
@@ -147,7 +132,6 @@
 						@click="changeTab('RiskControl')">
 				风控条件
 			</button>
->>>>>>> origin/rourou/feat/BO-11
 			</div>
 		</div>
 	</div>
