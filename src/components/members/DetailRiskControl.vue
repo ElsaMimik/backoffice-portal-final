@@ -94,11 +94,6 @@
                     </td>
                     <td>{{ riskControlData.riskControlRule.depositingAmount }}</td>
                 </tr>
-                <!-- <tr>
-                    <td> </td>
-                    <td>5,000.00</td>
-                    <td>5,000.00</td>
-                </tr> -->
             </table>
         </div>
         <div class="title">▼会员最新风控等级更新资讯</div>
@@ -148,9 +143,12 @@ import { datetimeMixin } from '@/utilities/datetime-format';
 export default class DetailRiskControl extends Vue {
     riskControlData: Model.IRiskControlResponse = {} as Model.IRiskControlResponse;
     mounted() {
+        this.riskControlData.riskControlRule = {} as Model.IRiskControlRule;
+        // this.riskControlData.riskControlRule.riskControlLevel = {} as Model.RiskControllLevel;
+        console.log(this.riskControlData.riskControlRule)
         MemberApi.getMemberRiskControl(this.$route.params.uuid).then(res => {
-            this.riskControlData = res;
-		});
+            this.riskControlData = { ...res };
+        });
     }
 }
 
