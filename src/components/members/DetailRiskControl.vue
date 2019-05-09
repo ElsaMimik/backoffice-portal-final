@@ -4,19 +4,27 @@
         <div class="member__detail-list">
             <div class="member__detail-title">
                 风控等级
-                <div class="member__detail-items">Ｃ</div>
+                <div class="member__detail-items">
+                    {{ riskControlData.riskControlRule.riskControlLevel}}
+                </div>
             </div>
             <div class="member__detail-title">
                 累积充值金额
-                <div class="member__detail-items">100.00</div>
+                <div class="member__detail-items">
+                    {{ riskControlData.depositAmount }}
+                </div>
             </div>
             <div class="member__detail-title">
                 累积充值成功次数
-                <div class="member__detail-items">6</div>
+                <div class="member__detail-items">
+                    {{ riskControlData.depositCount }}
+                </div>
             </div>
             <div class="member__detail-title">
                 本日累积贡献度
-                <div class="member__detail-items">+100.00</div>
+                <div class="member__detail-items">
+                    {{ riskControlData.dailyContributionAmount }}
+                </div>
             </div>
         </div>
         <div class="title">▼会员有无违反提现风控条件</div>
@@ -29,28 +37,46 @@
                     <th>7日累积</th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>本日提款</td>
-                    <td>5,000.00</td>
-                    <td>5,000.00</td>
+                    <td :class="{ 'notice': !riskControlData.dailyWithdrawal.isLegal }">
+                        {{ !riskControlData.dailyWithdrawal.isLegal? '違反' : '' }}
+                    </td>
+                    <td :class="{ 'notice': !riskControlData.dailyWithdrawal.isLegal }">本日提款</td>
+                    <td :class="{ 'notice': !riskControlData.dailyWithdrawal.isLegal }">
+                        {{ riskControlData.dailyWithdrawal.amount }}
+                    </td>
+                    <td>{{ riskControlData.riskControlRule.dailyWithdrawalAmount }}</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>本日有效流水</td>
-                    <td>5,000.00</td>
-                    <td>5,000.00</td>
+                    <td :class="{ 'notice': !riskControlData.dailyTurnover.isLegal }">
+                        {{ !riskControlData.dailyTurnover.isLegal? '違反' : '' }}
+                    </td>
+                    <td :class="{ 'notice': !riskControlData.dailyTurnover.isLegal }">本日有效流水</td>
+                    <td :class="{ 'notice': !riskControlData.dailyTurnover.isLegal }">
+                        {{ riskControlData.dailyTurnover.amount }}
+                    </td>
+                    <td>{{ riskControlData.riskControlRule.dailyTurnoverAmount }}</td>
                 </tr>
                 <tr>
-                    <td class="notice">違反</td>
-                    <td>本日贡献度</td>
-                    <td>5,000.00</td>
-                    <td>5,000.00</td>
+                    <td :class="{ 'notice': !riskControlData.dailyContribution.isLegal }">
+                        {{ !riskControlData.dailyContribution.isLegal? '違反' : '' }}
+                    </td>
+                    <td :class="{ 'notice': !riskControlData.dailyContribution.isLegal }">本日贡献度</td>
+                    <td :class="{ 'notice': !riskControlData.dailyContribution.isLegal }">
+                        {{ riskControlData.dailyContribution.amount }}
+                    </td>
+                    <td>
+                        {{ riskControlData.riskControlRule.dailyContributionAmount }}
+                    </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>七日贡献度</td>
-                    <td>5,000.00</td>
-                    <td>5,000.00</td>
+                    <td :class="{ 'notice': !riskControlData.sevenDaysContribution.isLegal }">
+                        {{ !riskControlData.sevenDaysContribution.isLegal? '違反' : '' }}
+                    </td>
+                    <td :class="{ 'notice': !riskControlData.sevenDaysContribution.isLegal }">七日贡献度</td>
+                    <td :class="{ 'notice': !riskControlData.sevenDaysContribution.isLegal }">
+                        {{ riskControlData.sevenDaysContribution.amount }}
+                    </td>
+                    <td>{{ riskControlData.riskControlRule.sevenDaysContributionAmount }}</td>
                 </tr>
             </table>
             <table>
@@ -60,36 +86,48 @@
                     <th>对应风控条件</th>
                 </tr>
                 <tr>
-                    <td class="notice">違反</td>
-                    <td class="notice">5,000.00</td>
-                    <td>5,000.00</td>
+                    <td :class="{ 'notice': !riskControlData.riskControlRuleDepositing.isLegal }">
+                        {{ !riskControlData.riskControlRuleDepositing.isLegal? '違反' : '' }}
+                    </td>
+                    <td :class="{ 'notice': !riskControlData.riskControlRuleDepositing.isLegal }">
+                        {{ riskControlData.riskControlRuleDepositing.amount }}
+                    </td>
+                    <td>{{ riskControlData.riskControlRule.depositingAmount }}</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td> </td>
                     <td>5,000.00</td>
                     <td>5,000.00</td>
-                </tr>
+                </tr> -->
             </table>
         </div>
         <div class="title">▼会员最新风控等级更新资讯</div>
         <div class="member__detail-list">
             <div class="member__detail-title">
                 最新风控等级更新时间
-                <div class="member__detail-items">Ｃ2019-01-03 04:31</div>
+                <div class="member__detail-items">
+                    {{ riskControlData.riskControlLevelCreateDate | timestampToDateAndTime }}
+                </div>
             </div>
             <div class="member__detail-title">
                 会员存流比
-                <div class="member__detail-items">5.3</div>
+                <div class="member__detail-items">
+                    {{ riskControlData.sevenDaysTurnoverRate }}
+                </div>
             </div>
             <div class="member__detail-title">
                 更新人员
-                <div class="member__detail-items">系统 CS_09</div>
+                <div class="member__detail-items">
+                    {{ riskControlData.riskControlLevelCreateUser }}
+                </div>
             </div>
         </div>
         <div class="member__detail-list">
             <div class="member__detail-title">
                 原因
-                <div class="member__detail-items">上次調整原因, 因為OOOOO經過評估確認後 進行調整.</div>
+                <div class="member__detail-items">
+                    {{ riskControlData.riskControlLevelReason }}
+                </div>
             </div>
         </div>
     </div>
@@ -100,9 +138,20 @@
 
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
+import MemberApi from "@/api/member";
+import * as Model from "@/models/interfaces/member";
+import { datetimeMixin } from '@/utilities/datetime-format';
 
-@Component
+@Component({
+	mixins: [datetimeMixin]
+})
 export default class DetailRiskControl extends Vue {
+    riskControlData: Model.IRiskControlResponse = {} as Model.IRiskControlResponse;
+    mounted() {
+        MemberApi.getMemberRiskControl(this.$route.params.uuid).then(res => {
+            this.riskControlData = res;
+		});
+    }
 }
 
 </script>
