@@ -85,6 +85,10 @@ const routes = [
 		name: 'risk-control-withdraw-limitation-setting', component: () => import('@/views/riskcontrol/WithdrawLimitationSetting.vue'),
 	},
 	{
+		path: '/system/maquee',
+		name: 'system-maquee', component: () => import('@/views/system/Maquee.vue'),
+	},
+	{
 		path: '/login',
 		name: 'login',
 		component: () => import(/* webpackChunkName: "about" */ '@/views/Login.vue')

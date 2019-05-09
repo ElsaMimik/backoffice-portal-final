@@ -68,13 +68,13 @@ button {
 		border: 0px;
 		vertical-align: middle;
 		}
-		&__right {
-				width: 20px;
-				height: 35px;
-				background: url("./../../image/arrow-right.svg") no-repeat;
-				background-size: contain;
-				cursor: pointer;
-		}
+	&__right {
+			width: 20px;
+			height: 35px;
+			background: url("./../../image/arrow-right.svg") no-repeat;
+			background-size: contain;
+			cursor: pointer;
+	}
 }
 
 .title {
@@ -183,7 +183,6 @@ table.list {
 	&-notice {
 		font-size: 12px;
 		width: 100%;;
-
 	}
 }
 
@@ -390,6 +389,13 @@ table.list {
 				width: 100%;
 			}
 		}
+	}
+	.radio {
+		width: auto;
+		height: 35px;
+		margin: 0 5px 0 10px;
+		display: inline-block;
+		vertical-align: middle;
 	}
 }
 

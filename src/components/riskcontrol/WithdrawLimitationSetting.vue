@@ -97,7 +97,7 @@ export default class WithdrawLimitationSetting extends Vue {
 		}
 	}
 	.btns {
-		float: right;
+		text-align:right;
 	}
 }
 </style>

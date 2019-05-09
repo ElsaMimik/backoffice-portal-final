@@ -74,7 +74,7 @@ export default class LevelSetting extends Vue {
 		}
 	}
 	.btns {
-		float: right;
+		text-align:right;
 	}
 }
 </style>
