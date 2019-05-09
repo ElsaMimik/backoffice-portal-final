@@ -434,13 +434,13 @@ input[type="file"] {
 		margin: 0 0 20px 0;
 	}
 	&__info {
-		position: relative;
-		.btns{
-			position: absolute;
-			right: 0;
-			bottom: 10px;
-			height: auto;
-		}
+		// position: relative;
+		// .btns{
+		// 	position: absolute;
+		// 	right: 0;
+		// 	bottom: 10px;
+		// 	height: auto;
+		// }
 	}
 	&-list {
 		vertical-align: top;
@@ -480,7 +480,7 @@ input[type="file"] {
 		}
 	}
 	table.list {
-		width: 580px;
+		width: 750px;
 		text-align: left;
 		th {
 			text-align: left;

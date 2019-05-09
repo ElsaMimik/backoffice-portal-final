@@ -46,7 +46,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="member__detail-list dottedline-bottom">
+			<div class="member__detail-list">
 				<div class="member__detail-title">
 					钱包金额
 					<div class="member__detail-items">
@@ -105,10 +105,12 @@
 						{{ memberData.isBidWin | isBidWinDisplay }}
 					</div>
 				</div>
-				<div class="btns">
-					<button class="btns__green">更新</button>
-					<button class="btns__green">查询交易纪录</button>
-				</div>
+			</div>
+			<div class="btns">
+				<button class="btns__green">更新</button>
+				<button class="btns__green">查询交易纪录</button>
+			</div>
+			<div class="member__detail-list dottedline-bottom">
 			</div>
 		</div>
 		<div class="member__detail-btns">
@@ -183,3 +185,8 @@ export default class Detail extends Vue {
 	}
 }
 </script>
+<style lang="scss" scoped>
+	.btns {
+		text-align:right;
+	}
+</style>
