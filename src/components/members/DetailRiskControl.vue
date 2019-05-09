@@ -2,16 +2,20 @@
 	<div class="member__detail-riskcontrol">
         <div class="title">▼会员风控资料</div>
         <div class="member__detail-list">
-            <div class="member__detail-title">风控等级
+            <div class="member__detail-title">
+                风控等级
                 <div class="member__detail-items">Ｃ</div>
             </div>
-            <div class="member__detail-title">累积充值金额
+            <div class="member__detail-title">
+                累积充值金额
                 <div class="member__detail-items">100.00</div>
             </div>
-            <div class="member__detail-title">累积充值成功次数
+            <div class="member__detail-title">
+                累积充值成功次数
                 <div class="member__detail-items">6</div>
             </div>
-            <div class="member__detail-title">本日累积贡献度
+            <div class="member__detail-title">
+                本日累积贡献度
                 <div class="member__detail-items">+100.00</div>
             </div>
         </div>
@@ -69,18 +73,22 @@
         </div>
         <div class="title">▼会员最新风控等级更新资讯</div>
         <div class="member__detail-list">
-            <div class="member__detail-title">最新风控等级更新时间
+            <div class="member__detail-title">
+                最新风控等级更新时间
                 <div class="member__detail-items">Ｃ2019-01-03 04:31</div>
             </div>
-            <div class="member__detail-title">会员存流比
+            <div class="member__detail-title">
+                会员存流比
                 <div class="member__detail-items">5.3</div>
             </div>
-            <div class="member__detail-title">更新人员
+            <div class="member__detail-title">
+                更新人员
                 <div class="member__detail-items">系统 CS_09</div>
             </div>
         </div>
         <div class="member__detail-list">
-            <div class="member__detail-title">原因
+            <div class="member__detail-title">
+                原因
                 <div class="member__detail-items">上次調整原因, 因為OOOOO經過評估確認後 進行調整.</div>
             </div>
         </div>

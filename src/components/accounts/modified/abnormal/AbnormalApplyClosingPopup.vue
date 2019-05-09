@@ -6,60 +6,21 @@
 				<button class="btns__close"></button>
 				</div>
 			</div>
-			<div class="popup__title">注单调帐</div>
+			<div class="popup__title">结案</div>
 			<div class="popup__info dottedline-top">
-				<div class="popup__info-title">
-					帐号ID
-					<div class="popup__info-items"> 
-						<p>7533967396736733</p>
-						<p>7533967396736733</p>
-					</div>
+			<div class="popup__info-title">
+				帐号ID
+				<div class="popup__info-items"> 
+					<p>7533967396736733</p>
+					<p>7533967396736733</p>
 				</div>
 			</div>
-			<div class="popup__title">建单</div>
+			</div>
 			<div class="popup__info dottedline-top">
 				<div class="popup-list">
 					<div class="popup__info-title">
 						平台交易编号
-						<div class="popup__info-items">KD5349589589</div>
-					</div>
-					<div class="popup__info-title">
-						操作人员
-						<div class="popup__info-items">DAVID</div>
-					</div>
-					<div class="popup__info-title">
-						目前金额
-						<div class="popup__info-items">10000.00</div>
-					</div>
-					<div class="popup__info-title">
-						调整金额
-						<div class="popup__info-items notice">+100.00</div>
-					</div>
-					<div class="popup__info-title">
-						时间
-						<div class="popup__info-items">2019-01-01 17:00</div>
-					</div>
-				</div>
-				<div class="popup-list">
-						<div class="popup__info-title">
-							附注
-						<div class="popup__info-items">2019-01-01 进行 注单有误 进行调帐 申请</div>
-					</div>
-				</div>
-				<div class="popup-list">
-					<div class="popup__info-title">
-						附件
-						<div class="popup__upload-items">Type something.jpg</div>
-						<div class="popup__upload-items">Type something.jpg</div>
-					</div>
-				</div>
-			</div>
-			<div class="popup__title">审核</div>
-			<div class="popup__info dottedline-top">
-				<div class="popup-list">
-					<div class="popup__info-title">
-						时间
-						<div class="popup__info-items">2019-01-01 17:00</div>
+						<div class="popup__info-items">1,000.00</div>
 					</div>
 					<div class="popup__info-title">
 						操作人员
@@ -73,8 +34,7 @@
 			</div>
 			<div class="popup__btn">
 				<div class="btns">
-					<button class="btns__submit">通过</button>
-					<button class="btns__reject">拒绝</button>
+					<button class="btns__submit">结案</button>
 				</div>
 			</div>
 			<div class="popup__upload"> 
@@ -88,7 +48,7 @@
 				<div class="popup__upload-items">
 					Type something.jpg
 					<div class="btns">
-						<button class="btns__close"></button>
+					<button class="btns__close"></button>
 					</div>
 				</div>
 				<div class="popup-list">
@@ -120,7 +80,5 @@ export default class Detail extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.popup__upload-items {
-	cursor: pointer;
-}
+
 </style>

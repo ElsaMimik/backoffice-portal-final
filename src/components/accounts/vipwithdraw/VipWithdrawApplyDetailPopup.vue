@@ -8,7 +8,8 @@
 			</div>
 			<div class="popup__title">建单</div>
 			<div class="popup__info dottedline-top">
-				<div class="popup__info-title">帐号ID
+				<div class="popup__info-title">
+					帐号ID
 					<div class="popup__info-items">
 						<p>7533967396736733</p>
 						<p>7533967396736733</p>
@@ -18,13 +19,16 @@
 			<div class="popup__title"> </div>
 			<div class="popup__info dottedline-top">
 				<div class="popup-list">
-					<div class="popup__info-title">操作人员
+					<div class="popup__info-title">
+						操作人员
 						<div class="popup__info-items">DAVID</div>
 					</div>
-					<div class="popup__info-title">提款限额
+					<div class="popup__info-title">
+						提款限额
 						<div class="popup__info-items notice">-300.00</div>
 					</div>
-					<div class="popup__info-title">有效流水
+					<div class="popup__info-title">
+						有效流水
 						<div class="popup__info-items notice">-300.00</div>
 					</div>
 				</div>
@@ -44,12 +48,14 @@
 			</div>
 			<div class="popup__upload">
 				<div class="popup__upload-title">附件</div>
-				<div class="popup__upload-items">Type something.jpg
+				<div class="popup__upload-items">
+					Type something.jpg
 					<div class="btns">
 						<button class="btns__close"></button>
 					</div>
 				</div>
-				<div class="popup__upload-items">Type something.jpg
+				<div class="popup__upload-items">
+					Type something.jpg
 					<div class="btns">
 						<button class="btns__close"></button>
 					</div>

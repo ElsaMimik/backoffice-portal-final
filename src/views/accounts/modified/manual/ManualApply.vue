@@ -1,6 +1,6 @@
 <template>
 	<div class="wrap">
-		<div class="account--modified--manual--apply">
+		<div class="accounts--modified--manual--apply">
 			<div class="title">帐务 - 调帐 - 手动调帐</div>
 			<ManualApplySearch />
 			<ManualApply />

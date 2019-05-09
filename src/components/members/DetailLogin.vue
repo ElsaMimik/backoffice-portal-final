@@ -1,16 +1,20 @@
 <template>
 	<div class="member__detail-logindata">
         <div class="member__detail-list dottedline-bottom">
-            <div class="member__detail-title">最新登入时间
+            <div class="member__detail-title">
+                最新登入时间
                 <div class="member__detail-items">2019-01-01 12:00</div>
             </div>
-            <div class="member__detail-title">IP
+            <div class="member__detail-title">
+                IP
                 <div class="member__detail-items">127.0.0.1</div>
             </div>
-            <div class="member__detail-title">登入状态
+            <div class="member__detail-title">
+                登入状态
                 <div class="member__detail-items">成功</div>
             </div>
-            <div class="member__detail-title">登入方式
+            <div class="member__detail-title">
+                登入方式
                 <div class="member__detail-items">APP</div>
             </div>
         </div>

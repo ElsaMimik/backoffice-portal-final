@@ -64,7 +64,7 @@
 					<th>类别</th>
 					<th>状态</th>
 					<th>平台交易编号
-							<p>第三方交易编号</p>
+						<p>第三方交易编号</p>
 					</th>
 					<th>币别</th>
 					<th>操作人员</th>
@@ -79,16 +79,16 @@
 					<td>+100.00</td>
 					<td>人工提現</td>
 					<td>
-							<p class="settle">出帐中</p>
+						<p class="settle">出帐中</p>
 					</td>
 					<td>
-							<p>gm20181206101063455</p>
-							<p>ZHY123991</p>
+						<p>gm20181206101063455</p>
+						<p>ZHY123991</p>
 					</td>
 					<td>CNY</td>
 					<td>John</td>
 					<td>
-							<div class="btns__right"></div>
+						<div class="btns__right"></div>
 					</td>
 				</tr>
 				<tr>
@@ -100,16 +100,16 @@
 					<td>+100.00</td>
 					<td>人工提現</td>
 					<td>
-							<p class="settle">出帐中</p>
+						<p class="settle">出帐中</p>
 					</td>
 					<td>
-							<p>gm20181206101063455</p>
-							<p>ZHY123991</p>
+						<p>gm20181206101063455</p>
+						<p>ZHY123991</p>
 					</td>
 					<td>CNY</td>
 					<td>John</td>
 					<td>
-							<div class="btns__right"></div>
+						<div class="btns__right"></div>
 					</td>
 				</tr>
 			</table>

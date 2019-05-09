@@ -6,27 +6,27 @@
 			<div class="search-title">▼依编号查询</div>
 			<div class="search-form">
 				<div class="search-items">
-				<label>交易编号</label>
-				<input type="text" required>
-				<input class="radio" type="radio" value="">平台
-				<input class="radio" type="radio" value="">第三方
+					<label>交易编号</label>
+					<input type="text" required>
+					<input class="radio" type="radio" value="">平台
+					<input class="radio" type="radio" value="">第三方
 				</div>
 				<div class="search-items">
-				<button class="btns__green">查找</button>
+					<button class="btns__green">查找</button>
 				</div>
 			</div>
 			<div class="search-title">▼依纪录查询</div>
 			<div class="search-form">
 				<div class="search-items">
-				<label>开始日期</label>
-				<input type="date">
+					<label>开始日期</label>
+					<input type="date">
 				</div>
 				<div class="search-items">
-				<label>结束日期</label>
-				<input type="date">
+					<label>结束日期</label>
+					<input type="date">
 				</div>
 				<div class="search-items">
-				<button class="btns__green">查找</button>
+					<button class="btns__green">查找</button>
 				</div>
 			</div>
 			</div>
@@ -45,6 +45,7 @@
 				<th>游戏名称</th>
 				<th> </th>
 				<th> </th>
+				<th> </th>
 			</tr>
 			<tr>
 				<td>75339673967367337533967396736733</td>
@@ -60,7 +61,9 @@
 				<td>CNY</td>
 				<td>火龙珠</td>
 				<td>
-				<button class="btns__green" v-on:click="open">调帐</button>
+					<button class="btns__green" >调帐</button>
+				<td>
+					<button class="btns__green" >结案</button>
 				</td>
 				<td> <a href="./account--modified--manual--record.html">
 					<div class="btns__right"></div></a></td>
@@ -79,10 +82,15 @@
 				<td>CNY</td>
 				<td>火龙珠</td>
 				<td>
-				<button class="btns__green" v-on:click="open">调帐</button>
+					<button class="btns__green" >调帐</button>
+				<td>
+					<button class="btns__green" >结案</button>
 				</td>
-				<td> <a href="./account--modified--manual--record.html">
-					<div class="btns__right"></div></a></td>
+				<td>
+					<a href="./account--modified--manual--record.html">
+					<div class="btns__right"></div>
+					</a>
+				</td>
 			</tr>
 			</table>
 		</div>

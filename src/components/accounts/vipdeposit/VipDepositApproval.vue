@@ -4,7 +4,7 @@
 			<div class="title">帐务 - 人工充值 - 审核 </div>
 			<div class="search">
 				<div class="search-title">▼依编号查询</div>
-				<form class="search-form">
+				<div class="search-form">
 					<div class="search-items">
 						<label>交易编号</label>
 						<input type="text" required>
@@ -14,9 +14,9 @@
 					<div class="search-items">
 						<button class="btns__green">查找</button>
 					</div>
-				</form>
+				</div>
 				<div class="search-title">▼依纪录查询</div>
-				<form class="search-form">
+				<div class="search-form">
 					<div class="search-items">
 						<label>帐号ID</label>
 						<input type="text" required>
@@ -32,7 +32,7 @@
 					<div class="search-items">
 						<button class="btns__green">查找</button>
 					</div>
-				</form>
+				</div>
 			</div>
 			<table class="list">
 				<tr>
@@ -67,7 +67,7 @@
 					<td>CNY</td>
 					<td>JORDAN</td>
 					<td> 
-						<div class="btns__right" v-on:click="open"></div>
+						<div class="btns__right" ></div>
 					</td>
 				</tr>
 				<tr>
@@ -87,7 +87,7 @@
 					<td>CNY</td>
 					<td>JORDAN</td>
 					<td> 
-						<div class="btns__right" v-on:click="open"></div>
+						<div class="btns__right" ></div>
 					</td>
 				</tr>
 			</table>

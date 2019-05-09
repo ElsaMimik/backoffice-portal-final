@@ -6,38 +6,38 @@
 			<div class="search-title">▼依交易編號查询</div>
 			<div class="search-form">
 				<div class="search-items">
-				<label>交易編號</label>
-				<input type="text" required>
-				<input class="radio" type="radio" value="">平台
-				<input class="radio" type="radio" value="">第三方
+					<label>交易編號</label>
+					<input type="text" required>
+					<input class="radio" type="radio" value="">平台
+					<input class="radio" type="radio" value="">第三方
 				</div>
 				<div class="search-items">
-				<button class="btns__green">查找</button>
+					<button class="btns__green">查找</button>
 				</div>
 			</div>
 			<div class="search-title">▼依纪录查询</div>
 			<div class="search-form">
 				<div class="search-items">
-				<label>帐号ID</label>
-				<input type="text" required>
+					<label>帐号ID</label>
+					<input type="text" required>
 				</div>
 				<div class="search-items">
-				<label>类别</label>
-				<select name="">
-					<option value="">审核中</option>
-					<option value="">审核中</option>
-				</select>
+					<label>类别</label>
+					<select name="">
+						<option value="">审核中</option>
+						<option value="">审核中</option>
+					</select>
 				</div>
 				<div class="search-items">
-				<label>开始日期</label>
-				<input type="date">
+					<label>开始日期</label>
+					<input type="date">
 				</div>
 				<div class="search-items">
-				<label>结束日期</label>
-				<input type="date">
+					<label>结束日期</label>
+					<input type="date">
 				</div>
 				<div class="search-items">
-				<button class="btns__green">查找</button>
+					<button class="btns__green">查找</button>
 				</div>
 			</div>
 			</div>
@@ -69,7 +69,7 @@
 				<td>CNY</td>
 				<td>Peter</td>
 				<td>
-				<div class="btns__right" v-on:click="open"></div>
+					<div class="btns__right" ></div>
 				</td>
 			</tr>
 			<tr>
@@ -85,7 +85,7 @@
 				<td>CNY</td>
 				<td>Peter</td>
 				<td>
-				<div class="btns__right" v-on:click="open"></div>
+					<div class="btns__right" ></div>
 				</td>
 			</tr>
 			</table>

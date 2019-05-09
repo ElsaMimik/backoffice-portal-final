@@ -1,16 +1,20 @@
 <template>
     <div class="member__detail-transactiondata">
         <div class="member__detail-list">
-            <div class="member__detail-title">最新提现成功交易时间
+            <div class="member__detail-title">
+                最新提现成功交易时间
                 <div class="member__detail-items">2019-01-01 12:00</div>
             </div>
-            <div class="member__detail-title">最新充值成功交易时间
+            <div class="member__detail-title">
+                最新充值成功交易时间
                 <div class="member__detail-items">2019-01-01 12:00</div>
             </div>
-            <div class="member__detail-title">充值 - 审核中
+            <div class="member__detail-title">
+                充值 - 审核中
                 <div class="member__detail-items">300.00</div>
             </div>
-            <div class="member__detail-title">提现 - 审核中
+            <div class="member__detail-title">
+                提现 - 审核中
                 <div class="member__detail-items">300.00</div>
             </div>
         </div>

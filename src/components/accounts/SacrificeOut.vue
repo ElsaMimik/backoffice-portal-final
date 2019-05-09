@@ -76,7 +76,7 @@
 						<p>ZHY123991</p>
 					</td>
 					<td>
-						<button class="btns__green" v-on:click="open">强制滑入平台</button>
+						<button class="btns__green" >强制滑入平台</button>
 					</td>
 				</tr>
 				<tr>
@@ -92,7 +92,7 @@
 						<p>ZHY123991</p>
 					</td>
 					<td>
-						<button class="btns__green" v-on:click="open">强制滑入平台</button>
+						<button class="btns__green" >强制滑入平台</button>
 					</td>
 				</tr>
 				<tr>
@@ -108,7 +108,7 @@
 						<p>ZHY123991</p>
 					</td>
 					<td>
-						<button class="btns__green" v-on:click="open">强制滑入平台</button>
+						<button class="btns__green" >强制滑入平台</button>
 					</td>
 				</tr>
 			</table>

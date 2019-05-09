@@ -1,7 +1,7 @@
 <template>
 	<div class="popup">
 		<div class="popup__view">
-			<div class="popup__close" v-on:click="open">
+			<div class="popup__close" >
 				<div class="btns">
 					<button class="btns__close"></button>
 				</div>
@@ -49,7 +49,8 @@
 					</tr>
 				</table>
 				<div class="popup-list"></div>
-				<div class="popup__info-title">操作人员
+				<div class="popup__info-title">
+					操作人员
 					<div class="popup__info-items">DAVID</div>
 				</div>
 			</div>

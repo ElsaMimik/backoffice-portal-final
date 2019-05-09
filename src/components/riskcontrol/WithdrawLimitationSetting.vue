@@ -3,7 +3,8 @@
 		<div class="risk-control--withdraw-limitation-setting">	
 			<div class="title">风控 - 当前风控条件</div>
 			<div class="member__detail-list">
-				<div class="member__detail-title">最新修改人员
+				<div class="member__detail-title">
+					最新修改人员
 					<div class="member__detail-items">AMY</div>
 				</div>
 			</div>
@@ -52,8 +53,8 @@
 				</tr>
 			</table>
 			<div class="btns">
-				<button class="btns__green" v-on:click="open">更新参数值</button>
-				<button class="btns__green" v-on:click="open">修改纪录</button>
+				<button class="btns__green" >更新参数值</button>
+				<button class="btns__green" >修改纪录</button>
 			</div>
 		</div>
 	</div>

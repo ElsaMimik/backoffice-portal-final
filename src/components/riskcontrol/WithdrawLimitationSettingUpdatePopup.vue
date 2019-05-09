@@ -95,12 +95,14 @@
 				</table>
 			</div>
 			<div class="popup-list">
-				<div class="popup__info-title">操作人员
+				<div class="popup__info-title">
+					操作人员
 					<div class="popup__info-items">DAVID</div>
 				</div>
 			</div>
 			<div class="popup__note">
-				<div class="popup__note-title">附注</div>
+				<div class="popup__note-title">
+					附注</div>
 				<textarea required></textarea>
 			</div>
 			<div class="popup__btn">

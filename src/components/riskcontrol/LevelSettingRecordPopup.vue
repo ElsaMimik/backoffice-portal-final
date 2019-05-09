@@ -1,7 +1,7 @@
 <template>
 	<div class="popup">
 		<div class="popup__view">
-			<div class="popup__close" v-on:click="open">
+			<div class="popup__close" >
 				<div class="btns">
 					<button class="btns__close"></button>
 				</div>
@@ -34,15 +34,18 @@
 				</table>
 				<div class="popup__info dottedline-top"></div>
 				<div class="popup-list">
-					<div class="popup__info-title">时间
+					<div class="popup__info-title">
+						时间
 						<div class="popup__info-items">2019-01-01 17:00</div>
 					</div>
-					<div class="popup__info-title">操作人员
+					<div class="popup__info-title">
+						操作人员
 						<div class="popup__info-items">DAVID</div>
 					</div>
 				</div>
 				<div class="popup-list">
-					<div class="popup__info-title">附注
+					<div class="popup__info-title">
+						附注
 						<div class="popup__info-items">更新参数值更新参数值更新参数值更新参数值更新参数值更新参数值更新参数值更新</div>
 					</div>
 				</div>
@@ -73,12 +76,14 @@
 				</table>
 				<div class="popup__info dottedline-top"></div>
 				<div class="popup-list">
-					<div class="popup__info-title">操作人员
+					<div class="popup__info-title">
+						操作人员
 						<div class="popup__info-items">DAVID</div>
 					</div>
 				</div>
 				<div class="popup-list">
-					<div class="popup__info-title">附注
+					<div class="popup__info-title">
+						附注
 						<div class="popup__info-items">更新参数值更新参数值更新参数值更新参数值更新参数值更新参数值更新参数值更新</div>
 					</div>
 				</div>
