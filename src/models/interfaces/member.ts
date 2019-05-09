@@ -119,14 +119,14 @@ export interface IRuleCheck {
 
 export interface ITurnoverResponse {
 	uuid: string;
-	lastWithdrawnDate: string;
-	lastdepositDate: string;
-	withdrawingAmount: string;
-	depositingAmount: string;
-	dailyWithdrawalAmount: string;
-	dailyDepositAmount: string;
-	dailyTurnoverAmount: string;
-	sevenDaysAccumulatedWithdrawalAmount: string;
-	sevenDaysAccumulatedDepositAmount: string;
-	sevenDaysAccumulatedTurnoverAmount: string;
+	lastWithdrawnDate: number;
+	lastdepositDate: number;
+	withdrawingAmount: number;
+	depositingAmount: number;
+	dailyWithdrawalAmount: number;
+	dailyDepositAmount: number;
+	dailyTurnoverAmount: number;
+	sevenDaysAccumulatedWithdrawalAmount: number;
+	sevenDaysAccumulatedDepositAmount: number;
+	sevenDaysAccumulatedTurnoverAmount: number;
 }
