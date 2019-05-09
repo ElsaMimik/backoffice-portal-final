@@ -86,7 +86,7 @@ export default class Layout extends Vue {
 			obj.children.forEach((element: any) => {
 				if(this.openMenu.includes(element.apiPath)) {
 					const index = this.openMenu.findIndex(s => s === element.apiPath);
-					if(index > 0) {
+					if(index >= 0) {
 						this.openMenu.splice(index, 1);
 					}
 				} else {

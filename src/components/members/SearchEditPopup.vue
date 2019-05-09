@@ -50,23 +50,11 @@
 			</div>
 			<div class="popup__upload">
 				<div class="popup__upload-title">附件</div>
-				<div class="popup__upload-items">
-					Type something.jpg
+				<div v-for="(item, index) in uploadedFiles" :key="random(index)" 
+				class="popup__upload-items">
+					{{ item.fileName }}
 					<div class="btns">
-						<button class="btns__close"></button>
-					</div>
-				</div>
-				<div class="popup__upload">
-					<div class="popup__upload-title">附件</div>
-					<div v-for="(item, index) in uploadedFiles" :key="random(index)" 
-					class="popup__upload-items">
-						{{ item.fileName }}
-						<div class="btns">
-							<button class="btns__close" @click="delFile(item.fileID)"></button>
-						</div>
-					</div>
-					<div class="popup-list">
-						<input type="file" id="file" @change="selectFile">
+						<button class="btns__close" @click="delFile(item.fileID)"></button>
 					</div>
 				</div>
 				<div class="popup-list">
@@ -145,8 +133,10 @@ export default class SearchEditPopup extends FileHandlerMixin {
 	}
 
 	delFile(fileID: string) {
+		console.log(fileID)
 		const index = this.uploadedFiles.findIndex(s => s.fileID === fileID);
-		if(index > 0) {
+		console.log(index)
+		if(index >= 0) {
 			this.uploadedFiles.splice(index, 1);
 		}
 	}
