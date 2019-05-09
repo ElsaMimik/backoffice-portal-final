@@ -54,7 +54,7 @@
 					class="popup__upload-items">
 						{{ item.fileName }}
 						<div class="btns">
-							<button class="btns__close"></button>
+							<button class="btns__close" @click="delFile(item.fileID)"></button>
 						</div>
 					</div>
 					<div class="popup-list">
@@ -97,7 +97,7 @@ export default class SearchEditPopup extends FileHandlerMixin {
 			accountAction: this.editData.accountStatus,
 			withdrawalAction: this.editData.withdrawalStatus,
 			reason: this.reason,
-			files: this.uploadedFiles.map((item) => { return item.fileId; }),
+			files: this.uploadedFiles.map((item) => { return item.fileID; }),
 		};
 		if(data.reason === '') {
 			EventBus.$emit('information', {
@@ -130,6 +130,13 @@ export default class SearchEditPopup extends FileHandlerMixin {
 
 	random(data: string) {
 		return Math.random();
+	}
+
+	delFile(fileID: string) {
+		const index = this.uploadedFiles.findIndex(s => s.fileID === fileID);
+		if(index > 0) {
+			this.uploadedFiles.splice(index, 1);
+		}
 	}
 }
 </script>
