@@ -29,6 +29,14 @@ const routes = [
 		name: 'account-game-bet-record', component: () => import('@/views/accounts/gamebetrecord/GameBetRecord.vue'),
 	},
 	{
+		path: '/account/vip-deposit/apply',
+		name: 'account-vip-deposit/apply', component: () => import('@/views/accounts/vipdeposit/VipDepositApply.vue'),
+	},
+	{
+		path: '/account/vip-deposit/approval',
+		name: 'account-vip-deposit/approval', component: () => import('@/views/accounts/vipdeposit/VipDepositApproval.vue'),
+	},
+	{
 		path: '/account/vip-withdraw/apply',
 		name: 'account-vip-withdraw/apply', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawApply.vue'),
 	},
@@ -75,14 +83,6 @@ const routes = [
 	{
 		path: '/risk-control/withdraw-limitation-setting',
 		name: 'risk-control-withdraw-limitation-setting', component: () => import('@/views/riskcontrol/WithdrawLimitationSetting.vue'),
-	},
-	{
-		path: '/accounts/vipdeposit/apply',
-		name: 'accounts-vipdeposit/apply', component: () => import('@/views/accounts/vipdeposit/VipDepositApply.vue'),
-	},
-	{
-		path: '/accounts/vipdeposit/approval',
-		name: 'accounts-vipdeposit/approval', component: () => import('@/views/accounts/vipdeposit/VipDepositApproval.vue'),
 	},
 	{
 		path: '/login',
