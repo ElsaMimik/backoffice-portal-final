@@ -6,7 +6,7 @@
 				<div class="search-form">
 					<div class="search-items">
 						<label>帐号ID</label>
-						<input type="text" v-model="shortUuid">
+						<input type="text" v-model="shortUuid" placeholder="请输入完整帐号ID前8码">
 					</div>
 					<div class="search-items">
 						<button class="btns__green" @click="searchClick">查找</button>

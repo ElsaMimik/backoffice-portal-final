@@ -45,7 +45,7 @@ const routes = [
 		name: 'account-vip-withdraw-bill', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawBill.vue'),
 	},
 	{
-		path: '/account/modified/abnormal/detail',
+		path: '/account/modified/abnormal/detail/:transid?',
 		name: 'account-modified-abnormal-detail', component: () => import('@/views/accounts/modified/abnormal/AbnormalDetail.vue'),
 	},
 	{

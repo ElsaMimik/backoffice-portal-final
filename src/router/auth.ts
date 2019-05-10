@@ -45,6 +45,14 @@ const component = [
 	},
 	{
 		apiPath: '/account/modified/abnormal/apply',
+		routerName: 'account-modified-abnormal-detail',
+	},
+	{
+		apiPath: '/account/modified/abnormal/approval',
+		routerName: 'account-modified-abnormal-detail',
+	},
+	{
+		apiPath: '/account/modified/abnormal/apply',
 		routerName: 'account-modified-abnormal-apply',
 	},
 	{
@@ -127,9 +135,12 @@ const component = [
 const checkPageAuth = async (to: any, roleString: string[]) => {
 	let isAuth = false;
 	await spiltPath(roleString).then(() => {
-		const componentInfo = component.find(s => s.routerName === to);
-		if (componentInfo) {
-			isAuth = roleString.includes(componentInfo.apiPath);
+		const componentInfo = component.filter(s => s.routerName === to);
+		for(const item of componentInfo) {
+			if(roleString.includes(item.apiPath)) {
+				isAuth = true;
+				break;
+			}
 		}
 	});
 	return isAuth;
