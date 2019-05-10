@@ -25,7 +25,10 @@
 		</ul>
 		</div>
 		<header>
-			<div class="header"> 
+			<div class="header">
+				<div class="langugae__box">
+					<span>您的時區為：GMT+8</span>
+				</div> 
 				<div class="langugae__box">
 					<input id="langugae" type="checkbox">
 					<label for="langugae"><span>簡</span><span>繁</span></label>
