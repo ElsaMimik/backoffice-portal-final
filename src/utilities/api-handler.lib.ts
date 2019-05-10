@@ -1,6 +1,7 @@
 import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 import Cookies from 'js-cookie';
 import { requestSuccess, requestFail, responseSuccess, responseFail } from './error-handler.lib';
+import { IError } from '@/models/interfaces/error';
 
 class HttpModel {
 	constructor() {

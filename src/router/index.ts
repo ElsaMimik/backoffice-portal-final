@@ -17,10 +17,6 @@ const routes = [
 		name: 'member-detail', component: () => import('@/views/members/Detail.vue'),
 	},
 	{
-		path: '/detail',
-		name: 'detail', component: () => import('@/views/members/Detail.vue'),
-	},
-	{
 		path: '/account/transaction',
 		name: 'account-transaction', component: () => import('@/views/accounts/transaction/Transaction.vue'),
 	},

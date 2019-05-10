@@ -3,7 +3,7 @@ export interface IError {
 	error: IErrorData;
 }
 
-export interface IErrorData {
+interface IErrorData {
 	code: string;
 	message: string;
 }

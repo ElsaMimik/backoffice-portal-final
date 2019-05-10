@@ -61,14 +61,6 @@ export enum SettleStatus {
 }
 
 /**
- * @description 是否("0": No, "1": Yes)
- */
-export enum YesNo {
-	No = '0',
-	Yes = '1',
-}
-
-/**
  * @description
  */
 export enum PopupType {

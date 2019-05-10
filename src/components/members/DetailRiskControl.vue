@@ -86,13 +86,13 @@
 					<th>对应风控条件</th>
 				</tr>
 				<tr>
-					<td :class="{ 'notice': !riskControlData.riskControlRuleDepositing.isLegal }">
-						{{ !riskControlData.riskControlRuleDepositing.isLegal? '違反' : '' }}
+					<td :class="{ 'notice': !riskControlData.withdrawingAmount.isLegal }">
+						{{ !riskControlData.withdrawingAmount.isLegal? '違反' : '' }}
 					</td>
-					<td :class="{ 'notice': !riskControlData.riskControlRuleDepositing.isLegal }">
-						{{ riskControlData.riskControlRuleDepositing.amount | amountDisplay }}
+					<td :class="{ 'notice': !riskControlData.withdrawingAmount.isLegal }">
+						{{ riskControlData.withdrawingAmount.amount | amountDisplay }}
 					</td>
-					<td>{{ riskControlData.riskControlRule.depositingAmount | amountDisplay }}</td>
+					<td>{{ riskControlData.riskControlRule.withdrawingAmount | amountDisplay }}</td>
 				</tr>
 			</table>
 		</div>
@@ -152,7 +152,7 @@ export default class DetailRiskControl extends Vue {
 			dailyTurnoverAmount: 0,
 			dailyContributionAmount: 0,
 			sevenDaysContributionAmount: 0,
-			depositingAmount: 0
+			withdrawingAmount: 0
 		},
 		depositAmount: 0,
 		depositCount: 0,
@@ -173,7 +173,7 @@ export default class DetailRiskControl extends Vue {
 			amount: 0,
 			isLegal: false
 		},
-		riskControlRuleDepositing: {
+		withdrawingAmount: {
 			amount: 0,
 			isLegal: false
 		},

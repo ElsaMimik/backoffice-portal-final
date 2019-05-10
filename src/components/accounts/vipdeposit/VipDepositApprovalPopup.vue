@@ -107,8 +107,6 @@ import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { State, Action, Getter, namespace } from "vuex-class";
 
-const memberModule = namespace("Member");
-
 @Component
 export default class VipDepositApprovalPopup extends Vue {
 }
