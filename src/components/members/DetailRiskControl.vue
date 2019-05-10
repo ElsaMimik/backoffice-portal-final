@@ -33,13 +33,8 @@
 				<tr>
 					<th></th>
 					<th> </th>
-<<<<<<< HEAD
-					<th>本日累积</th>
-					<th>7日累积</th>
-=======
 					<th>会员累积</th>
 					<th>对应风控条件</th>
->>>>>>> ff80b69916ae200bb52d6516f3c51dafbac63d77
 				</tr>
 				<tr>
 					<td :class="{ 'notice': !riskControlData.dailyWithdrawal.isLegal }">
