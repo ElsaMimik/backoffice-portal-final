@@ -105,22 +105,15 @@
 						{{ memberData.isBidWin | isBidWinDisplay }}
 					</div>
 				</div>
-<<<<<<< HEAD
 			</div>
 			<div class="btns">
-				<button class="btns__green">更新</button>
-				<button class="btns__green">查询交易纪录</button>
-			</div>
-			<div class="member__detail-list dottedline-bottom">
-=======
-				<div class="btns">
 					<button @click="init" class="btns__green">更新</button>
 					
 					<a type="button" href="/account/transaction" value="查询交易纪录" target="_blank" class="button">
 						<button class="btns__green">查询交易纪录</button>
 					</a>
-				</div>
->>>>>>> origin/rourou/feat/BO-11
+			</div>
+			<div class="member__detail-list dottedline-bottom">
 			</div>
 		</div>
 		<div class="member__detail-btns">

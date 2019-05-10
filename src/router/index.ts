@@ -49,6 +49,10 @@ const routes = [
 		name: 'account-vip-withdraw-bill', component: () => import('@/views/accounts/vipwithdraw/VipWithdrawBill.vue'),
 	},
 	{
+		path: '/account/modified/abnormal/detail',
+		name: 'account-modified-abnormal-detail', component: () => import('@/views/accounts/modified/abnormal/AbnormalDetail.vue'),
+	},
+	{
 		path: '/account/modified/abnormal/apply',
 		name: 'account-modified-abnormal-apply', component: () => import('@/views/accounts/modified/abnormal/AbnormalApply.vue'),
 	},
