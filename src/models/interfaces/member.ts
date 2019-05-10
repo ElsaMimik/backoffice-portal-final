@@ -98,7 +98,7 @@ export interface IRiskControlResponse {
 	dailyTurnover: IRuleCheck;
 	dailyContribution: IRuleCheck;
 	sevenDaysContribution: IRuleCheck;
-	riskControlRuleDepositing: IRuleCheck;
+	withdrawingAmount: IRuleCheck;
 	riskControlLevelCreateDate: number;
 	riskControlLevelReason: string;
 	riskControlLevelCreateUser: string;
@@ -110,7 +110,7 @@ export interface IRiskControlRule {
 	dailyTurnoverAmount: number;
 	dailyContributionAmount: number;
 	sevenDaysContributionAmount: number;
-	depositingAmount: number;
+	withdrawingAmount: number;
 }
 export interface IRuleCheck {
 	amount: number;
@@ -122,7 +122,7 @@ export interface ITurnoverResponse {
 	lastWithdrawnDate: number;
 	lastdepositDate: number;
 	withdrawingAmount: number;
-	depositingAmount: number;
+	withdrawingAmount: number;
 	dailyWithdrawalAmount: number;
 	dailyDepositAmount: number;
 	dailyTurnoverAmount: number;
