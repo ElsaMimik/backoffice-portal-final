@@ -42,7 +42,7 @@ export const datetimeMixin = {
  * 站台timezone
  * for filter timestamp to string
  */
-const timezone = 8;
+export const timezone = 8;
 
 /**
  * yyyy-mm-dd 轉換成TimeStamp

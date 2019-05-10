@@ -27,7 +27,7 @@
 		<header>
 			<div class="header">
 				<div class="langugae__box">
-					<span>您的時區為：GMT+8</span>
+					<span>您的時區為：GMT {{ timezone }}</span>
 				</div> 
 				<div class="langugae__box">
 					<input id="langugae" type="checkbox">
@@ -49,6 +49,7 @@ import { getMenu, spiltPath } from "@/router/menu";
 import { State, Action, Getter, namespace } from "vuex-class";
 import router from '../router';
 import * as Auth from '@/router/auth';
+import { timezone }  from '@/utilities/datetime-format.ts';
 const authModule = namespace("Auth");
 
 @Component({
@@ -59,6 +60,7 @@ export default class Layout extends Vue {
 	isActive: boolean = false;
 	popup: boolean = false;
 	menu: object = [];
+	timezone: string = '';
 	openMenu: string[] = [];
 	@authModule.State("apiPaths") apiPaths!: string[];
 	@authModule.State("currentPath") currentPath!: string;
@@ -104,6 +106,7 @@ export default class Layout extends Vue {
 	 }
 	
 	mounted() {
+		this.timezone = timezone < 0 ? `${timezone}` : `+${timezone}`;
 		getMenu(this.apiPaths).then(res => {
 			this.menu = res;
 			const rounter = Auth.component.find(s => s.routerName === this.currentPath);
