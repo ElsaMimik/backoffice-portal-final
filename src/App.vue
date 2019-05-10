@@ -52,7 +52,9 @@ export default class App extends Vue {
 		
 		EventBus.$on("api-error", (err: any) => {
 			this.getError(err);
-			// console.log('api-error', err);
+			this.isInformation = true;
+			this.informationType = MsgPopupType.Error;
+			this.informationText = `${err.error.code} ${err.error.message} ${err.traceId}`;
 		});
 
 		EventBus.$on("information", (info: any) => {

@@ -121,7 +121,7 @@ export interface ITurnoverResponse {
 	uuid: string;
 	lastWithdrawnDate: number;
 	lastdepositDate: number;
-	withdrawingAmount: number;
+	depositingAmount: number;
 	withdrawingAmount: number;
 	dailyWithdrawalAmount: number;
 	dailyDepositAmount: number;

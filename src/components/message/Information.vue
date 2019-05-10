@@ -7,6 +7,9 @@
 				<div class="popup__title notice" v-if="type==='Warning'">
 					系统警告
 				</div>
+				<div class="popup__title notice" v-if="type==='Error'">
+					错误
+				</div>
 				<div class="popup__title"  v-if="type==='Information'">
 					系统提示
 				</div>

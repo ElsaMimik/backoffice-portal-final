@@ -1,4 +1,4 @@
-import { IError, IErrorData } from '@/models/interfaces/error';
+import { IError } from '@/models/interfaces/error';
 import EventBus from '@/utilities/event-bus';
 
 
@@ -49,6 +49,8 @@ const requestSuccess = (config: any) => {
  * @description request fail
  */
 const requestFail = (error: any) => {
+	err.error.message = '[token null] request fail';
+	EventBus.$emit('api-error', err);
 	// '请求超时!'
 	return Promise.reject(error);
 };
