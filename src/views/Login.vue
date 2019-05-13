@@ -13,10 +13,9 @@ import { Component } from "vue-property-decorator";
 export default class Login extends Vue {
 
 	mounted() {
-		if(!Cookies.get('token')) {
-			Cookies.set('token','eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyMjIyMjIiLCJ1c2VyX2lkIjoiYjdmMGVkMTgtMWVjOS00NDU0LWFmNjEtOGQxNjZmMzAwYWJhIiwiZXhwaXJlZF9hdCI6MTU1NzUxMTMyMH0.IDeD_sFKzqRlnZA9Ld-bjTSqHXFZgdEZ8zqpF--VP3AbPH7ArcNl63yHiUYYXtYY_Z7z9A8CrCb4d-vwZqHNKQ');
-			window.location.href = '/';
-		}
+		Cookies.remove('token');
+		Cookies.set('token','eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyMjIyMjIiLCJ1c2VyX2lkIjoiOTg2MjFkMTItOTg1Zi00OGY4LThkZDctYjk3NzMyY2JmNTM1IiwiZXhwaXJlZF9hdCI6MTU1NzcyMDEzM30.NuEUwNxlnpEOT1yYL_xcvaEAwSQCRwWT9eq--oSm9zzGa_EhoPZ6ZkuinYor9Y3G_9uoaprCGuYX6gO_BKs4kg');
+		// window.location.href = '/';
 	}
 }
 </script>
