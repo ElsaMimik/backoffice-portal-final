@@ -1,8 +1,9 @@
 <template>
 	<div>
-		<Layout v-if="isLogin"/>
-		<Login v-if="!isLogin"/>
-		<Information v-if="isInformation" :type="informationType" :text="informationText" @close="closeInform" />
+		<Layout v-if="isLogin && inMounted"/>
+		<Login v-if="!isLogin && inMounted"/>
+		<Information v-if="isInformation && isLogin" 
+		:type="informationType" :text="informationText" @close="closeInform" />
 		<!-- <Confirm /> -->
 	</div>
 </template>
@@ -38,6 +39,7 @@ export default class App extends Vue {
 	isInformation: boolean = false;
 	informationText: string = '';
 	informationType: MsgPopupType = MsgPopupType.Information;
+	inMounted: boolean = false;
 
 	@authModule.State("apiPaths") apiPaths!: string[];
 	@errorModule.State("errorHistory") errorHistory!: IError[];
@@ -48,7 +50,7 @@ export default class App extends Vue {
 		AuthApi.getMenu().then(data => {
 			this.setApiPath(data.roles);
 			this.isLogin = this.apiPaths.length > 0;
-		});
+		}).finally(()=>this.inMounted = true);
 		
 		EventBus.$on("api-error", (err: any) => {
 			this.getError(err);

@@ -87,11 +87,6 @@ const routes = [
 	{
 		path: '/system/maquee',
 		name: 'system-maquee', component: () => import('@/views/system/Maquee.vue'),
-	},
-	{
-		path: '/login',
-		name: 'login',
-		component: () => import(/* webpackChunkName: "about" */ '@/views/Login.vue')
 	}
 ];
 
