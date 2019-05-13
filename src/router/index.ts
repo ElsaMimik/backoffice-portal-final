@@ -111,11 +111,13 @@ router.beforeEach((to, from, next) => {
 			roleString = data.roles;
 			store.dispatch('Auth/setCurrentPath', to.name);
 			checkPageAuth(to.name, roleString).then(res => {
-				// console.log('是否有權限', res);
+				// console.log('是否有權限', to.name, res);
 				if (res) {
 					next();
 				} else {
-					// window.location.href = 'http://www.google.com';
+					if(to.name) {
+						window.location.href = '/';
+					}
 				}
 			});
 		});

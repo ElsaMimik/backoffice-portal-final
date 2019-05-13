@@ -36,6 +36,7 @@ export const displayFiltersMixin = {
 			return data === Status.SettleStatus.Normal ? '正常' : '金額不符合-異常';
 		},
 		amountDisplay(amount: number) {
+			if(amount === 0) { return 0; }
 			return amount ? amount.toFixed(2) : '';
 		},
 		currencyCodeDisplay(data: string) {

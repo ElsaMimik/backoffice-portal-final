@@ -14,7 +14,7 @@ export default class Login extends Vue {
 
 	mounted() {
 		Cookies.remove('token');
-		Cookies.set('token','eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyMjIyMjIiLCJ1c2VyX2lkIjoiOTg2MjFkMTItOTg1Zi00OGY4LThkZDctYjk3NzMyY2JmNTM1IiwiZXhwaXJlZF9hdCI6MTU1NzcyMDEzM30.NuEUwNxlnpEOT1yYL_xcvaEAwSQCRwWT9eq--oSm9zzGa_EhoPZ6ZkuinYor9Y3G_9uoaprCGuYX6gO_BKs4kg');
+		Cookies.set('token','eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIyMjIyMjIiLCJ1c2VyX2lkIjoiOTg4YTljNjAtZmU4NC00MWNlLWIwNTUtOGRiMzQ1Y2UwZDI5IiwiZXhwaXJlZF9hdCI6MTU1NzczMjIyNn0.QDUnNdKdcll9hS7hIK59OtNjCQmAUasAazc-jifToo4Ypr6Td46UrPjoOjYJvJUiazJ0zxv42-HPWDA95iyhcw');
 		// window.location.href = '/';
 	}
 }

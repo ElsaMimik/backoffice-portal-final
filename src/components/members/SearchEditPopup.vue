@@ -79,12 +79,9 @@ import { MsgPopupType } from '@/models/status/message';
 @Component
 
 export default class SearchEditPopup extends FileHandlerMixin {
-	[x: string]: any;
 	@Prop(Object) readonly editMemberData!: Model.IMember;
-
 	editData: Model.IMember = {} as Model.IMember;
 	reason: string = '';
-
 
 	close() {
 		this.$emit("close-popup", {
