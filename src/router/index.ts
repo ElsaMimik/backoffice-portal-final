@@ -120,6 +120,12 @@ router.beforeEach((to, from, next) => {
 					}
 				}
 			});
+		})
+		.catch(err => {
+			// console.log(to.name, err);
+			if(to.name) {
+				window.location.href = '/';
+			}
 		});
 	}
 });
