@@ -1,0 +1,128 @@
+<template>
+	<div id="app">
+		<div class="sidebar" :class="{active: isActive}">
+		<div class="sidebar__btn" @click="btnshow">〉</div>
+		<div class="sidebar__logo"></div>
+		<ul class="sidebar__list">
+			<li v-for="(item01, index) in filterMenuByAuth(menu)" :key="index" class="level01" @click.stop="menuClick(item01)">
+				<div v-if="item01.isShow" v-show="isOpen(item01)">{{ item01.displayName }}</div>
+				<ul v-for="(item02, index) in  filterMenuByAuth(item01.children)" :key="index">
+					<li class="level02" @click.stop="menuClick(item02)" v-show="isOpen(item02)">
+						<div v-if="item02.isShow">{{ item02.displayName }}</div>
+						<ul v-for="(item03, index) in filterMenuByAuth(item02.children)" :key="index">
+							<li class="level03" @click.stop="menuClick(item03)" v-show="isOpen(item03)">
+								<div v-if="item03.isShow">{{ item03.displayName }}</div>
+								<ul v-for="(item04, index) in filterMenuByAuth(item03.children)" :key="index">
+									<li class="level04" @click.stop="menuClick(item04)" v-if="item04.isShow" v-show="isOpen(item04)">
+										<div>{{ item04.displayName }}</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		</div>
+		<header>
+			<div class="header">
+				<div class="langugae__box">
+					<span>您的時區為：GMT {{ timezone }}</span>
+				</div> 
+				<div class="langugae__box">
+					<input id="langugae" type="checkbox">
+					<label for="langugae"><span>簡</span><span>繁</span></label>
+				</div>
+				<span>CS_0001</span>
+				<div class="logout">登出</div>
+			</div>
+		</header>
+		<router-view/>
+	</div>
+</template>
+
+
+<script lang="ts">
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import { getMenu, spiltPath } from "@/router/menu";
+import { State, Action, Getter, namespace } from "vuex-class";
+import router from '../router';
+import * as Auth from '@/router/auth';
+import { timezone }  from '@/utilities/datetime-format.ts';
+const authModule = namespace("Auth");
+
+@Component({
+	 
+})
+export default class Layout extends Vue {
+	
+	isActive: boolean = false;
+	popup: boolean = false;
+	menu: object = [];
+	timezone: string = '';
+	openMenu: string[] = [];
+	@authModule.State("apiPaths") apiPaths!: string[];
+	@authModule.State("currentPath") currentPath!: string;
+	
+	btnshow() {
+		this.isActive = !this.isActive;
+	}
+	open() {
+		this.popup = !this.popup;
+	}
+
+	isOpen(obj: any) {
+		return this.openMenu.includes(obj.apiPath) || obj.level === 1 || obj.isOpen;
+	}
+
+	menuClick(obj: any) {
+		// if(obj.level === 1 && this.openMenu.findIndex(s => s === obj.apiPath) < 0 && this.openMenu.length > 0) {
+		// 	this.openMenu = [];
+		// 	return;
+		// }
+		if(obj.level === 1) {
+			this.openMenu = [];
+		}
+		if(obj.isLink) {
+			document.location.href = obj.apiPath;
+			return;
+		} else {
+			obj.children.forEach((element: any) => {
+				if(this.openMenu.includes(element.apiPath)) {
+					const index = this.openMenu.findIndex(s => s === element.apiPath);
+					if(index >= 0) {
+						this.openMenu.splice(index, 1);
+					}
+				} else {
+					this.openMenu.push(element.apiPath);
+				}
+			});
+		}
+	}
+
+	filterMenuByAuth(obj: any) {
+		 return obj.filter((s: any) => s.isShow);
+	 }
+	
+	mounted() {
+		this.timezone = timezone < 0 ? `${timezone}` : `+${timezone}`;
+		getMenu(this.apiPaths).then(res => {
+			this.menu = res;
+			const rounter = Auth.component.find(s => s.routerName === this.currentPath);
+			if(rounter) {
+				spiltPath([rounter.apiPath]).then(response => {
+					this.openMenu = response;
+				});
+			}
+		});
+	}
+}
+</script>
+
+<style lang="scss" scoped>
+.active {
+    left: 0px;
+    transition-duration: 1s;
+}
+</style>
